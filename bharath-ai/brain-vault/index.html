@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BrainVault AI — Knowledge OS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+<div class="ambient ambient-three"></div>
+<div class="grid"></div>
+
+
+<!-- MOBILE OVERLAY -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div>
+            <h2>BrainVault</h2>
+            <small>AI Knowledge OS</small>
+        </div>
+
+    </div>
+
+
+    <div class="workspace-card">
+
+        <div class="workspace-avatar">
+            BV
+        </div>
+
+        <div class="workspace-info">
+            <strong>Personal Brain</strong>
+            <span>Private workspace</span>
+        </div>
+
+        <span class="online-dot"></span>
+
+    </div>
+
+
+    <nav class="navigation">
+
+        <div class="nav-label">
+            WORKSPACE
+        </div>
+
+        <button class="nav-item active" data-page="overview">
+            <span class="nav-icon">⌂</span>
+            <span>Overview</span>
+        </button>
+
+        <button class="nav-item" data-page="vault">
+            <span class="nav-icon">▣</span>
+            <span>Knowledge Vault</span>
+            <b>24</b>
+        </button>
+
+        <button class="nav-item" data-page="capture">
+            <span class="nav-icon">＋</span>
+            <span>Capture</span>
+        </button>
+
+        <button class="nav-item" data-page="collections">
+            <span class="nav-icon">◇</span>
+            <span>Collections</span>
+        </button>
+
+
+        <div class="nav-label">
+            INTELLIGENCE
+        </div>
+
+        <button class="nav-item" data-page="assistant">
+            <span class="nav-icon">✦</span>
+            <span>AI Assistant</span>
+        </button>
+
+        <button class="nav-item" data-page="insights">
+            <span class="nav-icon">✧</span>
+            <span>Knowledge Insights</span>
+        </button>
+
+        <button class="nav-item" data-page="search">
+            <span class="nav-icon">⌕</span>
+            <span>Semantic Search</span>
+        </button>
+
+
+        <div class="nav-label">
+            SYSTEM
+        </div>
+
+        <button class="nav-item" data-page="settings">
+            <span class="nav-icon">⚙</span>
+            <span>Settings</span>
+        </button>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="storage-card">
+
+            <div class="storage-heading">
+                <span>Knowledge storage</span>
+                <strong>68%</strong>
+            </div>
+
+            <div class="storage-bar">
+                <span></span>
+            </div>
+
+            <small>Smart indexing enabled</small>
+
+        </div>
+
+
+        <button class="sidebar-ai" data-page="assistant">
+
+            <div class="sidebar-ai-icon">
+                ✦
+            </div>
+
+            <div>
+                <strong>Knowledge Builder</strong>
+                <span>Explore your brain</span>
+            </div>
+
+            <b>→</b>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- MOBILE HEADER -->
+<header class="mobile-header">
+
+    <button id="menuButton">
+        ☰
+    </button>
+
+    <div class="mobile-brand">
+        <div class="brand-logo small">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <strong>BrainVault</strong>
+    </div>
+
+    <button id="mobileSearchButton">
+        ⌕
+    </button>
+
+</header>
+
+
+<!-- MAIN -->
+<main class="main">
+
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+
+        <div class="breadcrumb">
+
+            <span>BrainVault</span>
+            <b>/</b>
+            <strong id="breadcrumbPage">Overview</strong>
+
+        </div>
+
+
+        <div class="topbar-actions">
+
+            <button class="search-trigger" id="globalSearchButton">
+
+                <span>⌕</span>
+
+                <span class="search-text">
+                    Search your knowledge
+                </span>
+
+                <kbd>Ctrl K</kbd>
+
+            </button>
+
+
+            <button class="top-icon" id="themeButton">
+                ◐
+            </button>
+
+
+            <button class="top-icon notification-button" id="notificationButton">
+
+                ♢
+
+                <i></i>
+
+            </button>
+
+
+            <button class="profile-button">
+                BV
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         OVERVIEW
+    ====================================================== -->
+
+    <section class="page active" id="overview">
+
+
+        <!-- HERO -->
+        <div class="hero">
+
+            <div class="hero-content">
+
+                <div class="status-pill">
+                    <span></span>
+                    AI KNOWLEDGE ENGINE ACTIVE
+                </div>
+
+
+                <h1>
+                    Your ideas are
+                    <br>
+                    becoming
+                    <em>connected.</em>
+                </h1>
+
+
+                <p>
+                    BrainVault transforms scattered notes,
+                    research and ideas into an intelligent
+                    knowledge system that helps you discover
+                    relationships and new possibilities.
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <button class="primary-button" data-page="capture">
+                        <span>＋</span>
+                        Capture Knowledge
+                    </button>
+
+                    <button class="secondary-button" data-page="assistant">
+                        <span>✦</span>
+                        Ask BrainVault
+                    </button>
+
+                </div>
+
+
+                <div class="hero-points">
+
+                    <span>
+                        <i>✓</i>
+                        Auto indexing
+                    </span>
+
+                    <span>
+                        <i>✓</i>
+                        Smart connections
+                    </span>
+
+                    <span>
+                        <i>✓</i>
+                        Private workspace
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- KNOWLEDGE VISUAL -->
+            <div class="knowledge-visual">
+
+                <div class="visual-glow"></div>
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+
+                <div class="connection c1"></div>
+                <div class="connection c2"></div>
+                <div class="connection c3"></div>
+                <div class="connection c4"></div>
+                <div class="connection c5"></div>
+
+
+                <div class="core-node">
+
+                    <div class="core-symbol">
+                        ✦
+                    </div>
+
+                    <span>AI CORE</span>
+
+                </div>
+
+
+                <button class="graph-node node-ai">
+                    AI
+                </button>
+
+                <button class="graph-node node-ux">
+                    UX
+                </button>
+
+                <button class="graph-node node-research">
+                    Research
+                </button>
+
+                <button class="graph-node node-ideas">
+                    Ideas
+                </button>
+
+                <button class="graph-node node-future">
+                    Future
+                </button>
+
+
+                <div class="floating-info info-one">
+                    <strong>87</strong>
+                    <span>connections</span>
+                </div>
+
+
+                <div class="floating-info info-two">
+                    <strong>24</strong>
+                    <span>knowledge items</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- METRICS -->
+        <div class="metrics-grid">
+
+            <div class="metric-card">
+
+                <div class="metric-icon purple">
+                    ▣
+                </div>
+
+                <div>
+                    <span>Total Knowledge</span>
+                    <strong>24</strong>
+                    <small>↑ 12% this month</small>
+                </div>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <div class="metric-icon cyan">
+                    ⌁
+                </div>
+
+                <div>
+                    <span>Connections</span>
+                    <strong>87</strong>
+                    <small>↑ 23 discovered</small>
+                </div>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <div class="metric-icon mint">
+                    ✦
+                </div>
+
+                <div>
+                    <span>AI Insights</span>
+                    <strong>16</strong>
+                    <small>↑ 5 this week</small>
+                </div>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <div class="metric-icon orange">
+                    ◈
+                </div>
+
+                <div>
+                    <span>Knowledge Streak</span>
+                    <strong>18d</strong>
+                    <small>Personal best</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DASHBOARD GRID -->
+        <div class="dashboard-grid">
+
+
+            <!-- RECENT KNOWLEDGE -->
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span>RECENT KNOWLEDGE</span>
+                        <h2>Latest captures</h2>
+                    </div>
+
+                    <button class="text-button" data-page="vault">
+                        View all →
+                    </button>
+
+                </div>
+
+
+                <div class="knowledge-list">
+
+                    <article class="knowledge-item">
+
+                        <div class="knowledge-icon purple">
+                            ✦
+                        </div>
+
+                        <div class="knowledge-content">
+
+                            <h3>AI × Interface Design</h3>
+
+                            <p>
+                                Exploring how intelligent systems
+                                are changing modern product interfaces.
+                            </p>
+
+                            <small>
+                                Research · 12 min ago
+                            </small>
+
+                        </div>
+
+                        <span class="match">
+                            98%
+                        </span>
+
+                    </article>
+
+
+                    <article class="knowledge-item">
+
+                        <div class="knowledge-icon cyan">
+                            ◇
+                        </div>
+
+                        <div class="knowledge-content">
+
+                            <h3>Future of Personal Knowledge</h3>
+
+                            <p>
+                                Building a second brain around
+                                semantic relationships.
+                            </p>
+
+                            <small>
+                                Ideas · 42 min ago
+                            </small>
+
+                        </div>
+
+                        <span class="match">
+                            94%
+                        </span>
+
+                    </article>
+
+
+                    <article class="knowledge-item">
+
+                        <div class="knowledge-icon mint">
+                            ∞
+                        </div>
+
+                        <div class="knowledge-content">
+
+                            <h3>Human + AI Collaboration</h3>
+
+                            <p>
+                                Notes about the future of
+                                augmented intelligence.
+                            </p>
+
+                            <small>
+                                Concepts · Yesterday
+                            </small>
+
+                        </div>
+
+                        <span class="match">
+                            91%
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI DISCOVERY -->
+            <div class="panel discovery-card">
+
+                <div class="ai-label">
+                    ✦ AI DISCOVERY
+                </div>
+
+                <div class="discovery-orb">
+                    ✦
+                </div>
+
+                <h2>
+                    You may have
+                    <br>
+                    discovered a pattern.
+                </h2>
+
+                <p>
+                    Your notes about
+                    <strong>AI</strong>,
+                    <strong>UX</strong> and
+                    <strong>future interfaces</strong>
+                    are strongly connected.
+                </p>
+
+
+                <div class="confidence-row">
+
+                    <span>Connection confidence</span>
+
+                    <strong>94%</strong>
+
+                </div>
+
+
+                <div class="progress">
+                    <span style="width:94%"></span>
+                </div>
+
+
+                <button
+                    class="secondary-button full"
+                    data-page="insights"
+                >
+                    Explore connection →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- GRAPH + ACTIVITY -->
+        <div class="bottom-grid">
+
+
+            <div class="panel graph-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span>KNOWLEDGE GRAPH</span>
+                        <h2>Your connected thinking</h2>
+                    </div>
+
+                    <div class="live-status">
+                        <i></i>
+                        LIVE
+                    </div>
+
+                </div>
+
+
+                <div class="graph-area">
+
+                    <svg viewBox="0 0 700 320">
+
+                        <line x1="350" y1="160" x2="150" y2="65"/>
+                        <line x1="350" y1="160" x2="550" y2="65"/>
+                        <line x1="350" y1="160" x2="150" y2="255"/>
+                        <line x1="350" y1="160" x2="550" y2="255"/>
+                        <line x1="150" y1="65" x2="550" y2="65"/>
+                        <line x1="150" y1="255" x2="550" y2="255"/>
+
+                    </svg>
+
+
+                    <div class="large-graph-node center">
+                        ✦
+                    </div>
+
+                    <div class="large-graph-node graph-a">
+                        AI
+                    </div>
+
+                    <div class="large-graph-node graph-b">
+                        UX
+                    </div>
+
+                    <div class="large-graph-node graph-c">
+                        Ideas
+                    </div>
+
+                    <div class="large-graph-node graph-d">
+                        Research
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel activity-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <span>ACTIVITY</span>
+                        <h2>Knowledge growth</h2>
+                    </div>
+
+                    <strong class="growth">
+                        +24%
+                    </strong>
+
+                </div>
+
+
+                <div class="activity-chart">
+
+                    <div style="height:35%"></div>
+                    <div style="height:48%"></div>
+                    <div style="height:42%"></div>
+                    <div style="height:63%"></div>
+                    <div style="height:57%"></div>
+                    <div style="height:76%"></div>
+                    <div style="height:91%"></div>
+
+                </div>
+
+
+                <div class="chart-days">
+                    <span>M</span>
+                    <span>T</span>
+                    <span>W</span>
+                    <span>T</span>
+                    <span>F</span>
+                    <span>S</span>
+                    <span>S</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         KNOWLEDGE VAULT
+    ====================================================== -->
+
+    <section class="page" id="vault">
+
+        <div class="page-heading">
+
+            <div>
+                <span>KNOWLEDGE SYSTEM</span>
+
+                <h1>
+                    Knowledge Vault
+                </h1>
+
+                <p>
+                    Everything you've captured,
+                    organized in one intelligent space.
+                </p>
+            </div>
+
+            <button class="primary-button" data-page="capture">
+                ＋ New Knowledge
+            </button>
+
+        </div>
+
+
+        <div class="vault-toolbar">
+
+            <div class="large-search">
+
+                <span>⌕</span>
+
+                <input
+                    id="vaultSearch"
+                    type="text"
+                    placeholder="Search knowledge..."
+                >
+
+            </div>
+
+
+            <select id="vaultFilter">
+
+                <option value="all">All knowledge</option>
+                <option value="research">Research</option>
+                <option value="ideas">Ideas</option>
+                <option value="concepts">Concepts</option>
+                <option value="startup">Startup</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="vault-grid" id="vaultGrid">
+
+            <article class="vault-card" data-category="research">
+
+                <div class="vault-card-top">
+                    <span class="tag purple">RESEARCH</span>
+                    <button class="card-menu">•••</button>
+                </div>
+
+                <div class="vault-card-icon purple">
+                    ✦
+                </div>
+
+                <h2>AI Interface Design</h2>
+
+                <p>
+                    Exploring emerging patterns in
+                    intelligent user experiences.
+                </p>
+
+                <div class="vault-card-footer">
+                    <span>12 connections</span>
+                    <span>8 min read</span>
+                </div>
+
+            </article>
+
+
+            <article class="vault-card" data-category="ideas">
+
+                <div class="vault-card-top">
+                    <span class="tag cyan">IDEA</span>
+                    <button class="card-menu">•••</button>
+                </div>
+
+                <div class="vault-card-icon cyan">
+                    ◇
+                </div>
+
+                <h2>Personal AI OS</h2>
+
+                <p>
+                    A concept for an operating system
+                    built around personal intelligence.
+                </p>
+
+                <div class="vault-card-footer">
+                    <span>7 connections</span>
+                    <span>4 min read</span>
+                </div>
+
+            </article>
+
+
+            <article class="vault-card" data-category="concepts">
+
+                <div class="vault-card-top">
+                    <span class="tag mint">CONCEPT</span>
+                    <button class="card-menu">•••</button>
+                </div>
+
+                <div class="vault-card-icon mint">
+                    ∞
+                </div>
+
+                <h2>Human + AI</h2>
+
+                <p>
+                    Notes about augmented intelligence
+                    and human-computer collaboration.
+                </p>
+
+                <div class="vault-card-footer">
+                    <span>14 connections</span>
+                    <span>11 min read</span>
+                </div>
+
+            </article>
+
+
+            <article class="vault-card" data-category="startup">
+
+                <div class="vault-card-top">
+                    <span class="tag orange">STARTUP</span>
+                    <button class="card-menu">•••</button>
+                </div>
+
+                <div class="vault-card-icon orange">
+                    🚀
+                </div>
+
+                <h2>Knowledge Graph SaaS</h2>
+
+                <p>
+                    Product idea around connected
+                    knowledge for modern teams.
+                </p>
+
+                <div class="vault-card-footer">
+                    <span>9 connections</span>
+                    <span>6 min read</span>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CAPTURE
+    ====================================================== -->
+
+    <section class="page" id="capture">
+
+        <div class="page-heading">
+
+            <div>
+                <span>CAPTURE</span>
+
+                <h1>
+                    Capture an idea
+                </h1>
+
+                <p>
+                    Turn a thought into searchable knowledge.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="capture-layout">
+
+            <div class="panel editor-panel">
+
+                <div class="editor-top">
+
+                    <span>
+                        NEW KNOWLEDGE
+                    </span>
+
+                    <span id="editorWords">
+                        0 words
+                    </span>
+
+                </div>
+
+
+                <input
+                    class="editor-title"
+                    id="editorTitle"
+                    placeholder="Give your idea a title..."
+                >
+
+
+                <textarea
+                    class="editor-body"
+                    id="editorBody"
+                    placeholder="Start writing your idea, research or thought..."
+                ></textarea>
+
+
+                <div class="editor-bottom">
+
+                    <div class="editor-tags">
+
+                        <span>AI</span>
+                        <span>Ideas</span>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button"
+                        id="saveKnowledge"
+                    >
+                        Save Knowledge
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel helper-panel">
+
+                <div class="ai-label">
+                    ✦ AI HELPER
+                </div>
+
+                <h2>
+                    Let AI organize your thinking.
+                </h2>
+
+                <p>
+                    BrainVault can identify topics,
+                    suggest tags and discover relationships
+                    between your new idea and existing
+                    knowledge.
+                </p>
+
+
+                <div class="suggestion">
+                    <span>✦</span>
+                    <div>
+                        <small>Suggested topic</small>
+                        <strong>Artificial Intelligence</strong>
+                    </div>
+                </div>
+
+
+                <div class="suggestion">
+                    <span>◇</span>
+                    <div>
+                        <small>Possible connection</small>
+                        <strong>UX Research</strong>
+                    </div>
+                </div>
+
+
+                <div class="suggestion">
+                    <span>∞</span>
+                    <div>
+                        <small>Related concept</small>
+                        <strong>Future Interfaces</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         COLLECTIONS
+    ====================================================== -->
+
+    <section class="page" id="collections">
+
+        <div class="page-heading">
+
+            <div>
+                <span>ORGANIZE</span>
+
+                <h1>
+                    Collections
+                </h1>
+
+                <p>
+                    Group related knowledge into
+                    intelligent spaces.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="collection-grid">
+
+            <article class="collection-card purple-bg">
+
+                <div class="collection-icon">
+                    🤖
+                </div>
+
+                <span>18 ITEMS</span>
+
+                <h2>
+                    Artificial Intelligence
+                </h2>
+
+                <p>
+                    Research, concepts and ideas
+                    around intelligent systems.
+                </p>
+
+                <button>
+                    Open collection →
+                </button>
+
+            </article>
+
+
+            <article class="collection-card cyan-bg">
+
+                <div class="collection-icon">
+                    🎨
+                </div>
+
+                <span>12 ITEMS</span>
+
+                <h2>
+                    Interface Design
+                </h2>
+
+                <p>
+                    UI patterns, UX research and
+                    interaction ideas.
+                </p>
+
+                <button>
+                    Open collection →
+                </button>
+
+            </article>
+
+
+            <article class="collection-card mint-bg">
+
+                <div class="collection-icon">
+                    🚀
+                </div>
+
+                <span>9 ITEMS</span>
+
+                <h2>
+                    Startups
+                </h2>
+
+                <p>
+                    Product concepts, startup ideas
+                    and business research.
+                </p>
+
+                <button>
+                    Open collection →
+                </button>
+
+            </article>
+
+
+            <article class="collection-card orange-bg">
+
+                <div class="collection-icon">
+                    🔬
+                </div>
+
+                <span>15 ITEMS</span>
+
+                <h2>
+                    Research
+                </h2>
+
+                <p>
+                    Papers, discoveries and
+                    interesting observations.
+                </p>
+
+                <button>
+                    Open collection →
+                </button>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         AI ASSISTANT
+    ====================================================== -->
+
+    <section class="page" id="assistant">
+
+        <div class="page-heading">
+
+            <div>
+                <span>INTELLIGENCE</span>
+
+                <h1>
+                    Ask BrainVault
+                </h1>
+
+                <p>
+                    Explore your knowledge with
+                    your AI assistant.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="panel assistant-panel">
+
+            <div class="assistant-header">
+
+                <div class="assistant-avatar">
+                    ✦
+                </div>
+
+                <div>
+                    <h3>BrainVault AI</h3>
+                    <span>Knowledge-aware assistant</span>
+                </div>
+
+                <div class="assistant-online">
+                    <i></i>
+                    Online
+                </div>
+
+            </div>
+
+
+            <div class="chat-messages" id="chatMessages">
+
+                <div class="chat-message ai">
+
+                    <div class="chat-avatar">
+                        ✦
+                    </div>
+
+                    <div class="message-content">
+
+                        <small>BrainVault AI</small>
+
+                        <p>
+                            Hi! I can help you explore your
+                            knowledge, discover connections,
+                            summarize ideas and suggest what
+                            you should explore next.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-prompts">
+
+                <button data-prompt="Find my strongest knowledge connections">
+                    Find connections
+                </button>
+
+                <button data-prompt="Summarize my recent ideas">
+                    Summarize ideas
+                </button>
+
+                <button data-prompt="What should I explore next?">
+                    Explore next
+                </button>
+
+                <button data-prompt="What topics are growing in my knowledge?">
+                    Knowledge trends
+                </button>
+
+            </div>
+
+
+            <div class="chat-input">
+
+                <input
+                    id="chatInput"
+                    placeholder="Ask something about your knowledge..."
+                >
+
+                <button id="sendMessage">
+                    ↑
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INSIGHTS
+    ====================================================== -->
+
+    <section class="page" id="insights">
+
+        <div class="page-heading">
+
+            <div>
+                <span>AI DISCOVERY</span>
+
+                <h1>
+                    Knowledge Insights
+                </h1>
+
+                <p>
+                    Patterns discovered across
+                    your knowledge.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="insights-grid">
+
+
+            <div class="panel main-insight">
+
+                <div class="insight-large-icon">
+                    ✦
+                </div>
+
+                <span>
+                    STRONGEST PATTERN
+                </span>
+
+                <h2>
+                    AI + UX + Future Interfaces
+                </h2>
+
+                <p>
+                    Your recent research repeatedly connects
+                    artificial intelligence with interface design
+                    and future computing.
+                </p>
+
+                <button class="primary-button">
+                    Explore pattern →
+                </button>
+
+            </div>
+
+
+            <div class="panel insight-stat-card">
+
+                <span>
+                    CONNECTIONS
+                </span>
+
+                <strong>
+                    87
+                </strong>
+
+                <small>
+                    +23 discovered
+                </small>
+
+                <div class="progress">
+                    <span style="width:82%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="panel insight-stat-card">
+
+                <span>
+                    KNOWLEDGE HEALTH
+                </span>
+
+                <strong>
+                    92%
+                </strong>
+
+                <small>
+                    Excellent structure
+                </small>
+
+                <div class="progress mint">
+                    <span style="width:92%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="panel insight-stat-card">
+
+                <span>
+                    AI DISCOVERIES
+                </span>
+
+                <strong>
+                    16
+                </strong>
+
+                <small>
+                    5 this week
+                </small>
+
+                <div class="progress cyan">
+                    <span style="width:76%"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SEMANTIC SEARCH
+    ====================================================== -->
+
+    <section class="page" id="search">
+
+        <div class="page-heading">
+
+            <div>
+                <span>SEMANTIC SEARCH</span>
+
+                <h1>
+                    Find anything.
+                </h1>
+
+                <p>
+                    Search by meaning, topic or concept.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="panel semantic-panel">
+
+            <div class="semantic-search-box">
+
+                <span>⌕</span>
+
+                <input
+                    id="semanticSearch"
+                    placeholder="Try: AI and interface design..."
+                >
+
+            </div>
+
+
+            <div class="semantic-results" id="semanticResults">
+
+                <article>
+
+                    <div class="result-icon purple">
+                        ✦
+                    </div>
+
+                    <div>
+                        <h3>AI Interface Design</h3>
+                        <p>
+                            Strong semantic match · Research
+                        </p>
+                    </div>
+
+                    <strong>98%</strong>
+
+                </article>
+
+
+                <article>
+
+                    <div class="result-icon cyan">
+                        ◇
+                    </div>
+
+                    <div>
+                        <h3>Future of Personal AI</h3>
+                        <p>
+                            Related concept · Ideas
+                        </p>
+                    </div>
+
+                    <strong>91%</strong>
+
+                </article>
+
+
+                <article>
+
+                    <div class="result-icon mint">
+                        ∞
+                    </div>
+
+                    <div>
+                        <h3>Human + AI Collaboration</h3>
+                        <p>
+                            Related research · Concepts
+                        </p>
+                    </div>
+
+                    <strong>87%</strong>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SETTINGS
+    ====================================================== -->
+
+    <section class="page" id="settings">
+
+        <div class="page-heading">
+
+            <div>
+                <span>SYSTEM</span>
+
+                <h1>
+                    Settings
+                </h1>
+
+                <p>
+                    Configure your BrainVault workspace.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="panel settings-panel">
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Smart indexing</h3>
+                    <p>
+                        Automatically organize captured knowledge.
+                    </p>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span></span>
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>AI connection discovery</h3>
+                    <p>
+                        Find relationships between ideas automatically.
+                    </p>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span></span>
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>Private workspace</h3>
+                    <p>
+                        Keep your knowledge isolated to this workspace.
+                    </p>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span></span>
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div>
+                    <h3>AI suggestions</h3>
+                    <p>
+                        Receive intelligent suggestions while writing.
+                    </p>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span></span>
+                </label>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     SEARCH MODAL
+====================================================== -->
+
+<div class="modal-overlay" id="searchModal">
+
+    <div class="search-modal">
+
+        <button class="modal-close" data-close="searchModal">
+            ×
+        </button>
+
+        <div class="modal-search">
+
+            <span>⌕</span>
+
+            <input
+                id="globalSearchInput"
+                placeholder="Search BrainVault..."
+                autofocus
+            >
+
+            <kbd>ESC</kbd>
+
+        </div>
+
+
+        <div class="search-shortcuts">
+
+            <span>
+                <kbd>↑</kbd>
+                <kbd>↓</kbd>
+                Navigate
+            </span>
+
+            <span>
+                <kbd>Enter</kbd>
+                Open
+            </span>
+
+            <span>
+                <kbd>ESC</kbd>
+                Close
+            </span>
+
+        </div>
+
+
+        <div class="global-results" id="globalResults">
+
+            <button data-page="vault">
+                <span>▣</span>
+                Knowledge Vault
+            </button>
+
+            <button data-page="capture">
+                <span>＋</span>
+                Capture Knowledge
+            </button>
+
+            <button data-page="assistant">
+                <span>✦</span>
+                Ask BrainVault
+            </button>
+
+            <button data-page="insights">
+                <span>✧</span>
+                Knowledge Insights
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NOTIFICATION PANEL
+====================================================== -->
+
+<div class="notification-panel" id="notificationPanel">
+
+    <div class="notification-header">
+
+        <div>
+            <span>UPDATES</span>
+            <h3>Notifications</h3>
+        </div>
+
+        <button id="closeNotifications">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <div class="notification-icon purple">
+            ✦
+        </div>
+
+        <div>
+            <strong>AI Discovery</strong>
+            <p>
+                4 new knowledge connections discovered.
+            </p>
+            <small>8 minutes ago</small>
+        </div>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <div class="notification-icon cyan">
+            ◇
+        </div>
+
+        <div>
+            <strong>Knowledge reminder</strong>
+            <p>
+                3 ideas are waiting to be organized.
+            </p>
+            <small>1 hour ago</small>
+        </div>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <div class="notification-icon mint">
+            🔥
+        </div>
+
+        <div>
+            <strong>Knowledge streak</strong>
+            <p>
+                You reached an 18-day knowledge streak.
+            </p>
+            <small>Yesterday</small>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MeetMind AI — Meeting Intelligence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.468.0/lucide.min.css"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Ambient background -->
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="grid-background"></div>
+
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <button class="icon-button" id="mobileMenuBtn">
+      <i data-lucide="menu"></i>
+    </button>
+
+    <div class="mobile-brand">
+      <div class="brand-mark">
+        <i data-lucide="mic"></i>
+      </div>
+      <span>MeetMind</span>
+    </div>
+
+    <button class="avatar small-avatar">MM</button>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+      <div class="brand-mark">
+        <i data-lucide="mic"></i>
+      </div>
+
+      <div>
+        <div class="brand-name">MeetMind</div>
+        <div class="brand-caption">AI Meeting Intelligence</div>
+      </div>
+    </div>
+
+    <div class="workspace-card">
+      <div class="workspace-icon">
+        <i data-lucide="sparkles"></i>
+      </div>
+
+      <div>
+        <strong>Intelligence Hub</strong>
+        <span>AI system online</span>
+      </div>
+
+      <span class="online-dot"></span>
+    </div>
+
+    <nav class="navigation">
+
+      <div class="nav-label">WORKSPACE</div>
+
+      <button class="nav-item active" data-page="dashboard">
+        <i data-lucide="layout-dashboard"></i>
+        <span>Command Center</span>
+      </button>
+
+      <button class="nav-item" data-page="live">
+        <i data-lucide="radio"></i>
+        <span>Live Meeting</span>
+        <span class="nav-live">LIVE</span>
+      </button>
+
+      <button class="nav-item" data-page="summary">
+        <i data-lucide="file-text"></i>
+        <span>AI Summary</span>
+      </button>
+
+      <button class="nav-item" data-page="decisions">
+        <i data-lucide="check-check"></i>
+        <span>Decisions</span>
+      </button>
+
+      <button class="nav-item" data-page="actions">
+        <i data-lucide="list-checks"></i>
+        <span>Action Items</span>
+        <span class="count-badge">7</span>
+      </button>
+
+      <div class="nav-label">INTELLIGENCE</div>
+
+      <button class="nav-item" data-page="intelligence">
+        <i data-lucide="brain-circuit"></i>
+        <span>Meeting Intelligence</span>
+      </button>
+
+      <button class="nav-item" data-page="history">
+        <i data-lucide="history"></i>
+        <span>Meeting History</span>
+      </button>
+
+      <button class="nav-item" data-page="assistant">
+        <i data-lucide="bot"></i>
+        <span>AI Assistant</span>
+      </button>
+
+      <div class="nav-label">SYSTEM</div>
+
+      <button class="nav-item" data-page="settings">
+        <i data-lucide="settings"></i>
+        <span>Settings</span>
+      </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+      <div class="usage-card">
+        <div class="usage-top">
+          <span>AI Usage</span>
+          <strong>68%</strong>
+        </div>
+
+        <div class="progress">
+          <span style="width:68%"></span>
+        </div>
+
+        <small>32% intelligence capacity remaining</small>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-avatar">MM</div>
+
+        <div class="profile-info">
+          <strong>Meeting Workspace</strong>
+          <span>Personal account</span>
+        </div>
+
+        <button class="more-button">
+          <i data-lucide="more-horizontal"></i>
+        </button>
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+
+      <div class="breadcrumb">
+        <span>MeetMind</span>
+        <i data-lucide="chevron-right"></i>
+        <strong id="pageTitle">Command Center</strong>
+      </div>
+
+      <div class="top-actions">
+
+        <button class="search-trigger" id="searchTrigger">
+          <i data-lucide="search"></i>
+          <span>Search meetings...</span>
+          <kbd>⌘ K</kbd>
+        </button>
+
+        <button class="icon-button" id="themeBtn" title="Toggle theme">
+          <i data-lucide="sun"></i>
+        </button>
+
+        <button class="icon-button notification-button" id="notificationBtn">
+          <i data-lucide="bell"></i>
+          <span></span>
+        </button>
+
+        <div class="avatar">MM</div>
+
+      </div>
+
+    </header>
+
+    <!-- Page Container -->
+    <section class="page-container">
+
+      <!-- ================= DASHBOARD ================= -->
+
+      <section class="page active" id="dashboard">
+
+        <div class="hero-section">
+
+          <div class="hero-copy">
+
+            <div class="eyebrow">
+              <span class="status-pulse"></span>
+              MEETING INTELLIGENCE ONLINE
+            </div>
+
+            <h1>
+              Turn conversations<br>
+              into <span>momentum.</span>
+            </h1>
+
+            <p>
+              MeetMind transforms meetings into clear summaries,
+              decisions, insights and actionable next steps.
+            </p>
+
+            <div class="hero-actions">
+
+              <button class="primary-button" id="startMeetingBtn">
+                <i data-lucide="mic"></i>
+                Start Meeting
+              </button>
+
+              <button class="secondary-button" data-page-target="history">
+                <i data-lucide="calendar"></i>
+                View Meetings
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="hero-orb">
+
+            <div class="orb-ring ring-one"></div>
+            <div class="orb-ring ring-two"></div>
+            <div class="orb-ring ring-three"></div>
+
+            <div class="orb-core">
+              <i data-lucide="mic"></i>
+            </div>
+
+            <div class="orb-label">
+              <strong>AI Ready</strong>
+              <span>Listening intelligence</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Metrics -->
+
+        <div class="metrics-grid">
+
+          <div class="metric-card">
+            <div class="metric-icon purple">
+              <i data-lucide="video"></i>
+            </div>
+
+            <div class="metric-content">
+              <span>Meetings analyzed</span>
+              <strong id="meetingsAnalyzed">42</strong>
+              <small class="positive">
+                <i data-lucide="trending-up"></i>
+                18% this month
+              </small>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon cyan">
+              <i data-lucide="clock-3"></i>
+            </div>
+
+            <div class="metric-content">
+              <span>Hours processed</span>
+              <strong>68.4</strong>
+              <small>Across 31 meetings</small>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon mint">
+              <i data-lucide="check-circle-2"></i>
+            </div>
+
+            <div class="metric-content">
+              <span>Decisions captured</span>
+              <strong id="decisionCount">126</strong>
+              <small class="positive">
+                <i data-lucide="arrow-up"></i>
+                12 new this week
+              </small>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon orange">
+              <i data-lucide="zap"></i>
+            </div>
+
+            <div class="metric-content">
+              <span>AI productivity score</span>
+              <strong>91%</strong>
+              <small>Excellent meeting health</small>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+          <!-- Upcoming -->
+          <div class="panel upcoming-panel">
+
+            <div class="panel-header">
+              <div>
+                <span class="panel-eyebrow">UP NEXT</span>
+                <h2>Upcoming meetings</h2>
+              </div>
+
+              <button class="text-button" data-page-target="history">
+                View all
+                <i data-lucide="arrow-up-right"></i>
+              </button>
+            </div>
+
+            <div class="meeting-list">
+
+              <div class="meeting-row">
+                <div class="meeting-time">
+                  <strong>10:30</strong>
+                  <span>AM</span>
+                </div>
+
+                <div class="meeting-line"></div>
+
+                <div class="meeting-details">
+                  <strong>Product Strategy Sync</strong>
+                  <span>
+                    <i data-lucide="users"></i>
+                    6 participants · 45 min
+                  </span>
+                </div>
+
+                <div class="meeting-tag purple-tag">Strategy</div>
+
+                <button class="row-action" data-toast="Meeting details opened">
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </div>
+
+              <div class="meeting-row">
+                <div class="meeting-time">
+                  <strong>01:00</strong>
+                  <span>PM</span>
+                </div>
+
+                <div class="meeting-line"></div>
+
+                <div class="meeting-details">
+                  <strong>Design Review</strong>
+                  <span>
+                    <i data-lucide="users"></i>
+                    4 participants · 30 min
+                  </span>
+                </div>
+
+                <div class="meeting-tag cyan-tag">Design</div>
+
+                <button class="row-action" data-toast="Meeting details opened">
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </div>
+
+              <div class="meeting-row">
+                <div class="meeting-time">
+                  <strong>03:30</strong>
+                  <span>PM</span>
+                </div>
+
+                <div class="meeting-line"></div>
+
+                <div class="meeting-details">
+                  <strong>Growth Planning</strong>
+                  <span>
+                    <i data-lucide="users"></i>
+                    8 participants · 60 min
+                  </span>
+                </div>
+
+                <div class="meeting-tag mint-tag">Growth</div>
+
+                <button class="row-action" data-toast="Meeting details opened">
+                  <i data-lucide="arrow-up-right"></i>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- AI Insight -->
+          <div class="panel insight-panel">
+
+            <div class="panel-header">
+              <div>
+                <span class="panel-eyebrow">AI DISCOVERY</span>
+                <h2>Meeting insight</h2>
+              </div>
+
+              <div class="ai-status">
+                <span></span>
+                AI
+              </div>
+            </div>
+
+            <div class="insight-visual">
+              <div class="insight-orbit"></div>
+
+              <div class="insight-center">
+                <i data-lucide="brain-circuit"></i>
+              </div>
+
+              <span class="orbit-node node-a">Focus</span>
+              <span class="orbit-node node-b">Decisions</span>
+              <span class="orbit-node node-c">Actions</span>
+            </div>
+
+            <div class="insight-copy">
+              <h3>Your meetings are becoming more decisive.</h3>
+
+              <p>
+                AI detected a <strong>24% increase</strong> in
+                decision-making clarity across your recent meetings.
+              </p>
+
+              <button class="outline-button" id="insightBtn">
+                Explore insight
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Activity -->
+
+        <div class="panel activity-panel">
+
+          <div class="panel-header">
+            <div>
+              <span class="panel-eyebrow">WEEKLY SIGNAL</span>
+              <h2>Meeting activity</h2>
+            </div>
+
+            <div class="chart-legend">
+              <span><i></i> Meetings</span>
+              <span><i></i> AI insights</span>
+            </div>
+          </div>
+
+          <div class="activity-chart">
+
+            <div class="chart-y">
+              <span>12</span>
+              <span>9</span>
+              <span>6</span>
+              <span>3</span>
+              <span>0</span>
+            </div>
+
+            <div class="chart-area">
+
+              <div class="chart-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div class="bars">
+
+                <div class="bar-column">
+                  <div class="bar meetings" style="height:45%"></div>
+                  <div class="bar insights" style="height:22%"></div>
+                  <span>Mon</span>
+                </div>
+
+                <div class="bar-column">
+                  <div class="bar meetings" style="height:68%"></div>
+                  <div class="bar insights" style="height:38%"></div>
+                  <span>Tue</span>
+                </div>
+
+                <div class="bar-column">
+                  <div class="bar meetings" style="height:54%"></div>
+                  <div class="bar insights" style="height:30%"></div>
+                  <span>Wed</span>
+                </div>
+
+                <div class="bar-column">
+                  <div class="bar meetings" style="height:82%"></div>
+                  <div class="bar insights" style="height:52%"></div>
+                  <span>Thu</span>
+                </div>
+
+                <div class="bar-column">
+                  <div class="bar meetings" style="height:72%"></div>
+                  <div class="bar insights" style="height:42%"></div>
+                  <span>Fri</span>
+                </div>
+
+                <div class="bar-column">
+                  <div class="bar meetings" style="height:38%"></div>
+                  <div class="bar insights" style="height:20%"></div>
+                  <span>Sat</span>
+                </div>
+
+                <div class="bar-column">
+                  <div class="bar meetings" style="height:25%"></div>
+                  <div class="bar insights" style="height:14%"></div>
+                  <span>Sun</span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= LIVE MEETING ================= -->
+
+      <section class="page" id="live">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">
+              <span class="status-pulse"></span>
+              LIVE INTELLIGENCE
+            </div>
+
+            <h1>Live Meeting</h1>
+
+            <p>
+              MeetMind is ready to transform your conversation
+              into structured intelligence.
+            </p>
+          </div>
+
+          <div class="live-status">
+            <span></span>
+            Ready
+          </div>
+        </div>
+
+        <div class="live-grid">
+
+          <div class="panel meeting-stage">
+
+            <div class="stage-top">
+              <div>
+                <span class="panel-eyebrow">CURRENT SESSION</span>
+                <h2 id="liveMeetingName">Product Strategy Sync</h2>
+              </div>
+
+              <div class="timer" id="meetingTimer">00:00</div>
+            </div>
+
+            <div class="waveform" id="waveform">
+
+              <div></div><div></div><div></div><div></div>
+              <div></div><div></div><div></div><div></div>
+              <div></div><div></div><div></div><div></div>
+              <div></div><div></div><div></div><div></div>
+              <div></div><div></div><div></div><div></div>
+              <div></div><div></div><div></div><div></div>
+
+            </div>
+
+            <div class="listening-state">
+
+              <div class="listening-orb">
+                <i data-lucide="mic"></i>
+              </div>
+
+              <div>
+                <strong id="listeningText">AI listening intelligence ready</strong>
+                <span>Real-time meeting analysis simulation</span>
+              </div>
+
+            </div>
+
+            <div class="meeting-controls">
+
+              <button class="control-button" id="muteBtn">
+                <i data-lucide="mic"></i>
+              </button>
+
+              <button class="control-button end-control" id="endMeetingBtn">
+                <i data-lucide="phone-off"></i>
+              </button>
+
+              <button class="control-button" id="noteBtn">
+                <i data-lucide="sticky-note"></i>
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="panel live-insights">
+
+            <div class="panel-header">
+              <div>
+                <span class="panel-eyebrow">REAL-TIME SIGNALS</span>
+                <h2>AI observations</h2>
+              </div>
+            </div>
+
+            <div class="signal-list">
+
+              <div class="signal-item">
+                <div class="signal-icon purple">
+                  <i data-lucide="message-circle"></i>
+                </div>
+
+                <div>
+                  <strong>Topic detected</strong>
+                  <span>Product roadmap</span>
+                </div>
+
+                <small>Now</small>
+              </div>
+
+              <div class="signal-item">
+                <div class="signal-icon mint">
+                  <i data-lucide="check-circle"></i>
+                </div>
+
+                <div>
+                  <strong>Decision detected</strong>
+                  <span>Q4 launch direction</span>
+                </div>
+
+                <small>2m</small>
+              </div>
+
+              <div class="signal-item">
+                <div class="signal-icon orange">
+                  <i data-lucide="alert-triangle"></i>
+                </div>
+
+                <div>
+                  <strong>Unresolved topic</strong>
+                  <span>Resource allocation</span>
+                </div>
+
+                <small>4m</small>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= SUMMARY ================= -->
+
+      <section class="page" id="summary">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">AI GENERATED</div>
+            <h1>Meeting Summary</h1>
+            <p>Structured intelligence from your latest conversation.</p>
+          </div>
+
+          <button class="primary-button" id="regenerateBtn">
+            <i data-lucide="sparkles"></i>
+            Regenerate
+          </button>
+        </div>
+
+        <div class="summary-grid">
+
+          <div class="panel summary-main">
+
+            <div class="summary-header">
+              <div class="meeting-avatar purple-avatar">
+                PS
+              </div>
+
+              <div>
+                <h2>Product Strategy Sync</h2>
+                <span>Today · 10:30 AM · 45 minutes</span>
+              </div>
+
+              <div class="confidence">
+                <span>AI confidence</span>
+                <strong>94%</strong>
+              </div>
+            </div>
+
+            <div class="summary-section">
+
+              <span class="section-label">EXECUTIVE SUMMARY</span>
+
+              <p class="large-summary">
+                The team aligned on the Q4 product direction,
+                prioritizing the redesigned onboarding experience
+                and a phased rollout strategy. The group agreed to
+                validate the new experience with a smaller user cohort
+                before the wider launch.
+              </p>
+
+            </div>
+
+            <div class="summary-section">
+
+              <span class="section-label">KEY DISCUSSION POINTS</span>
+
+              <div class="bullet-list">
+
+                <div>
+                  <span>01</span>
+                  <p>Finalize onboarding architecture before development freeze.</p>
+                </div>
+
+                <div>
+                  <span>02</span>
+                  <p>Run a controlled beta with selected users.</p>
+                </div>
+
+                <div>
+                  <span>03</span>
+                  <p>Define success metrics before the rollout.</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="summary-side">
+
+            <div class="panel compact-panel">
+
+              <div class="panel-header">
+                <h2>Meeting pulse</h2>
+              </div>
+
+              <div class="pulse-score">
+                <div class="score-ring">
+                  <strong>91</strong>
+                  <span>/100</span>
+                </div>
+
+                <div>
+                  <strong>Highly productive</strong>
+                  <span>Strong alignment detected</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="panel compact-panel">
+
+              <div class="panel-header">
+                <h2>Topics</h2>
+              </div>
+
+              <div class="topic-cloud">
+                <span>Product</span>
+                <span>Onboarding</span>
+                <span>Growth</span>
+                <span>Launch</span>
+                <span>UX</span>
+                <span>Metrics</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= DECISIONS ================= -->
+
+      <section class="page" id="decisions">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">CAPTURED INTELLIGENCE</div>
+            <h1>Decisions</h1>
+            <p>Important decisions extracted from your meetings.</p>
+          </div>
+
+          <button class="secondary-button" id="exportDecisions">
+            <i data-lucide="download"></i>
+            Export
+          </button>
+        </div>
+
+        <div class="decision-grid">
+
+          <div class="panel decision-card">
+            <div class="decision-number">01</div>
+            <div class="decision-status">CONFIRMED</div>
+            <h3>Adopt phased onboarding rollout</h3>
+            <p>
+              The team agreed to test the redesigned onboarding
+              experience with a controlled user group.
+            </p>
+            <span>Product Strategy Sync · Today</span>
+          </div>
+
+          <div class="panel decision-card">
+            <div class="decision-number">02</div>
+            <div class="decision-status">CONFIRMED</div>
+            <h3>Prioritize activation metrics</h3>
+            <p>
+              Activation rate and first-session completion will be
+              the primary success indicators.
+            </p>
+            <span>Growth Planning · Yesterday</span>
+          </div>
+
+          <div class="panel decision-card">
+            <div class="decision-number">03</div>
+            <div class="decision-status">CONFIRMED</div>
+            <h3>Move design review earlier</h3>
+            <p>
+              Future product reviews will happen before engineering
+              implementation begins.
+            </p>
+            <span>Design Review · Yesterday</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= ACTIONS ================= -->
+
+      <section class="page" id="actions">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">FOLLOW THROUGH</div>
+            <h1>Action Items</h1>
+            <p>Tasks extracted from conversations and assigned to the team.</p>
+          </div>
+
+          <button class="primary-button" id="addTaskBtn">
+            <i data-lucide="plus"></i>
+            Add Action
+          </button>
+        </div>
+
+        <div class="action-toolbar">
+          <button class="filter-button active">All <span>7</span></button>
+          <button class="filter-button">Open <span>5</span></button>
+          <button class="filter-button">Completed <span>2</span></button>
+        </div>
+
+        <div class="panel task-panel">
+
+          <div class="task-row">
+            <button class="task-check">
+              <i data-lucide="check"></i>
+            </button>
+
+            <div class="task-info">
+              <strong>Finalize onboarding prototype</strong>
+              <span>Product Strategy Sync · Today</span>
+            </div>
+
+            <span class="priority high">High</span>
+
+            <span class="task-owner">You</span>
+
+            <span class="due-date">Tomorrow</span>
+          </div>
+
+          <div class="task-row">
+            <button class="task-check">
+              <i data-lucide="check"></i>
+            </button>
+
+            <div class="task-info">
+              <strong>Prepare beta user list</strong>
+              <span>Product Strategy Sync · Today</span>
+            </div>
+
+            <span class="priority medium">Medium</span>
+
+            <span class="task-owner">Team</span>
+
+            <span class="due-date">Friday</span>
+          </div>
+
+          <div class="task-row">
+            <button class="task-check completed">
+              <i data-lucide="check"></i>
+            </button>
+
+            <div class="task-info completed-text">
+              <strong>Share updated product brief</strong>
+              <span>Growth Planning · Yesterday</span>
+            </div>
+
+            <span class="priority low">Low</span>
+
+            <span class="task-owner">You</span>
+
+            <span class="due-date">Done</span>
+          </div>
+
+          <div class="task-row">
+            <button class="task-check">
+              <i data-lucide="check"></i>
+            </button>
+
+            <div class="task-info">
+              <strong>Define activation success metrics</strong>
+              <span>Growth Planning · Yesterday</span>
+            </div>
+
+            <span class="priority high">High</span>
+
+            <span class="task-owner">Growth</span>
+
+            <span class="due-date">Monday</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= INTELLIGENCE ================= -->
+
+      <section class="page" id="intelligence">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">MEETING ANALYTICS</div>
+            <h1>Meeting Intelligence</h1>
+            <p>Understand how your conversations perform over time.</p>
+          </div>
+        </div>
+
+        <div class="intelligence-grid">
+
+          <div class="panel health-card">
+
+            <span class="panel-eyebrow">MEETING HEALTH</span>
+
+            <div class="health-score">
+              <div class="health-ring">
+                <strong>91</strong>
+                <span>Excellent</span>
+              </div>
+            </div>
+
+            <div class="health-bars">
+
+              <div>
+                <span>Clarity</span>
+                <div><i style="width:92%"></i></div>
+                <strong>92%</strong>
+              </div>
+
+              <div>
+                <span>Decisions</span>
+                <div><i style="width:88%"></i></div>
+                <strong>88%</strong>
+              </div>
+
+              <div>
+                <span>Focus</span>
+                <div><i style="width:94%"></i></div>
+                <strong>94%</strong>
+              </div>
+
+              <div>
+                <span>Follow-through</span>
+                <div><i style="width:81%"></i></div>
+                <strong>81%</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="panel participation-card">
+
+            <div class="panel-header">
+              <div>
+                <span class="panel-eyebrow">PARTICIPATION</span>
+                <h2>Conversation balance</h2>
+              </div>
+            </div>
+
+            <div class="participation-chart">
+
+              <div class="participant">
+                <span class="participant-avatar">A</span>
+                <div class="participant-bar">
+                  <i style="width:78%"></i>
+                </div>
+                <strong>Alex · 31%</strong>
+              </div>
+
+              <div class="participant">
+                <span class="participant-avatar">J</span>
+                <div class="participant-bar">
+                  <i style="width:63%"></i>
+                </div>
+                <strong>Jordan · 25%</strong>
+              </div>
+
+              <div class="participant">
+                <span class="participant-avatar">S</span>
+                <div class="participant-bar">
+                  <i style="width:51%"></i>
+                </div>
+                <strong>Sam · 20%</strong>
+              </div>
+
+              <div class="participant">
+                <span class="participant-avatar">M</span>
+                <div class="participant-bar">
+                  <i style="width:40%"></i>
+                </div>
+                <strong>Others · 24%</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="panel insight-table">
+
+          <div class="panel-header">
+            <div>
+              <span class="panel-eyebrow">AI PATTERNS</span>
+              <h2>Detected patterns</h2>
+            </div>
+          </div>
+
+          <div class="pattern-grid">
+
+            <div class="pattern-item">
+              <i data-lucide="trending-up"></i>
+              <div>
+                <strong>Decision clarity is rising</strong>
+                <span>+24% over the last 4 weeks</span>
+              </div>
+            </div>
+
+            <div class="pattern-item">
+              <i data-lucide="message-square-more"></i>
+              <div>
+                <strong>Discussions are shorter</strong>
+                <span>Average topic time decreased by 11%</span>
+              </div>
+            </div>
+
+            <div class="pattern-item">
+              <i data-lucide="circle-alert"></i>
+              <div>
+                <strong>Follow-ups need attention</strong>
+                <span>19% of action items remain overdue</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= HISTORY ================= -->
+
+      <section class="page" id="history">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">YOUR CONVERSATIONS</div>
+            <h1>Meeting History</h1>
+            <p>Search and explore previously analyzed meetings.</p>
+          </div>
+
+          <button class="primary-button" id="newMeetingBtn">
+            <i data-lucide="plus"></i>
+            New Meeting
+          </button>
+        </div>
+
+        <div class="history-search">
+          <i data-lucide="search"></i>
+          <input
+            id="meetingSearch"
+            type="text"
+            placeholder="Search meeting titles, topics or participants..."
+          >
+        </div>
+
+        <div class="history-list" id="historyList">
+
+          <div class="panel history-item">
+            <div class="history-date">
+              <strong>06</strong>
+              <span>OCT</span>
+            </div>
+
+            <div class="history-content">
+              <div class="history-title">
+                <h3>Product Strategy Sync</h3>
+                <span class="success-chip">Analyzed</span>
+              </div>
+
+              <p>Q4 product direction and onboarding rollout.</p>
+
+              <div class="history-meta">
+                <span><i data-lucide="clock"></i>45 min</span>
+                <span><i data-lucide="users"></i>6 participants</span>
+                <span><i data-lucide="check-circle"></i>5 decisions</span>
+              </div>
+            </div>
+
+            <button class="row-action" data-toast="Meeting summary opened">
+              <i data-lucide="arrow-up-right"></i>
+            </button>
+          </div>
+
+          <div class="panel history-item">
+            <div class="history-date">
+              <strong>05</strong>
+              <span>OCT</span>
+            </div>
+
+            <div class="history-content">
+              <div class="history-title">
+                <h3>Design Review</h3>
+                <span class="success-chip">Analyzed</span>
+              </div>
+
+              <p>Reviewed the new interface and interaction system.</p>
+
+              <div class="history-meta">
+                <span><i data-lucide="clock"></i>32 min</span>
+                <span><i data-lucide="users"></i>4 participants</span>
+                <span><i data-lucide="check-circle"></i>3 decisions</span>
+              </div>
+            </div>
+
+            <button class="row-action" data-toast="Meeting summary opened">
+              <i data-lucide="arrow-up-right"></i>
+            </button>
+          </div>
+
+          <div class="panel history-item">
+            <div class="history-date">
+              <strong>03</strong>
+              <span>OCT</span>
+            </div>
+
+            <div class="history-content">
+              <div class="history-title">
+                <h3>Growth Planning</h3>
+                <span class="success-chip">Analyzed</span>
+              </div>
+
+              <p>Explored growth experiments and activation metrics.</p>
+
+              <div class="history-meta">
+                <span><i data-lucide="clock"></i>58 min</span>
+                <span><i data-lucide="users"></i>8 participants</span>
+                <span><i data-lucide="check-circle"></i>7 decisions</span>
+              </div>
+            </div>
+
+            <button class="row-action" data-toast="Meeting summary opened">
+              <i data-lucide="arrow-up-right"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= ASSISTANT ================= -->
+
+      <section class="page" id="assistant">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">AI COPILOT</div>
+            <h1>Meeting Assistant</h1>
+            <p>Ask questions about your meetings and meeting intelligence.</p>
+          </div>
+        </div>
+
+        <div class="assistant-layout">
+
+          <div class="panel assistant-chat">
+
+            <div class="assistant-header">
+              <div class="assistant-avatar">
+                <i data-lucide="bot"></i>
+              </div>
+
+              <div>
+                <strong>MeetMind AI</strong>
+                <span>Meeting intelligence copilot</span>
+              </div>
+
+              <span class="ai-online">
+                <i></i> Online
+              </span>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+
+              <div class="chat-message ai-message">
+                <div class="chat-avatar">
+                  <i data-lucide="sparkles"></i>
+                </div>
+
+                <div class="message-bubble">
+                  <p>
+                    Hi! I can help you understand your meetings,
+                    decisions and action items.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="quick-prompts">
+
+              <button data-prompt="What decisions were made?">
+                Decisions
+              </button>
+
+              <button data-prompt="What are my action items?">
+                Action items
+              </button>
+
+              <button data-prompt="Summarize my latest meeting">
+                Summarize
+              </button>
+
+              <button data-prompt="Find unresolved topics">
+                Unresolved topics
+              </button>
+
+            </div>
+
+            <div class="chat-input">
+
+              <input
+                id="chatInput"
+                type="text"
+                placeholder="Ask MeetMind anything..."
+              >
+
+              <button id="sendChat">
+                <i data-lucide="arrow-up"></i>
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="assistant-sidebar">
+
+            <div class="panel assistant-card">
+
+              <span class="panel-eyebrow">MEETING CONTEXT</span>
+
+              <h3>Latest meeting</h3>
+
+              <strong>Product Strategy Sync</strong>
+
+              <div class="context-stat">
+                <span>Decisions</span>
+                <strong>5</strong>
+              </div>
+
+              <div class="context-stat">
+                <span>Actions</span>
+                <strong>7</strong>
+              </div>
+
+              <div class="context-stat">
+                <span>Topics</span>
+                <strong>6</strong>
+              </div>
+
+            </div>
+
+            <div class="panel assistant-card">
+              <span class="panel-eyebrow">TRY ASKING</span>
+
+              <div class="suggestion-list">
+
+                <button data-prompt="Which topics need follow-up?">
+                  <i data-lucide="arrow-right"></i>
+                  Which topics need follow-up?
+                </button>
+
+                <button data-prompt="What was the most important decision?">
+                  <i data-lucide="arrow-right"></i>
+                  What was the most important decision?
+                </button>
+
+                <button data-prompt="How productive was the meeting?">
+                  <i data-lucide="arrow-right"></i>
+                  How productive was the meeting?
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= SETTINGS ================= -->
+
+      <section class="page" id="settings">
+
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">SYSTEM PREFERENCES</div>
+            <h1>Settings</h1>
+            <p>Customize how MeetMind works for your meetings.</p>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+
+          <div class="panel settings-panel">
+
+            <div class="settings-section">
+
+              <span class="section-label">MEETING INTELLIGENCE</span>
+
+              <div class="setting-row">
+                <div>
+                  <strong>Automatic summaries</strong>
+                  <span>Generate a summary after every meeting.</span>
+                </div>
+
+                <label class="toggle">
+                  <input type="checkbox" checked>
+                  <span></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div>
+                  <strong>Decision detection</strong>
+                  <span>Identify important decisions automatically.</span>
+                </div>
+
+                <label class="toggle">
+                  <input type="checkbox" checked>
+                  <span></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div>
+                  <strong>Action extraction</strong>
+                  <span>Convert commitments into action items.</span>
+                </div>
+
+                <label class="toggle">
+                  <input type="checkbox" checked>
+                  <span></span>
+                </label>
+              </div>
+
+            </div>
+
+            <div class="settings-section">
+
+              <span class="section-label">NOTIFICATIONS</span>
+
+              <div class="setting-row">
+                <div>
+                  <strong>Meeting reminders</strong>
+                  <span>Receive reminders before meetings.</span>
+                </div>
+
+                <label class="toggle">
+                  <input type="checkbox" checked>
+                  <span></span>
+                </label>
+              </div>
+
+              <div class="setting-row">
+                <div>
+                  <strong>AI insights</strong>
+                  <span>Get notified when MeetMind discovers patterns.</span>
+                </div>
+
+                <label class="toggle">
+                  <input type="checkbox">
+                  <span></span>
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+
+  <!-- Notifications -->
+  <aside class="notification-panel" id="notificationPanel">
+
+    <div class="notification-header">
+      <div>
+        <span class="panel-eyebrow">INBOX</span>
+        <h3>Notifications</h3>
+      </div>
+
+      <button class="icon-button" id="closeNotifications">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+
+    <div class="notification-item unread">
+      <div class="notification-icon">
+        <i data-lucide="sparkles"></i>
+      </div>
+
+      <div>
+        <strong>New AI insight</strong>
+        <p>Your meeting clarity increased by 24%.</p>
+        <span>8 minutes ago</span>
+      </div>
+    </div>
+
+    <div class="notification-item">
+      <div class="notification-icon">
+        <i data-lucide="check-circle"></i>
+      </div>
+
+      <div>
+        <strong>Action item completed</strong>
+        <p>Product brief was marked complete.</p>
+        <span>1 hour ago</span>
+      </div>
+    </div>
+
+  </aside>
+
+
+  <!-- Command Palette -->
+  <div class="modal-overlay" id="commandOverlay">
+
+    <div class="command-palette">
+
+      <div class="command-search">
+        <i data-lucide="search"></i>
+        <input
+          id="commandInput"
+          type="text"
+          placeholder="Jump to a MeetMind section..."
+        >
+        <kbd>ESC</kbd>
+      </div>
+
+      <div class="command-list">
+
+        <button data-command-page="dashboard">
+          <i data-lucide="layout-dashboard"></i>
+          <span>Command Center</span>
+          <kbd>01</kbd>
+        </button>
+
+        <button data-command-page="live">
+          <i data-lucide="radio"></i>
+          <span>Live Meeting</span>
+          <kbd>02</kbd>
+        </button>
+
+        <button data-command-page="summary">
+          <i data-lucide="file-text"></i>
+          <span>AI Summary</span>
+          <kbd>03</kbd>
+        </button>
+
+        <button data-command-page="actions">
+          <i data-lucide="list-checks"></i>
+          <span>Action Items</span>
+          <kbd>04</kbd>
+        </button>
+
+        <button data-command-page="assistant">
+          <i data-lucide="bot"></i>
+          <span>AI Assistant</span>
+          <kbd>05</kbd>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Add Task Modal -->
+  <div class="modal-overlay" id="taskModal">
+
+    <div class="task-modal">
+
+      <div class="modal-header">
+        <div>
+          <span class="panel-eyebrow">NEW TASK</span>
+          <h2>Add action item</h2>
+        </div>
+
+        <button class="icon-button close-modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <input
+        id="taskInput"
+        class="modal-input"
+        type="text"
+        placeholder="What needs to be done?"
+      >
+
+      <button class="primary-button full-button" id="saveTask">
+        <i data-lucide="check"></i>
+        Add Action Item
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <div class="toast-icon">
+      <i data-lucide="check"></i>
+    </div>
+
+    <div>
+      <strong id="toastTitle">Done</strong>
+      <span id="toastMessage">Action completed.</span>
+    </div>
+  </div>
+
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
