@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PrivacyGuard — Privacy Control Center</title>
+
+    <meta
+        name="description"
+        content="PrivacyGuard — intelligent privacy and digital security control center."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+<div class="ambient ambient-three"></div>
+
+<div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">
+                <i data-lucide="shield-check"></i>
+            </div>
+
+            <div>
+                <h1>PrivacyGuard</h1>
+                <span>Privacy Control Center</span>
+            </div>
+        </div>
+
+        <div class="workspace">
+            <span class="workspace-label">WORKSPACE</span>
+
+            <button class="nav-item active" data-page="overview">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Overview</span>
+            </button>
+
+            <button class="nav-item" data-page="permissions">
+                <i data-lucide="key-round"></i>
+                <span>Permissions</span>
+                <b class="nav-badge">7</b>
+            </button>
+
+            <button class="nav-item" data-page="devices">
+                <i data-lucide="monitor-smartphone"></i>
+                <span>Devices</span>
+            </button>
+
+            <button class="nav-item" data-page="activity">
+                <i data-lucide="activity"></i>
+                <span>Activity</span>
+            </button>
+
+            <button class="nav-item" data-page="privacy">
+                <i data-lucide="fingerprint"></i>
+                <span>Privacy Scan</span>
+            </button>
+        </div>
+
+        <div class="workspace">
+            <span class="workspace-label">SYSTEM</span>
+
+            <button class="nav-item" data-page="settings">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </button>
+
+            <button class="nav-item" id="themeBtn">
+                <i data-lucide="sun-moon"></i>
+                <span>Appearance</span>
+            </button>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="security-mini">
+                <div class="mini-shield">
+                    <i data-lucide="shield"></i>
+                </div>
+
+                <div>
+                    <strong>Protection active</strong>
+                    <span>Last scan 4 min ago</span>
+                </div>
+
+                <div class="pulse-dot"></div>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">B</div>
+
+                <div class="profile-info">
+                    <strong>Private User</strong>
+                    <span>Personal workspace</span>
+                </div>
+
+                <button class="icon-btn">
+                    <i data-lucide="more-horizontal"></i>
+                </button>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-brand">
+                <div class="brand-mark">
+                    <i data-lucide="shield-check"></i>
+                </div>
+
+                <strong>PrivacyGuard</strong>
+            </div>
+
+            <button class="mobile-menu" id="mobileMenu">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="breadcrumb">
+                <span>PrivacyGuard</span>
+                <i data-lucide="chevron-right"></i>
+                <strong id="pageTitle">Overview</strong>
+            </div>
+
+            <div class="top-actions">
+
+                <button class="command-trigger" id="commandTrigger">
+                    <i data-lucide="search"></i>
+                    <span>Search</span>
+                    <kbd>⌘ K</kbd>
+                </button>
+
+                <button class="icon-btn notification-btn" id="notificationBtn">
+                    <i data-lucide="bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="top-avatar">B</div>
+
+            </div>
+
+        </header>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- OVERVIEW -->
+            <section class="page active" id="overview">
+
+                <div class="hero">
+
+                    <div class="hero-copy">
+
+                        <div class="eyebrow">
+                            <span class="live-dot"></span>
+                            PRIVACY STATUS
+                        </div>
+
+                        <h2>
+                            Your digital life is
+                            <span>protected.</span>
+                        </h2>
+
+                        <p>
+                            PrivacyGuard continuously monitors your permissions,
+                            devices and privacy signals to keep your digital
+                            footprint under control.
+                        </p>
+
+                        <div class="hero-actions">
+                            <button class="primary-btn" id="scanBtn">
+                                <i data-lucide="scan-line"></i>
+                                Run privacy scan
+                            </button>
+
+                            <button class="secondary-btn" data-page-link="privacy">
+                                View security report
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- SCORE -->
+                    <div class="score-card">
+
+                        <div class="score-ring">
+                            <svg viewBox="0 0 180 180">
+
+                                <circle
+                                    class="ring-bg"
+                                    cx="90"
+                                    cy="90"
+                                    r="72"
+                                />
+
+                                <circle
+                                    class="ring-progress"
+                                    id="scoreRing"
+                                    cx="90"
+                                    cy="90"
+                                    r="72"
+                                />
+
+                            </svg>
+
+                            <div class="score-content">
+                                <span>Privacy</span>
+                                <strong id="scoreNumber">92</strong>
+                                <small>/ 100</small>
+                            </div>
+
+                        </div>
+
+                        <div class="score-status">
+                            <span class="status-pill secure">
+                                <i data-lucide="check-circle-2"></i>
+                                Excellent
+                            </span>
+
+                            <p>+4 points since last scan</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STAT GRID -->
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon cyan">
+                            <i data-lucide="key-round"></i>
+                        </div>
+
+                        <div>
+                            <span>Permissions</span>
+                            <strong>24</strong>
+                            <small class="positive">
+                                <i data-lucide="arrow-up-right"></i>
+                                3 reviewed
+                            </small>
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon violet">
+                            <i data-lucide="monitor-smartphone"></i>
+                        </div>
+
+                        <div>
+                            <span>Trusted devices</span>
+                            <strong>4</strong>
+                            <small>All protected</small>
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon emerald">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                        <div>
+                            <span>Threats blocked</span>
+                            <strong>18</strong>
+                            <small class="positive">
+                                <i data-lucide="trending-up"></i>
+                                This month
+                            </small>
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon amber">
+                            <i data-lucide="eye-off"></i>
+                        </div>
+
+                        <div>
+                            <span>Data exposure</span>
+                            <strong>Low</strong>
+                            <small>2 signals detected</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <!-- PRIVACY SIGNALS -->
+                    <div class="glass-card signals-card">
+
+                        <div class="card-heading">
+
+                            <div>
+                                <span class="section-label">PRIVACY SIGNALS</span>
+                                <h3>What needs attention?</h3>
+                            </div>
+
+                            <button class="text-btn" data-page-link="privacy">
+                                View all
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                        <div class="signal-list">
+
+                            <div class="signal">
+                                <div class="signal-icon medium">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+
+                                <div class="signal-info">
+                                    <strong>Location access</strong>
+                                    <span>3 apps accessed location recently</span>
+                                </div>
+
+                                <span class="risk medium">MEDIUM</span>
+                            </div>
+
+                            <div class="signal">
+                                <div class="signal-icon low">
+                                    <i data-lucide="mic"></i>
+                                </div>
+
+                                <div class="signal-info">
+                                    <strong>Microphone access</strong>
+                                    <span>No unusual microphone activity</span>
+                                </div>
+
+                                <span class="risk low">LOW</span>
+                            </div>
+
+                            <div class="signal">
+                                <div class="signal-icon low">
+                                    <i data-lucide="camera"></i>
+                                </div>
+
+                                <div class="signal-info">
+                                    <strong>Camera access</strong>
+                                    <span>All camera permissions look normal</span>
+                                </div>
+
+                                <span class="risk low">LOW</span>
+                            </div>
+
+                            <div class="signal">
+                                <div class="signal-icon high">
+                                    <i data-lucide="database"></i>
+                                </div>
+
+                                <div class="signal-info">
+                                    <strong>Data sharing</strong>
+                                    <span>1 application shares analytics data</span>
+                                </div>
+
+                                <span class="risk high">HIGH</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RISK CHART -->
+                    <div class="glass-card chart-card">
+
+                        <div class="card-heading">
+
+                            <div>
+                                <span class="section-label">RISK ANALYSIS</span>
+                                <h3>Privacy exposure</h3>
+                            </div>
+
+                            <select id="chartRange">
+                                <option>7 days</option>
+                                <option>30 days</option>
+                                <option>90 days</option>
+                            </select>
+
+                        </div>
+
+                        <div class="chart-wrap">
+
+                            <div class="chart-y">
+                                <span>100</span>
+                                <span>75</span>
+                                <span>50</span>
+                                <span>25</span>
+                                <span>0</span>
+                            </div>
+
+                            <div class="chart-area">
+
+                                <div class="grid-lines"></div>
+
+                                <svg viewBox="0 0 600 220" preserveAspectRatio="none">
+
+                                    <defs>
+                                        <linearGradient
+                                            id="chartGradient"
+                                            x1="0"
+                                            y1="0"
+                                            x2="0"
+                                            y2="1"
+                                        >
+                                            <stop
+                                                offset="0%"
+                                                stop-color="#2dd4bf"
+                                                stop-opacity=".35"
+                                            />
+
+                                            <stop
+                                                offset="100%"
+                                                stop-color="#2dd4bf"
+                                                stop-opacity="0"
+                                            />
+                                        </linearGradient>
+                                    </defs>
+
+                                    <path
+                                        class="chart-fill"
+                                        d="M0 160 C50 145 70 150 110 130 S180 125 220 105 S290 120 330 90 S390 80 430 95 S500 65 600 48 L600 220 L0 220 Z"
+                                    />
+
+                                    <path
+                                        class="chart-line"
+                                        d="M0 160 C50 145 70 150 110 130 S180 125 220 105 S290 120 330 90 S390 80 430 95 S500 65 600 48"
+                                    />
+
+                                </svg>
+
+                                <div class="chart-labels">
+                                    <span>Mon</span>
+                                    <span>Tue</span>
+                                    <span>Wed</span>
+                                    <span>Thu</span>
+                                    <span>Fri</span>
+                                    <span>Sat</span>
+                                    <span>Sun</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTTOM GRID -->
+                <div class="bottom-grid">
+
+                    <div class="glass-card protection-card">
+
+                        <div class="card-heading">
+                            <div>
+                                <span class="section-label">ACTIVE PROTECTION</span>
+                                <h3>Security shield</h3>
+                            </div>
+
+                            <span class="live-badge">
+                                <span></span>
+                                LIVE
+                            </span>
+                        </div>
+
+                        <div class="shield-visual">
+
+                            <div class="shield-ring ring-one"></div>
+                            <div class="shield-ring ring-two"></div>
+
+                            <div class="shield-core">
+                                <i data-lucide="shield-check"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="protection-status">
+                            <strong>All systems protected</strong>
+                            <span>PrivacyGuard is actively monitoring your workspace.</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="glass-card activity-card">
+
+                        <div class="card-heading">
+
+                            <div>
+                                <span class="section-label">RECENT ACTIVITY</span>
+                                <h3>Security timeline</h3>
+                            </div>
+
+                            <button class="text-btn" data-page-link="activity">
+                                History
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                        <div class="timeline">
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon success">
+                                    <i data-lucide="check"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Privacy scan completed</strong>
+                                    <span>4 minutes ago</span>
+                                </div>
+
+                                <b>+4</b>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon cyan">
+                                    <i data-lucide="key"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Camera permission reviewed</strong>
+                                    <span>38 minutes ago</span>
+                                </div>
+
+                                <b>Safe</b>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-icon warning">
+                                    <i data-lucide="alert-triangle"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Location signal detected</strong>
+                                    <span>2 hours ago</span>
+                                </div>
+
+                                <b>Review</b>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PERMISSIONS -->
+            <section class="page" id="permissions">
+
+                <div class="page-header">
+                    <div>
+                        <span class="eyebrow">ACCESS CONTROL</span>
+                        <h2>Permissions</h2>
+                        <p>Review what your applications can access.</p>
+                    </div>
+
+                    <button class="primary-btn" id="reviewAllBtn">
+                        <i data-lucide="scan-search"></i>
+                        Review permissions
+                    </button>
+                </div>
+
+                <div class="filter-bar">
+
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input
+                            id="permissionSearch"
+                            type="text"
+                            placeholder="Search applications..."
+                        >
+                    </div>
+
+                    <button class="filter active" data-filter="all">All</button>
+                    <button class="filter" data-filter="high">High risk</button>
+                    <button class="filter" data-filter="medium">Medium</button>
+                    <button class="filter" data-filter="low">Low</button>
+
+                </div>
+
+                <div class="permission-grid" id="permissionGrid">
+
+                    <div class="permission-card" data-risk="high" data-name="SocialHub">
+
+                        <div class="app-icon social">
+                            <i data-lucide="message-circle"></i>
+                        </div>
+
+                        <div class="permission-main">
+                            <div>
+                                <strong>SocialHub</strong>
+                                <span>Social application</span>
+                            </div>
+
+                            <span class="risk high">HIGH</span>
+                        </div>
+
+                        <div class="permission-list">
+                            <span><i data-lucide="map-pin"></i> Location</span>
+                            <span><i data-lucide="camera"></i> Camera</span>
+                            <span><i data-lucide="mic"></i> Microphone</span>
+                        </div>
+
+                        <div class="permission-footer">
+                            <span>Last used 8 min ago</span>
+                            <button class="manage-btn">Manage</button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="permission-card" data-risk="medium" data-name="Maps">
+
+                        <div class="app-icon maps">
+                            <i data-lucide="map"></i>
+                        </div>
+
+                        <div class="permission-main">
+                            <div>
+                                <strong>Maps</strong>
+                                <span>Navigation</span>
+                            </div>
+
+                            <span class="risk medium">MEDIUM</span>
+                        </div>
+
+                        <div class="permission-list">
+                            <span><i data-lucide="map-pin"></i> Location</span>
+                            <span><i data-lucide="bell"></i> Notifications</span>
+                        </div>
+
+                        <div class="permission-footer">
+                            <span>Last used 22 min ago</span>
+                            <button class="manage-btn">Manage</button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="permission-card" data-risk="low" data-name="Notes">
+
+                        <div class="app-icon notes">
+                            <i data-lucide="file-text"></i>
+                        </div>
+
+                        <div class="permission-main">
+                            <div>
+                                <strong>Notes</strong>
+                                <span>Productivity</span>
+                            </div>
+
+                            <span class="risk low">LOW</span>
+                        </div>
+
+                        <div class="permission-list">
+                            <span><i data-lucide="folder"></i> Files</span>
+                        </div>
+
+                        <div class="permission-footer">
+                            <span>Last used 1 hour ago</span>
+                            <button class="manage-btn">Manage</button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="permission-card" data-risk="low" data-name="Music">
+
+                        <div class="app-icon music">
+                            <i data-lucide="music"></i>
+                        </div>
+
+                        <div class="permission-main">
+                            <div>
+                                <strong>Music</strong>
+                                <span>Entertainment</span>
+                            </div>
+
+                            <span class="risk low">LOW</span>
+                        </div>
+
+                        <div class="permission-list">
+                            <span><i data-lucide="headphones"></i> Audio</span>
+                        </div>
+
+                        <div class="permission-footer">
+                            <span>Last used 2 hours ago</span>
+                            <button class="manage-btn">Manage</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- DEVICES -->
+            <section class="page" id="devices">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">DEVICE TRUST</span>
+                        <h2>Your devices</h2>
+                        <p>Monitor devices connected to your private workspace.</p>
+                    </div>
+
+                    <button class="primary-btn" id="secureDevicesBtn">
+                        <i data-lucide="shield-check"></i>
+                        Secure all devices
+                    </button>
+
+                </div>
+
+                <div class="device-grid">
+
+                    <div class="device-card trusted">
+
+                        <div class="device-top">
+                            <div class="device-icon">
+                                <i data-lucide="laptop"></i>
+                            </div>
+
+                            <span class="device-status">
+                                <span></span>
+                                Trusted
+                            </span>
+                        </div>
+
+                        <h3>MacBook Pro</h3>
+                        <p>Chrome · Chennai, India</p>
+
+                        <div class="device-meta">
+                            <span>Active now</span>
+                            <span>Last scan 4m</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="device-card trusted">
+
+                        <div class="device-top">
+                            <div class="device-icon">
+                                <i data-lucide="smartphone"></i>
+                            </div>
+
+                            <span class="device-status">
+                                <span></span>
+                                Trusted
+                            </span>
+                        </div>
+
+                        <h3>Personal Phone</h3>
+                        <p>Mobile · Chennai, India</p>
+
+                        <div class="device-meta">
+                            <span>Active 12m ago</span>
+                            <span>Last scan 12m</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="device-card warning">
+
+                        <div class="device-top">
+                            <div class="device-icon">
+                                <i data-lucide="tablet-smartphone"></i>
+                            </div>
+
+                            <span class="device-status warning-text">
+                                <span></span>
+                                Review
+                            </span>
+                        </div>
+
+                        <h3>Tablet</h3>
+                        <p>Android · Unknown network</p>
+
+                        <div class="device-meta">
+                            <span>Active yesterday</span>
+                            <span>Needs review</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ACTIVITY -->
+            <section class="page" id="activity">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">SECURITY LOG</span>
+                        <h2>Activity</h2>
+                        <p>A transparent timeline of privacy events.</p>
+                    </div>
+
+                    <button class="secondary-btn" id="clearActivity">
+                        <i data-lucide="trash-2"></i>
+                        Clear visible history
+                    </button>
+
+                </div>
+
+                <div class="activity-panel">
+
+                    <div class="activity-date">TODAY</div>
+
+                    <div class="large-activity">
+                        <div class="large-icon success">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                        <div>
+                            <strong>Privacy scan completed</strong>
+                            <p>24 permissions checked across 4 devices.</p>
+                            <span>4 minutes ago</span>
+                        </div>
+
+                        <b class="activity-success">SECURE</b>
+                    </div>
+
+                    <div class="large-activity">
+                        <div class="large-icon cyan">
+                            <i data-lucide="key-round"></i>
+                        </div>
+
+                        <div>
+                            <strong>Camera permission changed</strong>
+                            <p>Access changed from Always to While Using.</p>
+                            <span>38 minutes ago</span>
+                        </div>
+
+                        <b>UPDATED</b>
+                    </div>
+
+                    <div class="large-activity">
+                        <div class="large-icon warning">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+
+                        <div>
+                            <strong>Location access detected</strong>
+                            <p>SocialHub accessed approximate location.</p>
+                            <span>2 hours ago</span>
+                        </div>
+
+                        <b class="activity-warning">REVIEW</b>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PRIVACY SCAN -->
+            <section class="page" id="privacy">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">INTELLIGENT ANALYSIS</span>
+                        <h2>Privacy Scan</h2>
+                        <p>Analyze your digital exposure and privacy posture.</p>
+                    </div>
+
+                    <button class="primary-btn" id="deepScanBtn">
+                        <i data-lucide="scan-line"></i>
+                        Start deep scan
+                    </button>
+
+                </div>
+
+                <div class="scan-layout">
+
+                    <div class="glass-card scan-main">
+
+                        <div class="scan-orb" id="scanOrb">
+                            <div class="scan-orb-inner">
+                                <i data-lucide="shield-check"></i>
+                            </div>
+                        </div>
+
+                        <h3 id="scanTitle">Privacy posture is strong</h3>
+
+                        <p id="scanDescription">
+                            Your workspace currently has a healthy privacy
+                            configuration. Run a deep scan for a detailed report.
+                        </p>
+
+                        <div class="scan-progress">
+                            <div id="scanProgress"></div>
+                        </div>
+
+                        <span id="scanStatus">Ready to scan</span>
+
+                    </div>
+
+
+                    <div class="glass-card exposure-card">
+
+                        <div class="card-heading">
+
+                            <div>
+                                <span class="section-label">EXPOSURE BREAKDOWN</span>
+                                <h3>Risk distribution</h3>
+                            </div>
+
+                        </div>
+
+                        <div class="risk-bars">
+
+                            <div class="risk-row">
+                                <div>
+                                    <span>Low risk</span>
+                                    <strong>68%</strong>
+                                </div>
+
+                                <div class="bar">
+                                    <span style="width:68%"></span>
+                                </div>
+                            </div>
+
+                            <div class="risk-row">
+                                <div>
+                                    <span>Medium risk</span>
+                                    <strong>24%</strong>
+                                </div>
+
+                                <div class="bar medium-bar">
+                                    <span style="width:24%"></span>
+                                </div>
+                            </div>
+
+                            <div class="risk-row">
+                                <div>
+                                    <span>High risk</span>
+                                    <strong>8%</strong>
+                                </div>
+
+                                <div class="bar high-bar">
+                                    <span style="width:8%"></span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SETTINGS -->
+            <section class="page" id="settings">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">CONTROL CENTER</span>
+                        <h2>Settings</h2>
+                        <p>Customize your privacy protection preferences.</p>
+                    </div>
+
+                </div>
+
+                <div class="settings-grid">
+
+                    <div class="glass-card settings-card">
+
+                        <div class="settings-heading">
+                            <div class="settings-icon">
+                                <i data-lucide="shield"></i>
+                            </div>
+
+                            <div>
+                                <h3>Protection</h3>
+                                <p>Control automatic privacy monitoring.</p>
+                            </div>
+                        </div>
+
+                        <label class="toggle-row">
+                            <span>
+                                <strong>Automatic scans</strong>
+                                <small>Scan privacy signals automatically</small>
+                            </span>
+
+                            <input type="checkbox" checked class="toggle-input">
+                            <span class="toggle"></span>
+                        </label>
+
+                        <label class="toggle-row">
+                            <span>
+                                <strong>Threat alerts</strong>
+                                <small>Notify me about unusual activity</small>
+                            </span>
+
+                            <input type="checkbox" checked class="toggle-input">
+                            <span class="toggle"></span>
+                        </label>
+
+                        <label class="toggle-row">
+                            <span>
+                                <strong>Device monitoring</strong>
+                                <small>Monitor trusted devices</small>
+                            </span>
+
+                            <input type="checkbox" checked class="toggle-input">
+                            <span class="toggle"></span>
+                        </label>
+
+                    </div>
+
+
+                    <div class="glass-card settings-card">
+
+                        <div class="settings-heading">
+                            <div class="settings-icon violet-icon">
+                                <i data-lucide="bell"></i>
+                            </div>
+
+                            <div>
+                                <h3>Notifications</h3>
+                                <p>Choose what PrivacyGuard can notify you about.</p>
+                            </div>
+                        </div>
+
+                        <label class="toggle-row">
+                            <span>
+                                <strong>Privacy reports</strong>
+                                <small>Weekly security summary</small>
+                            </span>
+
+                            <input type="checkbox" checked class="toggle-input">
+                            <span class="toggle"></span>
+                        </label>
+
+                        <label class="toggle-row">
+                            <span>
+                                <strong>Permission changes</strong>
+                                <small>Alert when permissions change</small>
+                            </span>
+
+                            <input type="checkbox" checked class="toggle-input">
+                            <span class="toggle"></span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- COMMAND PALETTE -->
+<div class="modal-overlay" id="commandModal">
+
+    <div class="command-modal">
+
+        <div class="command-search">
+            <i data-lucide="search"></i>
+
+            <input
+                id="commandInput"
+                type="text"
+                placeholder="Search PrivacyGuard..."
+                autocomplete="off"
+            >
+
+            <kbd>ESC</kbd>
+        </div>
+
+        <div class="command-results">
+
+            <button data-command="overview">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Open Overview</span>
+                <kbd>1</kbd>
+            </button>
+
+            <button data-command="permissions">
+                <i data-lucide="key-round"></i>
+                <span>Manage Permissions</span>
+                <kbd>2</kbd>
+            </button>
+
+            <button data-command="devices">
+                <i data-lucide="monitor-smartphone"></i>
+                <span>View Devices</span>
+                <kbd>3</kbd>
+            </button>
+
+            <button data-command="privacy">
+                <i data-lucide="scan-line"></i>
+                <span>Run Privacy Scan</span>
+                <kbd>4</kbd>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- NOTIFICATION PANEL -->
+<div class="notification-panel" id="notificationPanel">
+
+    <div class="notification-header">
+        <div>
+            <span class="section-label">NOTIFICATIONS</span>
+            <h3>Security updates</h3>
+        </div>
+
+        <button class="icon-btn" id="closeNotifications">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
+
+    <div class="notification-item">
+        <div class="notification-icon success">
+            <i data-lucide="shield-check"></i>
+        </div>
+
+        <div>
+            <strong>Privacy scan completed</strong>
+            <span>Your score increased to 92.</span>
+            <small>4 minutes ago</small>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <div class="notification-icon warning">
+            <i data-lucide="alert-triangle"></i>
+        </div>
+
+        <div>
+            <strong>Location permission</strong>
+            <span>One application needs review.</span>
+            <small>2 hours ago</small>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+
+    <div class="toast-icon">
+        <i data-lucide="check"></i>
+    </div>
+
+    <div>
+        <strong id="toastTitle">Success</strong>
+        <span id="toastMessage">Action completed.</span>
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
