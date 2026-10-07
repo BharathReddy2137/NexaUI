@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SentinelX — Security Operations Center</title>
+
+    <meta
+        name="description"
+        content="SentinelX Security Operations Center — detect, investigate and respond to cyber threats."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="ambient ambient-1"></div>
+<div class="ambient ambient-2"></div>
+<div class="ambient ambient-3"></div>
+
+<div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">
+                <i data-lucide="radar"></i>
+            </div>
+
+            <div>
+                <h1>SentinelX</h1>
+                <span>Security Operations Center</span>
+            </div>
+        </div>
+
+        <div class="workspace">
+
+            <span class="workspace-label">COMMAND CENTER</span>
+
+            <button class="nav-item active" data-page="overview">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Command Center</span>
+            </button>
+
+            <button class="nav-item" data-page="threats">
+                <i data-lucide="shield-alert"></i>
+                <span>Threats</span>
+                <b class="nav-badge red">8</b>
+            </button>
+
+            <button class="nav-item" data-page="incidents">
+                <i data-lucide="siren"></i>
+                <span>Incidents</span>
+                <b class="nav-badge amber">3</b>
+            </button>
+
+            <button class="nav-item" data-page="endpoints">
+                <i data-lucide="monitor"></i>
+                <span>Endpoints</span>
+            </button>
+
+            <button class="nav-item" data-page="network">
+                <i data-lucide="network"></i>
+                <span>Network</span>
+            </button>
+
+        </div>
+
+        <div class="workspace">
+
+            <span class="workspace-label">ANALYSIS</span>
+
+            <button class="nav-item" data-page="intelligence">
+                <i data-lucide="brain-circuit"></i>
+                <span>AI Intelligence</span>
+            </button>
+
+            <button class="nav-item" data-page="activity">
+                <i data-lucide="activity"></i>
+                <span>Event Stream</span>
+            </button>
+
+            <button class="nav-item" data-page="settings">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </button>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="soc-status">
+
+                <div class="status-icon">
+                    <i data-lucide="radio-tower"></i>
+                </div>
+
+                <div>
+                    <strong>SOC online</strong>
+                    <span>All sensors operational</span>
+                </div>
+
+                <span class="live-pulse"></span>
+
+            </div>
+
+            <div class="profile">
+
+                <div class="avatar">B</div>
+
+                <div class="profile-info">
+                    <strong>Security Analyst</strong>
+                    <span>Sentinel workspace</span>
+                </div>
+
+                <button class="icon-btn">
+                    <i data-lucide="more-horizontal"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-brand">
+
+                <div class="brand-mark">
+                    <i data-lucide="radar"></i>
+                </div>
+
+                <strong>SentinelX</strong>
+
+            </div>
+
+            <button class="mobile-menu" id="mobileMenu">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="breadcrumb">
+
+                <span>SentinelX</span>
+
+                <i data-lucide="chevron-right"></i>
+
+                <strong id="pageTitle">
+                    Command Center
+                </strong>
+
+            </div>
+
+            <div class="top-actions">
+
+                <button class="command-trigger" id="commandTrigger">
+                    <i data-lucide="search"></i>
+                    <span>Search events</span>
+                    <kbd>⌘ K</kbd>
+                </button>
+
+                <button
+                    class="icon-btn notification-btn"
+                    id="notificationBtn"
+                >
+                    <i data-lucide="bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="top-avatar">B</div>
+
+            </div>
+
+        </header>
+
+
+        <div class="content">
+
+            <!-- =========================================
+                 COMMAND CENTER
+            ========================================== -->
+
+            <section class="page active" id="overview">
+
+                <div class="hero">
+
+                    <div class="hero-copy">
+
+                        <div class="eyebrow">
+                            <span class="live-dot"></span>
+                            SECURITY OPERATIONS · LIVE
+                        </div>
+
+                        <h2>
+                            Detect threats
+                            <span>before they escalate.</span>
+                        </h2>
+
+                        <p>
+                            SentinelX correlates security events across your
+                            infrastructure, identifies suspicious behavior,
+                            and helps analysts respond faster.
+                        </p>
+
+                        <div class="hero-actions">
+
+                            <button
+                                class="primary-btn"
+                                id="scanNetworkBtn"
+                            >
+                                <i data-lucide="scan-line"></i>
+                                Scan infrastructure
+                            </button>
+
+                            <button
+                                class="secondary-btn"
+                                data-page-link="threats"
+                            >
+                                Investigate threats
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SOC STATUS -->
+                    <div class="soc-core">
+
+                        <div class="radar">
+
+                            <div class="radar-grid"></div>
+
+                            <div class="radar-sweep"></div>
+
+                            <div class="radar-ring ring-a"></div>
+                            <div class="radar-ring ring-b"></div>
+                            <div class="radar-ring ring-c"></div>
+
+                            <span class="radar-dot dot-a"></span>
+                            <span class="radar-dot dot-b"></span>
+                            <span class="radar-dot dot-c"></span>
+
+                            <div class="radar-center">
+                                <i data-lucide="crosshair"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="soc-core-status">
+                            <span class="status-pill secure">
+                                <i data-lucide="shield-check"></i>
+                                Protected
+                            </span>
+
+                            <p>Monitoring 24 endpoints</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SECURITY STATS -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon red">
+                            <i data-lucide="shield-alert"></i>
+                        </div>
+
+                        <div>
+                            <span>Active threats</span>
+                            <strong id="activeThreats">8</strong>
+
+                            <small class="danger">
+                                <i data-lucide="arrow-up-right"></i>
+                                2 critical
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon amber">
+                            <i data-lucide="siren"></i>
+                        </div>
+
+                        <div>
+                            <span>Open incidents</span>
+                            <strong>3</strong>
+
+                            <small>
+                                1 requires action
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon cyan">
+                            <i data-lucide="monitor"></i>
+                        </div>
+
+                        <div>
+                            <span>Protected endpoints</span>
+                            <strong>24</strong>
+
+                            <small class="positive">
+                                <i data-lucide="check"></i>
+                                All online
+                            </small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon emerald">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                        <div>
+                            <span>Threats blocked</span>
+                            <strong>142</strong>
+
+                            <small class="positive">
+                                +18 this week
+                            </small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAIN DASHBOARD -->
+
+                <div class="dashboard-grid">
+
+                    <!-- THREAT MAP -->
+
+                    <div class="glass-card threat-map-card">
+
+                        <div class="card-heading">
+
+                            <div>
+                                <span class="section-label">
+                                    GLOBAL THREAT MAP
+                                </span>
+
+                                <h3>
+                                    Live security activity
+                                </h3>
+                            </div>
+
+                            <span class="live-badge">
+                                <span></span>
+                                LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="world-map">
+
+                            <div class="map-grid"></div>
+
+                            <div class="map-continent continent-one"></div>
+                            <div class="map-continent continent-two"></div>
+                            <div class="map-continent continent-three"></div>
+                            <div class="map-continent continent-four"></div>
+
+                            <span class="map-point p1"></span>
+                            <span class="map-point p2"></span>
+                            <span class="map-point p3"></span>
+                            <span class="map-point p4"></span>
+                            <span class="map-point p5"></span>
+                            <span class="map-point p6"></span>
+
+                            <div class="attack-line line-one"></div>
+                            <div class="attack-line line-two"></div>
+                            <div class="attack-line line-three"></div>
+
+                        </div>
+
+
+                        <div class="map-footer">
+
+                            <div>
+                                <span class="map-dot red"></span>
+                                <strong>8</strong>
+                                <small>Threats</small>
+                            </div>
+
+                            <div>
+                                <span class="map-dot amber"></span>
+                                <strong>14</strong>
+                                <small>Suspicious</small>
+                            </div>
+
+                            <div>
+                                <span class="map-dot cyan"></span>
+                                <strong>24</strong>
+                                <small>Protected</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- THREAT FEED -->
+
+                    <div class="glass-card threat-feed">
+
+                        <div class="card-heading">
+
+                            <div>
+                                <span class="section-label">
+                                    THREAT DETECTION
+                                </span>
+
+                                <h3>
+                                    Latest alerts
+                                </h3>
+                            </div>
+
+                            <button
+                                class="text-btn"
+                                data-page-link="threats"
+                            >
+                                View all
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+
+                        </div>
+
+
+                        <div class="threat-list">
+
+                            <div class="threat-item critical">
+
+                                <div class="threat-icon">
+                                    <i data-lucide="bug"></i>
+                                </div>
+
+                                <div class="threat-info">
+
+                                    <strong>
+                                        Suspicious process detected
+                                    </strong>
+
+                                    <span>
+                                        Endpoint-07 · 2 min ago
+                                    </span>
+
+                                </div>
+
+                                <span class="severity critical">
+                                    CRITICAL
+                                </span>
+
+                            </div>
+
+
+                            <div class="threat-item high">
+
+                                <div class="threat-icon">
+                                    <i data-lucide="key-round"></i>
+                                </div>
+
+                                <div class="threat-info">
+
+                                    <strong>
+                                        Multiple login failures
+                                    </strong>
+
+                                    <span>
+                                        Gateway-03 · 8 min ago
+                                    </span>
+
+                                </div>
+
+                                <span class="severity high">
+                                    HIGH
+                                </span>
+
+                            </div>
+
+
+                            <div class="threat-item medium">
+
+                                <div class="threat-icon">
+                                    <i data-lucide="globe"></i>
+                                </div>
+
+                                <div class="threat-info">
+
+                                    <strong>
+                                        Unusual outbound traffic
+                                    </strong>
+
+                                    <span>
+                                        Server-12 · 14 min ago
+                                    </span>
+
+                                </div>
+
+                                <span class="severity medium">
+                                    MEDIUM
+                                </span>
+
+                            </div>
+
+
+                            <div class="threat-item low">
+
+                                <div class="threat-icon">
+                                    <i data-lucide="mail-warning"></i>
+                                </div>
+
+                                <div class="threat-info">
+
+                                    <strong>
+                                        Suspicious email attachment
+                                    </strong>
+
+                                    <span>
+                                        User-18 · 21 min ago
+                                    </span>
+
+                                </div>
+
+                                <span class="severity low">
+                                    LOW
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ANALYTICS -->
+
+                <div class="bottom-grid">
+
+                    <div class="glass-card analytics-card">
+
+                        <div class="card-heading">
+
+                            <div>
+                                <span class="section-label">
+                                    SECURITY ANALYTICS
+                                </span>
+
+                                <h3>
+                                    Threat activity
+                                </h3>
+                            </div>
+
+                            <select id="analyticsRange">
+                                <option>24 hours</option>
+                                <option>7 days</option>
+                                <option>30 days</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="line-chart">
+
+                            <div class="chart-y">
+                                <span>100</span>
+                                <span>75</span>
+                                <span>50</span>
+                                <span>25</span>
+                                <span>0</span>
+                            </div>
+
+                            <div class="chart-main">
+
+                                <div class="chart-grid"></div>
+
+                                <svg
+                                    viewBox="0 0 700 230"
+                                    preserveAspectRatio="none"
+                                >
+
+                                    <defs>
+
+                                        <linearGradient
+                                            id="threatGradient"
+                                            x1="0"
+                                            y1="0"
+                                            x2="0"
+                                            y2="1"
+                                        >
+                                            <stop
+                                                offset="0%"
+                                                stop-color="#38d9f2"
+                                                stop-opacity=".3"
+                                            />
+
+                                            <stop
+                                                offset="100%"
+                                                stop-color="#38d9f2"
+                                                stop-opacity="0"
+                                            />
+
+                                        </linearGradient>
+
+                                    </defs>
+
+
+                                    <path
+                                        class="chart-fill"
+                                        d="M0 170 C55 155 70 168 115 140 S180 155 220 120 S285 145 330 100 S400 125 440 85 S510 105 550 68 S630 78 700 42 L700 230 L0 230 Z"
+                                    ></path>
+
+
+                                    <path
+                                        class="chart-line"
+                                        d="M0 170 C55 155 70 168 115 140 S180 155 220 120 S285 145 330 100 S400 125 440 85 S510 105 550 68 S630 78 700 42"
+                                    ></path>
+
+                                </svg>
+
+
+                                <div class="chart-labels">
+                                    <span>00:00</span>
+                                    <span>04:00</span>
+                                    <span>08:00</span>
+                                    <span>12:00</span>
+                                    <span>16:00</span>
+                                    <span>20:00</span>
+                                    <span>Now</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI INSIGHT -->
+
+                    <div class="glass-card ai-card">
+
+                        <div class="ai-glow"></div>
+
+                        <div class="ai-header">
+
+                            <div class="ai-icon">
+                                <i data-lucide="brain-circuit"></i>
+                            </div>
+
+                            <div>
+                                <span class="section-label">
+                                    SENTINEL AI
+                                </span>
+
+                                <h3>
+                                    Intelligence briefing
+                                </h3>
+                            </div>
+
+                            <span class="ai-live">
+                                AI
+                            </span>
+
+                        </div>
+
+
+                        <div class="ai-message">
+
+                            <div class="ai-risk">
+                                <i data-lucide="triangle-alert"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Elevated authentication risk
+                                </strong>
+
+                                <p>
+                                    Sentinel AI detected a 38% increase
+                                    in failed authentication attempts
+                                    from one external network.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="ai-recommendation">
+
+                            <span>
+                                RECOMMENDED ACTION
+                            </span>
+
+                            <strong>
+                                Investigate Gateway-03
+                            </strong>
+
+                            <button
+                                class="text-btn"
+                                data-page-link="intelligence"
+                            >
+                                Analyze
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 THREATS
+            ========================================== -->
+
+            <section class="page" id="threats">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            THREAT DETECTION
+                        </span>
+
+                        <h2>
+                            Threats
+                        </h2>
+
+                        <p>
+                            Detect and investigate suspicious security events.
+                        </p>
+                    </div>
+
+                    <button
+                        class="primary-btn"
+                        id="refreshThreats"
+                    >
+                        <i data-lucide="refresh-cw"></i>
+                        Refresh detections
+                    </button>
+
+                </div>
+
+
+                <div class="filter-bar">
+
+                    <div class="search-box">
+
+                        <i data-lucide="search"></i>
+
+                        <input
+                            id="threatSearch"
+                            type="text"
+                            placeholder="Search threats..."
+                        >
+
+                    </div>
+
+                    <button
+                        class="filter active"
+                        data-threat-filter="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-threat-filter="critical"
+                    >
+                        Critical
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-threat-filter="high"
+                    >
+                        High
+                    </button>
+
+                    <button
+                        class="filter"
+                        data-threat-filter="medium"
+                    >
+                        Medium
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="threat-table"
+                    id="threatTable"
+                >
+
+                    <div class="table-head">
+                        <span>THREAT</span>
+                        <span>SEVERITY</span>
+                        <span>SOURCE</span>
+                        <span>STATUS</span>
+                        <span>TIME</span>
+                        <span></span>
+                    </div>
+
+
+                    <div
+                        class="table-row"
+                        data-threat="critical"
+                        data-name="Suspicious process"
+                    >
+
+                        <div class="threat-cell">
+
+                            <div class="small-threat-icon red">
+                                <i data-lucide="bug"></i>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Suspicious process detected
+                                </strong>
+
+                                <small>
+                                    THR-28491
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <span class="severity critical">
+                            CRITICAL
+                        </span>
+
+                        <span>
+                            Endpoint-07
+                        </span>
+
+                        <span class="status-open">
+                            Investigating
+                        </span>
+
+                        <span>
+                            2 min
+                        </span>
+
+                        <button
+                            class="row-action investigate-btn"
+                        >
+                            <i data-lucide="arrow-up-right"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="table-row"
+                        data-threat="high"
+                        data-name="Login failures"
+                    >
+
+                        <div class="threat-cell">
+
+                            <div class="small-threat-icon amber">
+                                <i data-lucide="key-round"></i>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Multiple login failures
+                                </strong>
+
+                                <small>
+                                    THR-28487
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <span class="severity high">
+                            HIGH
+                        </span>
+
+                        <span>
+                            Gateway-03
+                        </span>
+
+                        <span class="status-open">
+                            Open
+                        </span>
+
+                        <span>
+                            8 min
+                        </span>
+
+                        <button
+                            class="row-action investigate-btn"
+                        >
+                            <i data-lucide="arrow-up-right"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="table-row"
+                        data-threat="medium"
+                        data-name="Outbound traffic"
+                    >
+
+                        <div class="threat-cell">
+
+                            <div class="small-threat-icon cyan">
+                                <i data-lucide="globe"></i>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Unusual outbound traffic
+                                </strong>
+
+                                <small>
+                                    THR-28479
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <span class="severity medium">
+                            MEDIUM
+                        </span>
+
+                        <span>
+                            Server-12
+                        </span>
+
+                        <span class="status-monitoring">
+                            Monitoring
+                        </span>
+
+                        <span>
+                            14 min
+                        </span>
+
+                        <button
+                            class="row-action investigate-btn"
+                        >
+                            <i data-lucide="arrow-up-right"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="table-row"
+                        data-threat="critical"
+                        data-name="Malware signature"
+                    >
+
+                        <div class="threat-cell">
+
+                            <div class="small-threat-icon red">
+                                <i data-lucide="file-warning"></i>
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Malware signature detected
+                                </strong>
+
+                                <small>
+                                    THR-28472
+                                </small>
+                            </div>
+
+                        </div>
+
+                        <span class="severity critical">
+                            CRITICAL
+                        </span>
+
+                        <span>
+                            Endpoint-11
+                        </span>
+
+                        <span class="status-blocked">
+                            Blocked
+                        </span>
+
+                        <span>
+                            28 min
+                        </span>
+
+                        <button
+                            class="row-action investigate-btn"
+                        >
+                            <i data-lucide="arrow-up-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 INCIDENTS
+            ========================================== -->
+
+            <section class="page" id="incidents">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            INCIDENT RESPONSE
+                        </span>
+
+                        <h2>
+                            Incidents
+                        </h2>
+
+                        <p>
+                            Coordinate investigation and response workflows.
+                        </p>
+                    </div>
+
+                    <button
+                        class="primary-btn"
+                        id="newIncidentBtn"
+                    >
+                        <i data-lucide="plus"></i>
+                        Create incident
+                    </button>
+
+                </div>
+
+
+                <div class="incident-grid">
+
+                    <div class="incident-card critical-card">
+
+                        <div class="incident-top">
+
+                            <span class="severity critical">
+                                CRITICAL
+                            </span>
+
+                            <span>
+                                INC-0194
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Suspicious endpoint behavior
+                        </h3>
+
+                        <p>
+                            Potential malicious process detected
+                            on Endpoint-07.
+                        </p>
+
+                        <div class="incident-progress">
+
+                            <div class="progress-head">
+                                <span>Response progress</span>
+                                <strong>62%</strong>
+                            </div>
+
+                            <div class="progress-bar">
+                                <span style="width:62%"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="incident-footer">
+                            <span>
+                                Updated 2 min ago
+                            </span>
+
+                            <button class="manage-incident">
+                                Investigate
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="incident-card">
+
+                        <div class="incident-top">
+
+                            <span class="severity high">
+                                HIGH
+                            </span>
+
+                            <span>
+                                INC-0191
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Authentication anomaly
+                        </h3>
+
+                        <p>
+                            Repeated authentication failures
+                            from an external network.
+                        </p>
+
+                        <div class="incident-progress">
+
+                            <div class="progress-head">
+                                <span>Response progress</span>
+                                <strong>34%</strong>
+                            </div>
+
+                            <div class="progress-bar amber-progress">
+                                <span style="width:34%"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="incident-footer">
+                            <span>
+                                Updated 8 min ago
+                            </span>
+
+                            <button class="manage-incident">
+                                Investigate
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <div class="incident-card">
+
+                        <div class="incident-top">
+
+                            <span class="severity medium">
+                                MEDIUM
+                            </span>
+
+                            <span>
+                                INC-0188
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Unusual network traffic
+                        </h3>
+
+                        <p>
+                            Unexpected outbound traffic
+                            from Server-12.
+                        </p>
+
+                        <div class="incident-progress">
+
+                            <div class="progress-head">
+                                <span>Response progress</span>
+                                <strong>78%</strong>
+                            </div>
+
+                            <div class="progress-bar cyan-progress">
+                                <span style="width:78%"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="incident-footer">
+                            <span>
+                                Updated 14 min ago
+                            </span>
+
+                            <button class="manage-incident">
+                                Investigate
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 ENDPOINTS
+            ========================================== -->
+
+            <section class="page" id="endpoints">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            ENDPOINT SECURITY
+                        </span>
+
+                        <h2>
+                            Endpoints
+                        </h2>
+
+                        <p>
+                            Monitor the health of connected systems.
+                        </p>
+                    </div>
+
+                    <button
+                        class="secondary-btn"
+                        id="endpointScan"
+                    >
+                        <i data-lucide="scan"></i>
+                        Scan endpoints
+                    </button>
+
+                </div>
+
+
+                <div class="endpoint-grid">
+
+                    <div class="endpoint-card online">
+
+                        <div class="endpoint-head">
+
+                            <div class="endpoint-icon">
+                                <i data-lucide="laptop"></i>
+                            </div>
+
+                            <span class="endpoint-status">
+                                <span></span>
+                                ONLINE
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Endpoint-07
+                        </h3>
+
+                        <p>
+                            Developer workstation
+                        </p>
+
+                        <div class="endpoint-stats">
+                            <span>
+                                CPU <strong>42%</strong>
+                            </span>
+
+                            <span>
+                                Memory <strong>61%</strong>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="endpoint-card online">
+
+                        <div class="endpoint-head">
+
+                            <div class="endpoint-icon">
+                                <i data-lucide="server"></i>
+                            </div>
+
+                            <span class="endpoint-status">
+                                <span></span>
+                                ONLINE
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Server-12
+                        </h3>
+
+                        <p>
+                            Application server
+                        </p>
+
+                        <div class="endpoint-stats">
+                            <span>
+                                CPU <strong>31%</strong>
+                            </span>
+
+                            <span>
+                                Memory <strong>47%</strong>
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="endpoint-card warning-endpoint">
+
+                        <div class="endpoint-head">
+
+                            <div class="endpoint-icon">
+                                <i data-lucide="monitor"></i>
+                            </div>
+
+                            <span class="endpoint-status warning">
+                                <span></span>
+                                REVIEW
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Endpoint-11
+                        </h3>
+
+                        <p>
+                            Finance workstation
+                        </p>
+
+                        <div class="endpoint-stats">
+                            <span>
+                                CPU <strong>72%</strong>
+                            </span>
+
+                            <span>
+                                Risk <strong>High</strong>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 NETWORK
+            ========================================== -->
+
+            <section class="page" id="network">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            NETWORK INTELLIGENCE
+                        </span>
+
+                        <h2>
+                            Network
+                        </h2>
+
+                        <p>
+                            Monitor traffic patterns and suspicious connections.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="network-layout">
+
+                    <div class="glass-card traffic-card">
+
+                        <div class="card-heading">
+
+                            <div>
+                                <span class="section-label">
+                                    NETWORK TRAFFIC
+                                </span>
+
+                                <h3>
+                                    Connection activity
+                                </h3>
+                            </div>
+
+                            <span class="live-badge">
+                                <span></span>
+                                LIVE
+                            </span>
+
+                        </div>
+
+                        <div class="traffic-visual">
+
+                            <div class="traffic-bars">
+
+                                <span style="height:38%"></span>
+                                <span style="height:51%"></span>
+                                <span style="height:44%"></span>
+                                <span style="height:68%"></span>
+                                <span style="height:55%"></span>
+                                <span style="height:74%"></span>
+                                <span style="height:62%"></span>
+                                <span style="height:82%"></span>
+                                <span style="height:57%"></span>
+                                <span style="height:91%"></span>
+                                <span style="height:69%"></span>
+                                <span style="height:77%"></span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="traffic-footer">
+
+                            <div>
+                                <strong>8.4 GB</strong>
+                                <span>Inbound</span>
+                            </div>
+
+                            <div>
+                                <strong>5.7 GB</strong>
+                                <span>Outbound</span>
+                            </div>
+
+                            <div>
+                                <strong>2,841</strong>
+                                <span>Connections</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="glass-card connection-card">
+
+                        <div class="card-heading">
+
+                            <div>
+                                <span class="section-label">
+                                    TOP CONNECTIONS
+                                </span>
+
+                                <h3>
+                                    Network entities
+                                </h3>
+                            </div>
+
+                        </div>
+
+                        <div class="connection-list">
+
+                            <div>
+                                <span class="connection-dot safe"></span>
+
+                                <div>
+                                    <strong>api.service.dev</strong>
+                                    <small>Trusted · 1,284 requests</small>
+                                </div>
+
+                                <b>SAFE</b>
+                            </div>
+
+                            <div>
+                                <span class="connection-dot warning"></span>
+
+                                <div>
+                                    <strong>185.24.91.42</strong>
+                                    <small>Unknown · 184 requests</small>
+                                </div>
+
+                                <b class="warning-text">
+                                    REVIEW
+                                </b>
+                            </div>
+
+                            <div>
+                                <span class="connection-dot safe"></span>
+
+                                <div>
+                                    <strong>cdn.platform.io</strong>
+                                    <small>Trusted · 921 requests</small>
+                                </div>
+
+                                <b>SAFE</b>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 AI INTELLIGENCE
+            ========================================== -->
+
+            <section class="page" id="intelligence">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            SENTINEL AI
+                        </span>
+
+                        <h2>
+                            AI Intelligence
+                        </h2>
+
+                        <p>
+                            Explain threats and prioritize analyst actions.
+                        </p>
+                    </div>
+
+                    <span class="ai-live-large">
+                        <span></span>
+                        AI ENGINE ONLINE
+                    </span>
+
+                </div>
+
+
+                <div class="intelligence-layout">
+
+                    <div class="glass-card intelligence-main">
+
+                        <div class="ai-large-icon">
+                            <i data-lucide="brain-circuit"></i>
+                        </div>
+
+                        <span class="section-label">
+                            CURRENT ANALYSIS
+                        </span>
+
+                        <h3>
+                            Authentication anomaly detected
+                        </h3>
+
+                        <p>
+                            Sentinel AI identified a statistically unusual
+                            authentication pattern involving Gateway-03.
+                            The event is associated with repeated failed
+                            login attempts from a previously unseen network.
+                        </p>
+
+                        <div class="confidence">
+
+                            <div>
+                                <span>AI confidence</span>
+                                <strong>94%</strong>
+                            </div>
+
+                            <div class="confidence-bar">
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="glass-card recommendation-card">
+
+                        <span class="section-label">
+                            RESPONSE RECOMMENDATION
+                        </span>
+
+                        <h3>
+                            Recommended actions
+                        </h3>
+
+                        <div class="recommendation">
+
+                            <div class="recommendation-number">
+                                01
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Investigate Gateway-03
+                                </strong>
+
+                                <span>
+                                    Review authentication logs.
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="recommendation">
+
+                            <div class="recommendation-number">
+                                02
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Review source network
+                                </strong>
+
+                                <span>
+                                    Validate external IP reputation.
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="recommendation">
+
+                            <div class="recommendation-number">
+                                03
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Consider temporary block
+                                </strong>
+
+                                <span>
+                                    Apply if activity continues.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 ACTIVITY
+            ========================================== -->
+
+            <section class="page" id="activity">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            EVENT STREAM
+                        </span>
+
+                        <h2>
+                            Security activity
+                        </h2>
+
+                        <p>
+                            A live stream of events across your environment.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="event-stream">
+
+                    <div class="event">
+                        <div class="event-icon red">
+                            <i data-lucide="bug"></i>
+                        </div>
+
+                        <div>
+                            <strong>
+                                Suspicious process detected
+                            </strong>
+
+                            <span>
+                                Endpoint-07 · Process signature mismatch
+                            </span>
+                        </div>
+
+                        <time>2 min ago</time>
+                    </div>
+
+
+                    <div class="event">
+                        <div class="event-icon amber">
+                            <i data-lucide="key-round"></i>
+                        </div>
+
+                        <div>
+                            <strong>
+                                Authentication threshold exceeded
+                            </strong>
+
+                            <span>
+                                Gateway-03 · 14 failed attempts
+                            </span>
+                        </div>
+
+                        <time>8 min ago</time>
+                    </div>
+
+
+                    <div class="event">
+                        <div class="event-icon cyan">
+                            <i data-lucide="network"></i>
+                        </div>
+
+                        <div>
+                            <strong>
+                                New outbound connection
+                            </strong>
+
+                            <span>
+                                Server-12 · Unknown external entity
+                            </span>
+                        </div>
+
+                        <time>14 min ago</time>
+                    </div>
+
+
+                    <div class="event">
+                        <div class="event-icon emerald">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                        <div>
+                            <strong>
+                                Threat successfully blocked
+                            </strong>
+
+                            <span>
+                                Endpoint-11 · Malware signature
+                            </span>
+                        </div>
+
+                        <time>28 min ago</time>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================================
+                 SETTINGS
+            ========================================== -->
+
+            <section class="page" id="settings">
+
+                <div class="page-header">
+
+                    <div>
+                        <span class="eyebrow">
+                            SYSTEM CONFIGURATION
+                        </span>
+
+                        <h2>
+                            Settings
+                        </h2>
+
+                        <p>
+                            Configure SentinelX monitoring preferences.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="settings-grid">
+
+                    <div class="glass-card settings-card">
+
+                        <div class="settings-heading">
+
+                            <div class="settings-icon">
+                                <i data-lucide="radar"></i>
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Threat monitoring
+                                </h3>
+
+                                <p>
+                                    Configure continuous security detection.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <label class="toggle-row">
+
+                            <span>
+                                <strong>
+                                    Continuous monitoring
+                                </strong>
+
+                                <small>
+                                    Monitor security events automatically
+                                </small>
+                            </span>
+
+                            <input
+                                type="checkbox"
+                                class="toggle-input"
+                                checked
+                            >
+
+                            <span class="toggle"></span>
+
+                        </label>
+
+
+                        <label class="toggle-row">
+
+                            <span>
+                                <strong>
+                                    Critical alerts
+                                </strong>
+
+                                <small>
+                                    Immediately surface critical threats
+                                </small>
+                            </span>
+
+                            <input
+                                type="checkbox"
+                                class="toggle-input"
+                                checked
+                            >
+
+                            <span class="toggle"></span>
+
+                        </label>
+
+
+                        <label class="toggle-row">
+
+                            <span>
+                                <strong>
+                                    AI correlation
+                                </strong>
+
+                                <small>
+                                    Use Sentinel AI for event correlation
+                                </small>
+                            </span>
+
+                            <input
+                                type="checkbox"
+                                class="toggle-input"
+                                checked
+                            >
+
+                            <span class="toggle"></span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="glass-card settings-card">
+
+                        <div class="settings-heading">
+
+                            <div class="settings-icon violet">
+                                <i data-lucide="bell"></i>
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Notifications
+                                </h3>
+
+                                <p>
+                                    Manage analyst notifications.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <label class="toggle-row">
+
+                            <span>
+                                <strong>
+                                    Incident notifications
+                                </strong>
+
+                                <small>
+                                    Notify when incidents are created
+                                </small>
+                            </span>
+
+                            <input
+                                type="checkbox"
+                                class="toggle-input"
+                                checked
+                            >
+
+                            <span class="toggle"></span>
+
+                        </label>
+
+
+                        <label class="toggle-row">
+
+                            <span>
+                                <strong>
+                                    Daily briefing
+                                </strong>
+
+                                <small>
+                                    Receive a security summary
+                                </small>
+                            </span>
+
+                            <input
+                                type="checkbox"
+                                class="toggle-input"
+                                checked
+                            >
+
+                            <span class="toggle"></span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- COMMAND PALETTE -->
+
+<div
+    class="modal-overlay"
+    id="commandModal"
+>
+
+    <div class="command-modal">
+
+        <div class="command-search">
+
+            <i data-lucide="search"></i>
+
+            <input
+                id="commandInput"
+                type="text"
+                placeholder="Search SentinelX..."
+            >
+
+            <kbd>ESC</kbd>
+
+        </div>
+
+
+        <div class="command-results">
+
+            <button data-command="overview">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Command Center</span>
+                <kbd>1</kbd>
+            </button>
+
+            <button data-command="threats">
+                <i data-lucide="shield-alert"></i>
+                <span>Threat Detection</span>
+                <kbd>2</kbd>
+            </button>
+
+            <button data-command="incidents">
+                <i data-lucide="siren"></i>
+                <span>Incident Response</span>
+                <kbd>3</kbd>
+            </button>
+
+            <button data-command="intelligence">
+                <i data-lucide="brain-circuit"></i>
+                <span>AI Intelligence</span>
+                <kbd>4</kbd>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+
+<div
+    class="notification-panel"
+    id="notificationPanel"
+>
+
+    <div class="notification-header">
+
+        <div>
+            <span class="section-label">
+                SECURITY ALERTS
+            </span>
+
+            <h3>
+                Notifications
+            </h3>
+        </div>
+
+        <button
+            class="icon-btn"
+            id="closeNotifications"
+        >
+            <i data-lucide="x"></i>
+        </button>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <div class="notification-icon red">
+            <i data-lucide="shield-alert"></i>
+        </div>
+
+        <div>
+            <strong>
+                Critical threat detected
+            </strong>
+
+            <span>
+                Endpoint-07 requires investigation.
+            </span>
+
+            <small>
+                2 minutes ago
+            </small>
+        </div>
+
+    </div>
+
+
+    <div class="notification-item">
+
+        <div class="notification-icon amber">
+            <i data-lucide="triangle-alert"></i>
+        </div>
+
+        <div>
+            <strong>
+                Authentication anomaly
+            </strong>
+
+            <span>
+                Gateway-03 exceeded threshold.
+            </span>
+
+            <small>
+                8 minutes ago
+            </small>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+>
+
+    <div class="toast-icon">
+        <i data-lucide="check"></i>
+    </div>
+
+    <div>
+        <strong id="toastTitle">
+            Success
+        </strong>
+
+        <span id="toastMessage">
+            Action completed.
+        </span>
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
