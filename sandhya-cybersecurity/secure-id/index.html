@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecureID — Digital Identity Security</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- IMPORTANT:
+         These are relative paths because this file is inside secure-id/
+    -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         BACKGROUND
+    ========================================================== -->
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+    <div class="grid-overlay"></div>
+
+
+    <!-- =========================================================
+         MOBILE HEADER
+    ========================================================== -->
+
+    <header class="mobile-header">
+
+        <button
+            class="icon-btn"
+            id="mobileMenu"
+            type="button"
+            aria-label="Open menu"
+        >
+            <i data-lucide="menu"></i>
+        </button>
+
+        <div class="mobile-brand">
+            <strong>Secure<span>ID</span></strong>
+        </div>
+
+        <button
+            class="icon-btn"
+            id="mobileNotification"
+            type="button"
+            aria-label="Notifications"
+        >
+            <i data-lucide="bell"></i>
+        </button>
+
+    </header>
+
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-mark">
+                <i data-lucide="shield-check"></i>
+            </div>
+
+            <div>
+                <strong>Secure<span>ID</span></strong>
+                <small>Identity Security</small>
+            </div>
+
+        </div>
+
+
+        <!-- Identity mini profile -->
+
+        <div class="identity-mini">
+
+            <div class="avatar">
+                BR
+                <span class="online-dot"></span>
+            </div>
+
+            <div>
+                <strong>Student Identity</strong>
+                <span>Protected account</span>
+            </div>
+
+            <i data-lucide="chevron-right"></i>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="nav">
+
+            <div class="nav-label">SECURITY</div>
+
+            <button
+                class="nav-item active"
+                data-page="overview"
+                type="button"
+            >
+                <i data-lucide="layout-dashboard"></i>
+                <span>Identity Overview</span>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="authentication"
+                type="button"
+            >
+                <i data-lucide="key-round"></i>
+                <span>Authentication</span>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="devices"
+                type="button"
+            >
+                <i data-lucide="monitor-smartphone"></i>
+                <span>Trusted Devices</span>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="sessions"
+                type="button"
+            >
+                <i data-lucide="scan-face"></i>
+                <span>Active Sessions</span>
+            </button>
+
+
+            <div class="nav-label">MONITOR</div>
+
+            <button
+                class="nav-item"
+                data-page="activity"
+                type="button"
+            >
+                <i data-lucide="activity"></i>
+                <span>Login Activity</span>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="insights"
+                type="button"
+            >
+                <i data-lucide="sparkles"></i>
+                <span>AI Identity Insights</span>
+                <span class="new-badge">AI</span>
+            </button>
+
+
+            <div class="nav-label">RECOVERY</div>
+
+            <button
+                class="nav-item"
+                data-page="recovery"
+                type="button"
+            >
+                <i data-lucide="life-buoy"></i>
+                <span>Recovery Center</span>
+            </button>
+
+
+            <div class="nav-label">SYSTEM</div>
+
+            <button
+                class="nav-item"
+                data-page="settings"
+                type="button"
+            >
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </button>
+
+        </nav>
+
+
+        <!-- Sidebar bottom -->
+
+        <div class="sidebar-bottom">
+
+            <div class="security-mini-card">
+
+                <div class="mini-icon">
+                    <i data-lucide="shield-check"></i>
+                </div>
+
+                <div>
+                    <strong>Identity Protected</strong>
+                    <span>All systems normal</span>
+                </div>
+
+                <span class="status-dot"></span>
+
+            </div>
+
+            <div class="sidebar-footer">
+                <span>SecureID v1.0</span>
+                <span>● Protected</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="breadcrumbs">
+
+                <span>SecureID</span>
+
+                <i data-lucide="chevron-right"></i>
+
+                <strong id="pageTitle">
+                    Identity Overview
+                </strong>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <button
+                    class="search-trigger"
+                    id="searchTrigger"
+                    type="button"
+                >
+                    <i data-lucide="search"></i>
+                    <span>Search</span>
+                    <kbd>Ctrl K</kbd>
+                </button>
+
+
+                <button
+                    class="icon-btn"
+                    id="notificationBtn"
+                    type="button"
+                    aria-label="Notifications"
+                >
+                    <i data-lucide="bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <button
+                    class="profile-btn"
+                    type="button"
+                >
+
+                    <span class="profile-avatar">BR</span>
+
+                    <span class="profile-info">
+                        <strong>Student</strong>
+                        <span>Protected</span>
+                    </span>
+
+                    <i data-lucide="chevron-down"></i>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             CONTENT
+        ====================================================== -->
+
+        <div class="content">
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================== -->
+
+            <section
+                class="page active"
+                id="overview"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <i data-lucide="shield-check"></i>
+                            IDENTITY COMMAND CENTER
+                        </div>
+
+                        <h1>
+                            Your identity,
+                            <span>secured.</span>
+                        </h1>
+
+                        <p>
+                            Monitor authentication, trusted devices,
+                            sessions and identity signals from one
+                            intelligent security workspace.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="primary-btn"
+                        id="runCheck"
+                        type="button"
+                    >
+                        <i data-lucide="scan-line"></i>
+                        Run Security Check
+                    </button>
+
+                </div>
+
+
+                <!-- Identity Hero -->
+
+                <div class="identity-hero">
+
+                    <div class="hero-left">
+
+                        <div class="identity-ring">
+
+                            <svg
+                                viewBox="0 0 120 120"
+                                aria-hidden="true"
+                            >
+
+                                <circle
+                                    class="ring-bg"
+                                    cx="60"
+                                    cy="60"
+                                    r="52"
+                                ></circle>
+
+                                <circle
+                                    class="ring-progress"
+                                    cx="60"
+                                    cy="60"
+                                    r="52"
+                                ></circle>
+
+                            </svg>
+
+                            <div class="ring-center">
+
+                                <strong id="identityScore">
+                                    98
+                                </strong>
+
+                                <span>TRUST SCORE</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="hero-copy">
+
+                            <span class="status-pill">
+                                <span></span>
+                                Excellent protection
+                            </span>
+
+                            <h2>
+                                Identity health is strong.
+                            </h2>
+
+                            <p>
+                                Your account currently shows no
+                                critical identity risks.
+                            </p>
+
+                            <div class="hero-meta">
+
+                                <span>
+                                    <i data-lucide="clock-3"></i>
+                                    Checked just now
+                                </span>
+
+                                <span>
+                                    <i data-lucide="lock-keyhole"></i>
+                                    Protected
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-right">
+
+                        <div class="hero-signal">
+
+                            <div class="signal-icon">
+                                <i data-lucide="fingerprint"></i>
+                            </div>
+
+                            <div>
+                                <span>Identity verification</span>
+                                <strong>Verified</strong>
+                            </div>
+
+                            <i
+                                data-lucide="check-circle-2"
+                                class="signal-check"
+                            ></i>
+
+                        </div>
+
+
+                        <div class="hero-signal">
+
+                            <div class="signal-icon">
+                                <i data-lucide="shield"></i>
+                            </div>
+
+                            <div>
+                                <span>Account protection</span>
+                                <strong>Active</strong>
+                            </div>
+
+                            <i
+                                data-lucide="check-circle-2"
+                                class="signal-check"
+                            ></i>
+
+                        </div>
+
+
+                        <div class="hero-signal">
+
+                            <div class="signal-icon">
+                                <i data-lucide="radio-tower"></i>
+                            </div>
+
+                            <div>
+                                <span>Risk monitoring</span>
+                                <strong>Live</strong>
+                            </div>
+
+                            <i
+                                data-lucide="check-circle-2"
+                                class="signal-check"
+                            ></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Stats -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon cyan">
+                            <i data-lucide="key-round"></i>
+                        </div>
+
+                        <div>
+                            <span>Authentication</span>
+                            <strong>3 methods</strong>
+                            <small>All protected</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            <i data-lucide="monitor-smartphone"></i>
+                        </div>
+
+                        <div>
+                            <span>Trusted devices</span>
+                            <strong>4 devices</strong>
+                            <small>Last checked today</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon violet">
+                            <i data-lucide="globe-2"></i>
+                        </div>
+
+                        <div>
+                            <span>Active sessions</span>
+                            <strong>2 sessions</strong>
+                            <small>No unusual activity</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon green">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                        <div>
+                            <span>Security status</span>
+                            <strong>Protected</strong>
+                            <small>0 critical risks</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Lower dashboard -->
+
+                <div class="dashboard-grid">
+
+
+                    <!-- Authentication -->
+
+                    <div class="panel">
+
+                        <div class="panel-heading">
+
+                            <div>
+                                <span class="panel-label">
+                                    AUTHENTICATION
+                                </span>
+
+                                <h3>
+                                    Verification methods
+                                </h3>
+                            </div>
+
+                            <button
+                                class="text-btn"
+                                data-go="authentication"
+                                type="button"
+                            >
+                                Manage
+                                <i data-lucide="arrow-up-right"></i>
+                            </button>
+
+                        </div>
+
+
+                        <div class="method-list">
+
+                            <div class="method-row">
+
+                                <div class="method-icon">
+                                    <i data-lucide="fingerprint"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Passkey</strong>
+                                    <span>Primary authentication</span>
+                                </div>
+
+                                <span class="verified">
+                                    Verified
+                                </span>
+
+                            </div>
+
+
+                            <div class="method-row">
+
+                                <div class="method-icon">
+                                    <i data-lucide="smartphone"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Authenticator</strong>
+                                    <span>Two-factor protection</span>
+                                </div>
+
+                                <span class="verified">
+                                    Active
+                                </span>
+
+                            </div>
+
+
+                            <div class="method-row">
+
+                                <div class="method-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Email verification</strong>
+                                    <span>Recovery method</span>
+                                </div>
+
+                                <span class="verified">
+                                    Verified
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI Insight -->
+
+                    <div class="panel ai-panel">
+
+                        <div class="panel-heading">
+
+                            <div>
+                                <span class="panel-label">
+                                    AI SECURITY
+                                </span>
+
+                                <h3>
+                                    Identity insight
+                                </h3>
+                            </div>
+
+                            <div class="ai-badge">
+                                <i data-lucide="sparkles"></i>
+                                LIVE
+                            </div>
+
+                        </div>
+
+
+                        <div class="ai-score-card">
+
+                            <span>
+                                Protection confidence
+                            </span>
+
+                            <strong>96%</strong>
+
+                            <div class="confidence-bar">
+                                <span></span>
+                            </div>
+
+                        </div>
+
+
+                        <p class="ai-message">
+                            Your identity signals are consistent
+                            with your trusted devices and recent
+                            activity.
+                        </p>
+
+
+                        <button
+                            class="outline-btn"
+                            data-go="insights"
+                            type="button"
+                        >
+                            View AI insights
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 AUTHENTICATION
+            ================================================== -->
+
+            <section
+                class="page"
+                id="authentication"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <i data-lucide="key-round"></i>
+                            AUTHENTICATION
+                        </div>
+
+                        <h1>
+                            Secure ways to
+                            <span>verify.</span>
+                        </h1>
+
+                        <p>
+                            Review the authentication methods
+                            protecting your digital identity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+<!-- =================================================
+     AUTHENTICATION
+================================================== -->
+
+<section
+    class="page"
+    id="authentication"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <div class="eyebrow">
+                <i data-lucide="key-round"></i>
+                AUTHENTICATION
+            </div>
+
+            <h1>
+                Secure ways to
+                <span>verify.</span>
+            </h1>
+
+            <p>
+                Review the authentication methods
+                protecting your digital identity.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Authentication Methods -->
+
+    <div class="security-method-grid">
+
+
+        <!-- Passkey -->
+
+        <div class="method-card featured">
+
+            <div class="method-icon cyan">
+                <i data-lucide="fingerprint"></i>
+            </div>
+
+            <div class="method-status">
+                <span>PRIMARY</span>
+            </div>
+
+            <h3>
+                Passkey
+            </h3>
+
+            <p>
+                Passwordless identity verification
+                using your trusted device.
+            </p>
+
+            <div class="method-footer">
+
+                <span class="active-label">
+                    <i data-lucide="check-circle-2"></i>
+                    Verified
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Authenticator -->
+
+        <div class="method-card">
+
+            <div class="method-icon violet">
+                <i data-lucide="shield-check"></i>
+            </div>
+
+            <div class="method-status">
+                <span>ACTIVE</span>
+            </div>
+
+            <h3>
+                Authenticator
+            </h3>
+
+            <p>
+                Additional verification layer for
+                sensitive account activity.
+            </p>
+
+            <div class="method-footer">
+
+                <span class="active-label">
+                    <i data-lucide="check-circle-2"></i>
+                    Enabled
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Email Verification -->
+
+        <div class="method-card">
+
+            <div class="method-icon blue">
+                <i data-lucide="mail-check"></i>
+            </div>
+
+            <div class="method-status">
+                <span>RECOVERY</span>
+            </div>
+
+            <h3>
+                Email verification
+            </h3>
+
+            <p>
+                Verified recovery channel for
+                important identity events.
+            </p>
+
+            <div class="method-footer">
+
+                <span class="active-label">
+                    <i data-lucide="check-circle-2"></i>
+                    Verified
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+         
+
+
+                    <div class="security-card">
+
+                        <div class="large-icon violet">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                        <span class="card-status">
+                            ACTIVE
+                        </span>
+
+                        <h3>Authenticator</h3>
+
+                        <p>
+                            Additional verification layer for
+                            sensitive account activity.
+                        </p>
+
+                        <div class="card-footer">
+                            <span>Enabled</span>
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="security-card">
+
+                        <div class="large-icon blue">
+                            <i data-lucide="mail-check"></i>
+                        </div>
+
+                        <span class="card-status">
+                            RECOVERY
+                        </span>
+
+                        <h3>Email verification</h3>
+
+                        <p>
+                            Verified recovery channel for
+                            important identity events.
+                        </p>
+
+                        <div class="card-footer">
+                            <span>Verified</span>
+                            <i data-lucide="check-circle-2"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DEVICES
+            ================================================== -->
+
+            <section
+                class="page"
+                id="devices"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <i data-lucide="monitor-smartphone"></i>
+                            TRUSTED DEVICES
+                        </div>
+
+                        <h1>
+                            Devices you
+                            <span>trust.</span>
+                        </h1>
+
+                        <p>
+                            Review devices currently recognized by
+                            your identity security workspace.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="primary-btn"
+                        id="refreshDevices"
+                        type="button"
+                    >
+                        <i data-lucide="refresh-cw"></i>
+                        Refresh Devices
+                    </button>
+
+                </div>
+
+
+                <div class="device-list">
+
+                    <div class="device-card">
+
+                        <div class="device-icon">
+                            <i data-lucide="laptop"></i>
+                        </div>
+
+                        <div class="device-info">
+                            <strong>Windows Laptop</strong>
+                            <span>Chrome · Chennai · Active now</span>
+                        </div>
+
+                        <span class="device-status">
+                            Current
+                        </span>
+
+                        <button
+                            class="more-btn"
+                            type="button"
+                        >
+                            <i data-lucide="more-horizontal"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="device-card">
+
+                        <div class="device-icon">
+                            <i data-lucide="smartphone"></i>
+                        </div>
+
+                        <div class="device-info">
+                            <strong>Android Phone</strong>
+                            <span>Mobile · Chennai · 18 min ago</span>
+                        </div>
+
+                        <span class="device-status">
+                            Trusted
+                        </span>
+
+                        <button
+                            class="more-btn"
+                            type="button"
+                        >
+                            <i data-lucide="more-horizontal"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="device-card">
+
+                        <div class="device-icon">
+                            <i data-lucide="tablet"></i>
+                        </div>
+
+                        <div class="device-info">
+                            <strong>Tablet</strong>
+                            <span>Chrome · Chennai · Yesterday</span>
+                        </div>
+
+                        <span class="device-status">
+                            Trusted
+                        </span>
+
+                        <button
+                            class="more-btn"
+                            type="button"
+                        >
+                            <i data-lucide="more-horizontal"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="device-card">
+
+                        <div class="device-icon">
+                            <i data-lucide="monitor"></i>
+                        </div>
+
+                        <div class="device-info">
+                            <strong>Campus Desktop</strong>
+                            <span>Edge · Chennai · 2 days ago</span>
+                        </div>
+
+                        <span class="device-status">
+                            Trusted
+                        </span>
+
+                        <button
+                            class="more-btn"
+                            type="button"
+                        >
+                            <i data-lucide="more-horizontal"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SESSIONS
+            ================================================== -->
+
+            <section
+                class="page"
+                id="sessions"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <i data-lucide="scan-face"></i>
+                            ACTIVE SESSIONS
+                        </div>
+
+                        <h1>
+                            Where you're
+                            <span>signed in.</span>
+                        </h1>
+
+                        <p>
+                            Review active identity sessions and
+                            monitor unusual access signals.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="outline-btn"
+                        id="endOtherSessions"
+                        type="button"
+                    >
+                        <i data-lucide="log-out"></i>
+                        Review Sessions
+                    </button>
+
+                </div>
+
+
+                <div class="session-grid">
+
+                    <div class="session-card">
+
+                        <div class="session-top">
+
+                            <div class="device-icon">
+                                <i data-lucide="laptop"></i>
+                            </div>
+
+                            <span class="live-status">
+                                LIVE
+                            </span>
+
+                        </div>
+
+                        <h3>Windows Laptop</h3>
+
+                        <p>
+                            Chrome · Chennai, India
+                        </p>
+
+                        <div class="session-footer">
+                            <span>Current session</span>
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="session-card">
+
+                        <div class="session-top">
+
+                            <div class="device-icon">
+                                <i data-lucide="smartphone"></i>
+                            </div>
+
+                            <span class="live-status">
+                                ACTIVE
+                            </span>
+
+                        </div>
+
+                        <h3>Android Phone</h3>
+
+                        <p>
+                            Mobile app · Chennai, India
+                        </p>
+
+                        <div class="session-footer">
+                            <span>18 minutes ago</span>
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ACTIVITY
+            ================================================== -->
+
+            <section
+                class="page"
+                id="activity"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <i data-lucide="activity"></i>
+                            LOGIN ACTIVITY
+                        </div>
+
+                        <h1>
+                            Identity
+                            <span>activity.</span>
+                        </h1>
+
+                        <p>
+                            A timeline of recent authentication
+                            and identity events.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="outline-btn filter-btn"
+                        type="button"
+                    >
+                        <i data-lucide="filter"></i>
+                        Filter
+                    </button>
+
+                </div>
+
+
+                <div class="activity-panel">
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon success">
+                            <i data-lucide="log-in"></i>
+                        </div>
+
+                        <div>
+                            <strong>Successful sign-in</strong>
+                            <span>
+                                Windows Laptop · Chrome
+                            </span>
+                        </div>
+
+                        <time>Just now</time>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon success">
+                            <i data-lucide="fingerprint"></i>
+                        </div>
+
+                        <div>
+                            <strong>Identity verified</strong>
+                            <span>
+                                Passkey verification completed
+                            </span>
+                        </div>
+
+                        <time>18 min ago</time>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon blue">
+                            <i data-lucide="smartphone"></i>
+                        </div>
+
+                        <div>
+                            <strong>Trusted device recognized</strong>
+                            <span>
+                                Android Phone
+                            </span>
+                        </div>
+
+                        <time>1 hour ago</time>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon violet">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                        <div>
+                            <strong>Security check completed</strong>
+                            <span>
+                                No critical risks detected
+                            </span>
+                        </div>
+
+                        <time>Today</time>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 AI INSIGHTS
+            ================================================== -->
+
+            <section
+                class="page"
+                id="insights"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <i data-lucide="sparkles"></i>
+                            AI IDENTITY INTELLIGENCE
+                        </div>
+
+                        <h1>
+                            Smarter identity
+                            <span>insights.</span>
+                        </h1>
+
+                        <p>
+                            Simulated AI analysis of identity
+                            signals, authentication and account
+                            activity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="insight-grid">
+
+                    <div class="ai-main-card">
+
+                        <div class="ai-orb">
+                            <i data-lucide="sparkles"></i>
+                        </div>
+
+                        <span class="ai-label">
+                            IDENTITY AI
+                        </span>
+
+                        <h2>
+                            Protection confidence
+                        </h2>
+
+                        <strong class="big-score">
+                            96%
+                        </strong>
+
+                        <p>
+                            Your recent identity behavior is
+                            consistent with your trusted devices,
+                            authentication methods and normal
+                            activity.
+                        </p>
+
+                    </div>
+
+
+                    <div class="insight-card">
+
+                        <div class="insight-card-top">
+                            <i data-lucide="shield-check"></i>
+                            <span>LOW RISK</span>
+                        </div>
+
+                        <h3>
+                            Identity signals are healthy
+                        </h3>
+
+                        <p>
+                            No unusual authentication pattern was
+                            detected in the current workspace.
+                        </p>
+
+                    </div>
+
+
+                    <div class="insight-card">
+
+                        <div class="insight-card-top">
+                            <i data-lucide="monitor-smartphone"></i>
+                            <span>STABLE</span>
+                        </div>
+
+                        <h3>
+                            Device trust is consistent
+                        </h3>
+
+                        <p>
+                            Recognized devices continue to match
+                            your normal identity activity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RECOVERY
+            ================================================== -->
+
+            <section
+                class="page"
+                id="recovery"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <i data-lucide="life-buoy"></i>
+                            RECOVERY CENTER
+                        </div>
+
+                        <h1>
+                            Stay ready to
+                            <span>recover.</span>
+                        </h1>
+
+                        <p>
+                            Review the recovery readiness of your
+                            digital identity.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="primary-btn"
+                        id="reviewRecovery"
+                        type="button"
+                    >
+                        <i data-lucide="clipboard-check"></i>
+                        Review Recovery
+                    </button>
+
+                </div>
+
+
+                <div class="recovery-grid">
+
+                    <div class="recovery-card">
+
+                        <div class="recovery-icon green">
+                            <i data-lucide="mail-check"></i>
+                        </div>
+
+                        <h3>Email recovery</h3>
+
+                        <p>
+                            Verified recovery channel.
+                        </p>
+
+                        <span class="recovery-status">
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div class="recovery-card">
+
+                        <div class="recovery-icon cyan">
+                            <i data-lucide="smartphone"></i>
+                        </div>
+
+                        <h3>Trusted device</h3>
+
+                        <p>
+                            Recovery device recognized.
+                        </p>
+
+                        <span class="recovery-status">
+                            Ready
+                        </span>
+
+                    </div>
+
+
+                    <div class="recovery-card">
+
+                        <div class="recovery-icon violet">
+                            <i data-lucide="shield-check"></i>
+                        </div>
+
+                        <h3>Identity verification</h3>
+
+                        <p>
+                            Verification status is healthy.
+                        </p>
+
+                        <span class="recovery-status">
+                            Verified
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SETTINGS
+            ================================================== -->
+
+            <section
+                class="page"
+                id="settings"
+            >
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            <i data-lucide="settings"></i>
+                            SECURITY SETTINGS
+                        </div>
+
+                        <h1>
+                            Control your
+                            <span>protection.</span>
+                        </h1>
+
+                        <p>
+                            Manage monitoring and identity security
+                            preferences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="settings-panel">
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>Identity monitoring</strong>
+                            <span>
+                                Monitor account identity signals
+                            </span>
+                        </div>
+
+                        <label class="switch">
+                            <input
+                                type="checkbox"
+                                checked
+                            >
+                            <span></span>
+                        </label>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>New login alerts</strong>
+                            <span>
+                                Receive alerts for new sessions
+                            </span>
+                        </div>
+
+                        <label class="switch">
+                            <input
+                                type="checkbox"
+                                checked
+                            >
+                            <span></span>
+                        </label>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>AI identity insights</strong>
+                            <span>
+                                Enable intelligent security analysis
+                            </span>
+                        </div>
+
+                        <label class="switch">
+                            <input
+                                type="checkbox"
+                                checked
+                            >
+                            <span></span>
+                        </label>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>Security notifications</strong>
+                            <span>
+                                Show identity protection updates
+                            </span>
+                        </div>
+
+                        <label class="switch">
+                            <input
+                                type="checkbox"
+                                checked
+                            >
+                            <span></span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         NOTIFICATION PANEL
+    ========================================================== -->
+
+    <div
+        class="notification-panel"
+        id="notificationPanel"
+    >
+
+        <div class="notification-header">
+
+            <div>
+                <strong>Notifications</strong>
+                <span>Identity security updates</span>
+            </div>
+
+            <button
+                class="icon-btn"
+                id="closeNotifications"
+                type="button"
+            >
+                <i data-lucide="x"></i>
+            </button>
+
+        </div>
+
+
+        <div class="notification-item">
+
+            <div class="notification-icon green">
+                <i data-lucide="shield-check"></i>
+            </div>
+
+            <div>
+                <strong>Identity protected</strong>
+                <span>
+                    No critical risks detected.
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="notification-item">
+
+            <div class="notification-icon cyan">
+                <i data-lucide="fingerprint"></i>
+            </div>
+
+            <div>
+                <strong>Authentication verified</strong>
+                <span>
+                    Your primary method is active.
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         COMMAND PALETTE
+    ========================================================== -->
+
+    <div
+        class="command-overlay"
+        id="commandOverlay"
+    >
+
+        <div class="command-modal">
+
+            <div class="command-search">
+
+                <i data-lucide="search"></i>
+
+                <input
+                    type="text"
+                    id="commandInput"
+                    placeholder="Search SecureID..."
+                    autocomplete="off"
+                >
+
+                <kbd>ESC</kbd>
+
+            </div>
+
+
+            <div class="command-results">
+
+                <button
+                    data-command="overview"
+                    type="button"
+                >
+                    <i data-lucide="layout-dashboard"></i>
+                    Identity Overview
+                </button>
+
+                <button
+                    data-command="authentication"
+                    type="button"
+                >
+                    <i data-lucide="key-round"></i>
+                    Authentication
+                </button>
+
+                <button
+                    data-command="devices"
+                    type="button"
+                >
+                    <i data-lucide="monitor-smartphone"></i>
+                    Trusted Devices
+                </button>
+
+                <button
+                    data-command="sessions"
+                    type="button"
+                >
+                    <i data-lucide="scan-face"></i>
+                    Active Sessions
+                </button>
+
+                <button
+                    data-command="activity"
+                    type="button"
+                >
+                    <i data-lucide="activity"></i>
+                    Login Activity
+                </button>
+
+                <button
+                    data-command="insights"
+                    type="button"
+                >
+                    <i data-lucide="sparkles"></i>
+                    AI Identity Insights
+                </button>
+
+                <button
+                    data-command="recovery"
+                    type="button"
+                >
+                    <i data-lucide="life-buoy"></i>
+                    Recovery Center
+                </button>
+
+                <button
+                    data-command="settings"
+                    type="button"
+                >
+                    <i data-lucide="settings"></i>
+                    Settings
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         TOAST
+    ========================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+    >
+
+        <div class="toast-icon">
+            <i data-lucide="shield-check"></i>
+        </div>
+
+        <div class="toast-content">
+
+            <strong id="toastTitle">
+                Security action complete
+            </strong>
+
+            <span id="toastMessage">
+                SecureID has updated your identity workspace.
+            </span>
+
+        </div>
+
+        <button
+            class="toast-close"
+            id="toastClose"
+            type="button"
+        >
+            <i data-lucide="x"></i>
+        </button>
+
+    </div>
+
+
+    <!-- IMPORTANT:
+         JS is loaded last and uses the local script.js file.
+    -->
+    <script src="./script.js"></script>
+
+</body>
+</html>

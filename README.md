@@ -1,2 +1,0 @@
-#NexaUI
-UI Template Collection

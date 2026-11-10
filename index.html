@@ -1,0 +1,3180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NexaUI — Emerging Web Interface Collection</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* =========================================================
+           NEXAUI — TEAM HOMEPAGE
+           Theme: Deep Navy + Lavender + Cyan + Mint
+        ========================================================= */
+
+        :root {
+            --bg: #080b16;
+            --bg-secondary: #0d1120;
+
+            --surface: rgba(18, 23, 43, 0.72);
+            --surface-solid: #12172b;
+
+            --text: #f5f7ff;
+            --muted: #8d96b2;
+
+            --border: rgba(150, 160, 210, 0.14);
+
+            --purple: #8b7cff;
+            --purple-light: #a79cff;
+
+            --cyan: #45c8e8;
+            --cyan-light: #70ddf2;
+
+            --mint: #51c9a0;
+            --mint-light: #7be0bd;
+
+            --pink: #ff72c6;
+            --orange: #f4a261;
+
+            --shadow:
+                0 25px 70px rgba(0, 0, 0, 0.35);
+
+            --sidebar-width: 270px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(139, 124, 255, 0.14),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 90% 25%,
+                    rgba(69, 200, 232, 0.10),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 50% 90%,
+                    rgba(81, 201, 160, 0.08),
+                    transparent 28%
+                ),
+                var(--bg);
+
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================================================
+           BACKGROUND
+        ========================================================= */
+
+        .ambient {
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: -2;
+            opacity: 0.14;
+        }
+
+        .ambient-1 {
+            background: var(--purple);
+            top: -180px;
+            left: -140px;
+        }
+
+        .ambient-2 {
+            background: var(--cyan);
+            right: -180px;
+            top: 220px;
+        }
+
+        .ambient-3 {
+            background: var(--mint);
+            left: 35%;
+            bottom: -250px;
+        }
+
+        .grid-background {
+            position: fixed;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(150, 160, 210, 0.035) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(150, 160, 210, 0.035) 1px,
+                    transparent 1px
+                );
+
+            background-size: 52px 52px;
+
+            pointer-events: none;
+            z-index: -1;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 90%
+            );
+        }
+
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .navbar {
+            position: sticky;
+            top: 14px;
+            z-index: 100;
+
+            width: min(1240px, calc(100% - 28px));
+            margin: 14px auto 0;
+
+            padding: 13px 16px;
+
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            background: rgba(9, 13, 28, 0.74);
+            backdrop-filter: blur(24px);
+
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, 0.18);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            margin-right: auto;
+        }
+
+        .logo-mark {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--purple),
+                    var(--cyan)
+                );
+
+            box-shadow:
+                0 0 30px rgba(139, 124, 255, 0.28);
+        }
+
+        .logo-mark span {
+            width: 4px;
+            border-radius: 5px;
+            background: white;
+        }
+
+        .logo-mark span:nth-child(1) {
+            height: 11px;
+        }
+
+        .logo-mark span:nth-child(2) {
+            height: 19px;
+        }
+
+        .logo-mark span:nth-child(3) {
+            height: 14px;
+        }
+
+        .logo strong {
+            display: block;
+            font-family: "Space Grotesk";
+            font-size: 17px;
+        }
+
+        .logo small {
+            display: block;
+            margin-top: 2px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 13px;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--text);
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(139, 124, 255, 0.45);
+        }
+
+        .nav-cta,
+        .primary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--purple),
+                    var(--cyan)
+                );
+
+            border: none;
+
+            box-shadow:
+                0 12px 35px rgba(110, 110, 255, 0.22);
+
+            transition: 0.25s;
+        }
+
+        .nav-cta {
+            padding: 11px 15px;
+
+            border-radius: 12px;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .nav-cta:hover,
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 18px 40px rgba(110, 110, 255, 0.3);
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 720px;
+
+            padding: 105px 0 90px;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 13px;
+
+            margin-bottom: 22px;
+
+            color: #aeb7d3;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            font-size: 11px;
+            font-weight: 600;
+
+            letter-spacing: 0.05em;
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--mint);
+
+            box-shadow:
+                0 0 12px var(--mint);
+
+            animation: pulse 1.7s infinite;
+        }
+
+        @keyframes pulse {
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7);
+            }
+        }
+
+        .hero h1 {
+            max-width: 760px;
+
+            font-family: "Space Grotesk";
+            font-size: clamp(48px, 6.5vw, 82px);
+            line-height: 0.98;
+
+            letter-spacing: -0.055em;
+        }
+
+        .hero h1 span {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--purple-light),
+                    var(--cyan),
+                    var(--mint)
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 630px;
+
+            margin: 26px 0 32px;
+
+            color: var(--muted);
+
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 14px 18px;
+
+            border-radius: 14px;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            color: var(--text);
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            transition: 0.25s;
+        }
+
+        .secondary-btn:hover {
+            transform: translateY(-3px);
+            border-color: rgba(139, 124, 255, 0.4);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+
+            margin-top: 45px;
+        }
+
+        .hero-stats strong {
+            display: block;
+
+            font-family: "Space Grotesk";
+            font-size: 27px;
+        }
+
+        .hero-stats span {
+            color: var(--muted);
+
+            font-size: 10px;
+
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           HERO ORB
+        ========================================================= */
+
+        .hero-visual {
+            position: relative;
+
+            height: 500px;
+
+            display: grid;
+            place-items: center;
+        }
+
+        .orbit {
+            position: absolute;
+
+            border: 1px solid rgba(150, 160, 210, 0.12);
+
+            border-radius: 50%;
+
+            animation: spin 22s linear infinite;
+        }
+
+        .orbit-1 {
+            width: 370px;
+            height: 370px;
+        }
+
+        .orbit-2 {
+            width: 270px;
+            height: 270px;
+
+            animation-direction: reverse;
+            animation-duration: 17s;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .center-orb {
+            position: relative;
+            z-index: 2;
+
+            width: 160px;
+            height: 160px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 32% 25%,
+                    #ffffff,
+                    #a79cff 9%,
+                    #5d76e8 30%,
+                    #10152e 72%
+                );
+
+            box-shadow:
+                0 0 100px rgba(139, 124, 255, 0.35);
+        }
+
+        .orb-inner {
+            width: 57px;
+            height: 57px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.13);
+
+            border: 1px solid rgba(255,255,255,.18);
+        }
+
+        .center-orb span {
+            position: absolute;
+            bottom: 20px;
+
+            font-family: "Space Grotesk";
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.2em;
+        }
+
+        .floating-card {
+            position: absolute;
+
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            padding: 13px 15px;
+
+            background:
+                rgba(14, 20, 39, 0.78);
+
+            backdrop-filter: blur(18px);
+
+            border: 1px solid var(--border);
+            border-radius: 17px;
+
+            box-shadow: var(--shadow);
+
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        .floating-card strong {
+            display: block;
+
+            font-family: "Space Grotesk";
+            font-size: 13px;
+        }
+
+        .floating-card span {
+            display: block;
+
+            margin-top: 3px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+        }
+
+        .mini-icon {
+            width: 33px;
+            height: 33px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 10px;
+        }
+
+        .mini-purple {
+            color: var(--purple);
+            background: rgba(139, 124, 255, 0.14);
+        }
+
+        .mini-cyan {
+            color: var(--cyan);
+            background: rgba(69, 200, 232, 0.13);
+        }
+
+        .mini-mint {
+            color: var(--mint);
+            background: rgba(81, 201, 160, 0.13);
+        }
+
+        .card-brain {
+            left: 0;
+            top: 65px;
+        }
+
+        .card-meet {
+            right: 0;
+            top: 180px;
+            animation-delay: 1s;
+        }
+
+        .card-study {
+            left: 55px;
+            bottom: 50px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floating {
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        section {
+            padding: 95px 0;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            gap: 30px;
+
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: #aeb7d3;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 0.16em;
+
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            margin-top: 10px;
+
+            font-family: "Space Grotesk";
+            font-size: clamp(35px, 4.4vw, 58px);
+
+            line-height: 1.03;
+
+            letter-spacing: -0.045em;
+        }
+
+        .section-heading h2 span {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--purple),
+                    var(--cyan)
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .section-heading p {
+            max-width: 430px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        /* =========================================================
+           DOMAIN
+        ========================================================= */
+
+        .domain {
+            margin: 75px 0;
+        }
+
+        .domain-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .domain-icon {
+            width: 52px;
+            height: 52px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+        }
+
+        .domain-header h3 {
+            font-family: "Space Grotesk";
+            font-size: 23px;
+        }
+
+        .domain-header p {
+            margin-top: 4px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+        .member {
+            margin-left: auto;
+
+            padding: 7px 12px;
+
+            color: var(--muted);
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 999px;
+
+            font-size: 10px;
+        }
+
+        /* =========================================================
+           PROJECT CARDS
+        ========================================================= */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .project-card {
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(18, 24, 45, 0.92),
+                    rgba(9, 14, 30, 0.82)
+                );
+
+            border: 1px solid var(--border);
+            border-radius: 26px;
+
+            box-shadow: var(--shadow);
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+
+            border-color:
+                rgba(139, 124, 255, 0.4);
+
+            box-shadow:
+                0 30px 90px rgba(0,0,0,.42);
+        }
+
+        .project-number {
+            position: absolute;
+
+            top: 18px;
+            right: 18px;
+
+            color: rgba(255,255,255,.28);
+
+            font-family: "Space Grotesk";
+            font-size: 11px;
+            font-weight: 700;
+
+            z-index: 3;
+        }
+
+        .project-visual {
+            position: relative;
+
+            height: 190px;
+
+            display: grid;
+            place-items: center;
+
+            overflow: hidden;
+        }
+
+        .visual-glow {
+            position: absolute;
+            width: 170px;
+            height: 170px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            filter: blur(70px);
+
+            opacity: .12;
+        }
+
+        .visual-ring {
+            position: absolute;
+
+            width: 170px;
+            height: 100px;
+
+            border:
+                1px solid
+                color-mix(
+                    in srgb,
+                    var(--accent),
+                    transparent 65%
+                );
+
+            border-radius: 50%;
+
+            transform: rotate(-12deg);
+        }
+
+        .visual-ring::before,
+        .visual-ring::after {
+            content: "";
+
+            position: absolute;
+
+            border: 1px solid
+                color-mix(
+                    in srgb,
+                    var(--accent),
+                    transparent 70%
+                );
+
+            border-radius: 50%;
+        }
+
+        .visual-ring::before {
+            inset: 15px;
+        }
+
+        .visual-ring::after {
+            inset: 30px;
+        }
+
+        .project-icon {
+            position: relative;
+            z-index: 2;
+
+            width: 78px;
+            height: 78px;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--accent);
+
+            background: rgba(255,255,255,.055);
+
+            border:
+                1px solid
+                rgba(255,255,255,.13);
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 0 50px
+                color-mix(
+                    in srgb,
+                    var(--accent),
+                    transparent 65%
+                );
+        }
+
+        .project-content {
+            padding: 0 21px 23px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: .13em;
+        }
+
+        .project-content h4 {
+            margin-bottom: 9px;
+
+            font-family: "Space Grotesk";
+            font-size: 22px;
+        }
+
+        .project-content p {
+            min-height: 65px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+            line-height: 1.65;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+            margin: 15px 0 19px;
+        }
+
+        .tags span {
+            padding: 6px 8px;
+
+            color: #bac3dd;
+
+            background: rgba(255,255,255,.025);
+
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            font-size: 9px;
+        }
+
+        .project-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 10px 12px;
+
+            color: var(--text);
+
+            background: rgba(255,255,255,.045);
+
+            border: 1px solid var(--border);
+            border-radius: 11px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            transition: .25s;
+        }
+
+        .project-btn:hover {
+            transform: translateY(-2px);
+
+            border-color:
+                rgba(69,200,232,.4);
+
+            background:
+                rgba(69,200,232,.08);
+        }
+
+        /* =========================================================
+           ECOSYSTEM
+        ========================================================= */
+
+        .flow-section {
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent,
+                    rgba(90,100,180,.045),
+                    transparent
+                );
+        }
+
+        .center {
+            text-align: center;
+            display: block;
+        }
+
+        .center p {
+            margin: 15px auto 0;
+        }
+
+        .flow {
+            display: grid;
+
+            grid-template-columns:
+                1fr 60px 1fr 60px 1fr;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 42px;
+        }
+
+        .flow-item {
+            padding: 28px;
+
+            text-align: center;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: 22px;
+        }
+
+        .flow-icon {
+            width: 52px;
+            height: 52px;
+
+            margin: auto;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--cyan);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(139,124,255,.16),
+                    rgba(69,200,232,.10)
+                );
+
+            border-radius: 16px;
+        }
+
+        .flow-item span {
+            display: block;
+
+            margin: 16px 0 5px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+        }
+
+        .flow-item h3 {
+            font-family: "Space Grotesk";
+            font-size: 20px;
+        }
+
+        .flow-item p {
+            margin-top: 7px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .flow-line {
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--purple),
+                    var(--cyan),
+                    var(--mint)
+                );
+        }
+
+        /* =========================================================
+           DESIGN SYSTEM
+        ========================================================= */
+
+        .system-section {
+            display: grid;
+
+            grid-template-columns: .9fr 1.1fr;
+
+            gap: 65px;
+
+            align-items: center;
+        }
+
+        .system-copy h2 {
+            margin: 11px 0 18px;
+
+            font-family: "Space Grotesk";
+            font-size: clamp(35px,4.3vw,56px);
+
+            line-height: 1.03;
+
+            letter-spacing: -.045em;
+        }
+
+        .system-copy h2 span {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--purple),
+                    var(--cyan)
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .system-copy > p {
+            max-width: 530px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .system-points {
+            display: grid;
+            gap: 16px;
+
+            margin-top: 28px;
+        }
+
+        .system-points > div {
+            display: flex;
+            gap: 13px;
+        }
+
+        .system-points i {
+            color: var(--cyan);
+        }
+
+        .system-points strong {
+            display: block;
+
+            font-size: 13px;
+        }
+
+        .system-points span {
+            display: block;
+
+            margin-top: 3px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+        }
+
+        .preview-window {
+            padding: 12px;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: 25px;
+
+            box-shadow: var(--shadow);
+
+            transform:
+                perspective(1000px)
+                rotateY(-4deg);
+
+            transition: .4s;
+        }
+
+        .preview-window:hover {
+            transform:
+                perspective(1000px)
+                rotateY(0);
+        }
+
+        .preview-top {
+            height: 25px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 5px;
+
+            padding: 0 8px;
+        }
+
+        .preview-top span {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--muted);
+
+            opacity: .4;
+        }
+
+        .preview-content {
+            height: 310px;
+
+            display: flex;
+
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            border-radius: 17px;
+        }
+
+        .preview-sidebar {
+            width: 23%;
+
+            padding: 20px 12px;
+
+            display: grid;
+            align-content: start;
+
+            gap: 13px;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .preview-sidebar span {
+            height: 7px;
+
+            border-radius: 8px;
+
+            background: var(--border);
+        }
+
+        .preview-logo {
+            width: 27px;
+            height: 27px;
+
+            margin-bottom: 8px;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--purple),
+                    var(--cyan)
+                );
+        }
+
+        .preview-main {
+            flex: 1;
+
+            padding: 22px;
+        }
+
+        .preview-title {
+            width: 42%;
+            height: 16px;
+
+            margin-bottom: 25px;
+
+            border-radius: 8px;
+
+            background: var(--border);
+        }
+
+        .preview-cards {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+        }
+
+        .preview-cards div {
+            height: 65px;
+
+            border: 1px solid var(--border);
+            border-radius: 13px;
+
+            background: rgba(255,255,255,.025);
+        }
+
+        .preview-chart {
+            height: 125px;
+
+            margin-top: 14px;
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(139,124,255,.13),
+                    transparent
+                );
+
+            border: 1px solid var(--border);
+        }
+
+        /* =========================================================
+           TEAM
+        ========================================================= */
+
+        .team-card {
+            padding: 38px;
+
+            display: grid;
+
+            grid-template-columns: auto 1fr auto;
+
+            gap: 25px;
+
+            align-items: center;
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+            border-radius: 30px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .team-icon {
+            width: 60px;
+            height: 60px;
+
+            display: grid;
+            place-items: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--purple),
+                    var(--cyan)
+                );
+
+            border-radius: 18px;
+        }
+
+        .team-card h2 {
+            margin: 10px 0;
+
+            font-family: "Space Grotesk";
+            font-size: 34px;
+        }
+
+        .team-card h2 span {
+            color: var(--cyan);
+        }
+
+        .team-card p {
+            max-width: 620px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .team-stats {
+            display: flex;
+            gap: 28px;
+        }
+
+        .team-stats strong {
+            display: block;
+
+            font-family: "Space Grotesk";
+            font-size: 25px;
+        }
+
+        .team-stats span {
+            color: var(--muted);
+
+            font-size: 9px;
+
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 50px 0 60px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 25px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .footer-brand strong {
+            display: block;
+
+            font-family: "Space Grotesk";
+            font-size: 15px;
+        }
+
+        .footer-brand small {
+            color: var(--muted);
+
+            font-size: 9px;
+        }
+
+        footer p {
+            margin-right: auto;
+
+            color: var(--muted);
+
+            font-size: 11px;
+        }
+
+        .footer-copy {
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        /* =========================================================
+           REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                height: 400px;
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .system-section {
+                grid-template-columns: 1fr;
+            }
+
+            .flow {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .flow-line {
+                display: none;
+            }
+
+            .team-card {
+                grid-template-columns: auto 1fr;
+            }
+
+            .team-stats {
+                grid-column: 1/-1;
+            }
+        }
+
+        @media (max-width: 620px) {
+
+            .container {
+                width: calc(100% - 24px);
+            }
+
+            .navbar {
+                width: calc(100% - 16px);
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 70px;
+            }
+
+            .hero h1 {
+                font-size: 46px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .hero-visual {
+                height: 330px;
+            }
+
+            .orbit-1 {
+                width: 260px;
+                height: 260px;
+            }
+
+            .orbit-2 {
+                width: 190px;
+                height: 190px;
+            }
+
+            .center-orb {
+                width: 115px;
+                height: 115px;
+            }
+
+            .floating-card {
+                transform: scale(.88);
+            }
+
+            .card-brain {
+                left: 0;
+                top: 30px;
+            }
+
+            .card-meet {
+                right: 0;
+                top: 110px;
+            }
+
+            .card-study {
+                left: 20px;
+                bottom: 10px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-heading p {
+                margin-top: 15px;
+            }
+
+            .domain {
+                margin: 55px 0;
+            }
+
+            .member {
+                display: none;
+            }
+
+            .system-section {
+                gap: 35px;
+            }
+
+            .preview-content {
+                height: 240px;
+            }
+
+            .preview-main {
+                padding: 13px;
+            }
+
+            .team-card {
+                grid-template-columns: 1fr;
+                padding: 27px;
+            }
+
+            .team-stats {
+                display: grid;
+
+                grid-template-columns:
+                    repeat(3,1fr);
+
+                gap: 12px;
+            }
+
+            footer {
+                display: block;
+            }
+
+            footer p {
+                margin: 15px 0;
+            }
+
+            .footer-copy {
+                display: block;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="ambient ambient-1"></div>
+<div class="ambient ambient-2"></div>
+<div class="ambient ambient-3"></div>
+
+<div class="grid-background"></div>
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+    <a href="#" class="logo">
+
+        <div class="logo-mark">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div>
+            <strong>NexaUI</strong>
+            <small>Emerging Web Interfaces</small>
+        </div>
+
+    </a>
+
+    <nav class="nav-links">
+        <a href="#collection">Collection</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#system">Design System</a>
+        <a href="#team">Team</a>
+    </nav>
+
+    <div class="nav-actions">
+
+        <button
+            class="icon-btn"
+            id="themeBtn"
+            aria-label="Toggle theme"
+        >
+            <i data-lucide="sun"></i>
+        </button>
+
+        <a href="#collection" class="nav-cta">
+            Explore UIs
+            <i data-lucide="arrow-up-right"></i>
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero container">
+
+    <div class="hero-content reveal">
+
+        <div class="eyebrow">
+
+            <span class="live-dot"></span>
+
+            Emerging Interface Collection
+
+        </div>
+
+        <h1>
+
+            Interfaces built for
+
+            <span>
+                what comes next.
+            </span>
+
+        </h1>
+
+        <p>
+
+            A collection of modern interactive web interfaces
+            exploring AI, cybersecurity, education, productivity
+            and creator technology.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#collection"
+                class="primary-btn"
+            >
+                Explore collection
+
+                <i data-lucide="arrow-down"></i>
+
+            </a>
+
+            <a
+                href="#system"
+                class="secondary-btn"
+            >
+                View design system
+
+                <i data-lucide="layers-3"></i>
+
+            </a>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>12</strong>
+                <span>Interfaces</span>
+            </div>
+
+            <div>
+                <strong>04</strong>
+                <span>Domains</span>
+            </div>
+
+            <div>
+                <strong>04</strong>
+                <span>Contributors</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="hero-visual reveal">
+
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+
+        <div class="center-orb">
+
+            <div class="orb-inner">
+                <i data-lucide="sparkles"></i>
+            </div>
+
+            <span>NEXAUI</span>
+
+        </div>
+
+
+        <div class="floating-card card-brain">
+
+            <div class="mini-icon mini-purple">
+                <i data-lucide="brain"></i>
+            </div>
+
+            <div>
+                <strong>BrainVault</strong>
+                <span>Knowledge OS</span>
+            </div>
+
+        </div>
+
+
+        <div class="floating-card card-meet">
+
+            <div class="mini-icon mini-cyan">
+                <i data-lucide="messages-square"></i>
+            </div>
+
+            <div>
+                <strong>MeetMind</strong>
+                <span>Meeting Intelligence</span>
+            </div>
+
+        </div>
+
+
+        <div class="floating-card card-study">
+
+            <div class="mini-icon mini-mint">
+                <i data-lucide="graduation-cap"></i>
+            </div>
+
+            <div>
+                <strong>StudyPilot</strong>
+                <span>Learning Workspace</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     COLLECTION
+========================================================= -->
+
+<section
+    class="container"
+    id="collection"
+>
+
+    <div class="section-heading reveal">
+
+        <div>
+
+            <span class="section-label">
+                THE COLLECTION
+            </span>
+
+            <h2>
+                Twelve interfaces.
+                <br>
+
+                <span>
+                    One ecosystem.
+                </span>
+            </h2>
+
+        </div>
+
+        <p>
+
+            Four contributors, four emerging domains and
+            twelve distinct product experiences connected
+            by one visual language.
+
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         BHARATH
+    ====================================================== -->
+
+    <div class="domain reveal">
+
+        <div class="domain-header">
+
+            <div
+                class="domain-icon"
+                style="color:var(--purple)"
+            >
+                <i data-lucide="sparkles"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    AI &amp; Productivity
+                </h3>
+
+                <p>
+                    Intelligent tools for learning,
+                    meetings and knowledge.
+                </p>
+
+            </div>
+
+            <span class="member">
+                Bharath
+            </span>
+
+        </div>
+
+
+        <div class="project-grid">
+
+            <!-- BrainVault -->
+
+            <article
+                class="project-card"
+                style="--accent:var(--purple)"
+            >
+
+                <span class="project-number">
+                    01
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="brain"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>AI KNOWLEDGE</span>
+                        <span>01</span>
+                    </div>
+
+                    <h4>
+                        BrainVault AI
+                    </h4>
+
+                    <p>
+                        Personal knowledge workspace for
+                        capturing, organizing, connecting
+                        and discovering information.
+                    </p>
+
+                    <div class="tags">
+                        <span>Knowledge Graph</span>
+                        <span>Discovery</span>
+                        <span>AI Insights</span>
+                    </div>
+
+                    <a
+                        href="bharath-ai/brain-vault/index.html"
+                        class="project-btn"
+                    >
+                        Open BrainVault
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- MeetMind -->
+
+            <article
+                class="project-card"
+                style="--accent:var(--cyan)"
+            >
+
+                <span class="project-number">
+                    02
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="messages-square"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>AI MEETINGS</span>
+                        <span>02</span>
+                    </div>
+
+                    <h4>
+                        MeetMind AI
+                    </h4>
+
+                    <p>
+                        Meeting intelligence that transforms
+                        conversations into summaries, decisions
+                        and actionable follow-ups.
+                    </p>
+
+                    <div class="tags">
+                        <span>Live Analysis</span>
+                        <span>Summary</span>
+                        <span>Action Items</span>
+                    </div>
+
+                    <a
+                        href="bharath-ai/meet-mind/index.html"
+                        class="project-btn"
+                    >
+                        Open MeetMind
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- StudyPilot -->
+
+            <article
+                class="project-card"
+                style="--accent:var(--mint)"
+            >
+
+                <span class="project-number">
+                    03
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>AI LEARNING</span>
+                        <span>03</span>
+                    </div>
+
+                    <h4>
+                        StudyPilot AI
+                    </h4>
+
+                    <p>
+                        Student learning workspace for planning
+                        study sessions, improving focus and
+                        tracking academic progress.
+                    </p>
+
+                    <div class="tags">
+                        <span>Smart Planner</span>
+                        <span>Focus Room</span>
+                        <span>AI Tutor</span>
+                    </div>
+
+                    <a
+                        href="bharath-ai/study-pilot/index.html"
+                        class="project-btn"
+                    >
+                        Open StudyPilot
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SANDHYA
+    ====================================================== -->
+
+    <div class="domain reveal">
+
+        <div class="domain-header">
+
+            <div
+                class="domain-icon"
+                style="color:#62a8ff"
+            >
+                <i data-lucide="shield-check"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Cybersecurity &amp; Privacy
+                </h3>
+
+                <p>
+                    Interfaces for security operations,
+                    privacy and digital identity.
+                </p>
+
+            </div>
+
+            <span class="member">
+                Sandhya
+            </span>
+
+        </div>
+
+
+        <div class="project-grid">
+
+            <article
+                class="project-card"
+                style="--accent:#62a8ff"
+            >
+
+                <span class="project-number">
+                    04
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="shield"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>SECURITY OPS</span>
+                        <span>04</span>
+                    </div>
+
+                    <h4>
+                        SentinelX
+                    </h4>
+
+                    <p>
+                        Security operations dashboard for
+                        monitoring threats, alerts and
+                        system health.
+                    </p>
+
+                    <div class="tags">
+                        <span>Threats</span>
+                        <span>Alerts</span>
+                        <span>Monitoring</span>
+                    </div>
+
+                    <a
+                        href="sandhya-cybersecurity/sentinel-x/index.html"
+                        class="project-btn"
+                    >
+                        Open SentinelX
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="project-card"
+                style="--accent:#70ddf2"
+            >
+
+                <span class="project-number">
+                    05
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="lock-keyhole"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>PRIVACY</span>
+                        <span>05</span>
+                    </div>
+
+                    <h4>
+                        PrivacyGuard
+                    </h4>
+
+                    <p>
+                        Privacy control center for understanding
+                        permissions, data access and digital safety.
+                    </p>
+
+                    <div class="tags">
+                        <span>Permissions</span>
+                        <span>Privacy</span>
+                        <span>Controls</span>
+                    </div>
+
+                    <a
+                        href="sandhya-cybersecurity/privacy-guard/index.html"
+                        class="project-btn"
+                    >
+                        Open PrivacyGuard
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="project-card"
+                style="--accent:#a79cff"
+            >
+
+                <span class="project-number">
+                    06
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="fingerprint"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>DIGITAL IDENTITY</span>
+                        <span>06</span>
+                    </div>
+
+                    <h4>
+                        SecureID
+                    </h4>
+
+                    <p>
+                        Digital identity and account security
+                        interface for authentication and access.
+                    </p>
+
+                    <div class="tags">
+                        <span>Identity</span>
+                        <span>Authentication</span>
+                        <span>Security</span>
+                    </div>
+
+                    <a
+                        href="sandhya-cybersecurity/secure-id/index.html"
+                        class="project-btn"
+                    >
+                        Open SecureID
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MOHAN
+    ====================================================== -->
+
+    <div class="domain reveal">
+
+        <div class="domain-header">
+
+            <div
+                class="domain-icon"
+                style="color:var(--orange)"
+            >
+                <i data-lucide="graduation-cap"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Smart Education
+                </h3>
+
+                <p>
+                    Digital learning experiences for
+                    students and career growth.
+                </p>
+
+            </div>
+
+            <span class="member">
+                Mohan
+            </span>
+
+        </div>
+
+
+        <div class="project-grid">
+
+            <article
+                class="project-card"
+                style="--accent:var(--orange)"
+            >
+
+                <span class="project-number">
+                    07
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="book-open-check"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>AI LEARNING</span>
+                        <span>07</span>
+                    </div>
+
+                    <h4>
+                        LearnFlow AI
+                    </h4>
+
+                    <p>
+                        AI-powered learning dashboard for
+                        courses, progress and personalized learning.
+                    </p>
+
+                    <div class="tags">
+                        <span>Learning</span>
+                        <span>Progress</span>
+                        <span>AI</span>
+                    </div>
+
+                    <a
+                        href="mohan-smart-education/learn-flow/index.html"
+                        class="project-btn"
+                    >
+                        Open LearnFlow
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="project-card"
+                style="--accent:#ff8f9e"
+            >
+
+                <span class="project-number">
+                    08
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="file-question"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>EXAM PREP</span>
+                        <span>08</span>
+                    </div>
+
+                    <h4>
+                        ExamForge
+                    </h4>
+
+                    <p>
+                        Interactive exam preparation interface
+                        for practice, revision and performance tracking.
+                    </p>
+
+                    <div class="tags">
+                        <span>Practice</span>
+                        <span>Quizzes</span>
+                        <span>Results</span>
+                    </div>
+
+                    <a
+                        href="mohan-smart-education/exam-forge/index.html"
+                        class="project-btn"
+                    >
+                        Open ExamForge
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="project-card"
+                style="--accent:#b39cff"
+            >
+
+                <span class="project-number">
+                    09
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="route"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>CAREER</span>
+                        <span>09</span>
+                    </div>
+
+                    <h4>
+                        CareerPath
+                    </h4>
+
+                    <p>
+                        Student career and skill roadmap that
+                        turns goals into a structured journey.
+                    </p>
+
+                    <div class="tags">
+                        <span>Skills</span>
+                        <span>Roadmap</span>
+                        <span>Career</span>
+                    </div>
+
+                    <a
+                        href="mohan-smart-education/career-path/index.html"
+                        class="project-btn"
+                    >
+                        Open CareerPath
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MOHITH
+    ====================================================== -->
+
+    <div class="domain reveal">
+
+        <div class="domain-header">
+
+            <div
+                class="domain-icon"
+                style="color:var(--pink)"
+            >
+                <i data-lucide="palette"></i>
+            </div>
+
+            <div>
+
+                <h3>
+                    Creator &amp; Digital Media
+                </h3>
+
+                <p>
+                    Modern workspaces for creators,
+                    content and personal brands.
+                </p>
+
+            </div>
+
+            <span class="member">
+                Mohith
+            </span>
+
+        </div>
+
+
+        <div class="project-grid">
+
+            <article
+                class="project-card"
+                style="--accent:var(--pink)"
+            >
+
+                <span class="project-number">
+                    10
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="chart-no-axes-combined"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>CREATOR ANALYTICS</span>
+                        <span>10</span>
+                    </div>
+
+                    <h4>
+                        CreatorPulse
+                    </h4>
+
+                    <p>
+                        Creator analytics workspace for audience
+                        growth, engagement and content performance.
+                    </p>
+
+                    <div class="tags">
+                        <span>Analytics</span>
+                        <span>Audience</span>
+                        <span>Growth</span>
+                    </div>
+
+                    <a
+                        href="mohith-creator-media/creator-pulse/index.html"
+                        class="project-btn"
+                    >
+                        Open CreatorPulse
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="project-card"
+                style="--accent:#ff9b72"
+            >
+
+                <span class="project-number">
+                    11
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="calendar-days"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>CONTENT PLANNING</span>
+                        <span>11</span>
+                    </div>
+
+                    <h4>
+                        ContentFlow
+                    </h4>
+
+                    <p>
+                        Content planning workspace for organizing
+                        ideas, schedules and creative workflows.
+                    </p>
+
+                    <div class="tags">
+                        <span>Planning</span>
+                        <span>Calendar</span>
+                        <span>Workflow</span>
+                    </div>
+
+                    <a
+                        href="mohith-creator-media/content-flow/index.html"
+                        class="project-btn"
+                    >
+                        Open ContentFlow
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="project-card"
+                style="--accent:#a79cff"
+            >
+
+                <span class="project-number">
+                    12
+                </span>
+
+                <div class="project-visual">
+
+                    <div class="visual-glow"></div>
+                    <div class="visual-ring"></div>
+
+                    <div class="project-icon">
+                        <i data-lucide="layout-template"></i>
+                    </div>
+
+                </div>
+
+                <div class="project-content">
+
+                    <div class="project-meta">
+                        <span>PORTFOLIO</span>
+                        <span>12</span>
+                    </div>
+
+                    <h4>
+                        PortfolioCraft
+                    </h4>
+
+                    <p>
+                        Portfolio builder for creators to present
+                        work, skills and personal brand.
+                    </p>
+
+                    <div class="tags">
+                        <span>Portfolio</span>
+                        <span>Builder</span>
+                        <span>Brand</span>
+                    </div>
+
+                    <a
+                        href="mohith-creator-media/portfolio-craft/index.html"
+                        class="project-btn"
+                    >
+                        Open PortfolioCraft
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ECOSYSTEM
+========================================================= -->
+
+<section
+    class="flow-section"
+    id="ecosystem"
+>
+
+    <div class="container">
+
+        <div class="section-heading center reveal">
+
+            <span class="section-label">
+                THE ECOSYSTEM
+            </span>
+
+            <h2>
+                Four domains.
+                <br>
+
+                <span>
+                    One shared philosophy.
+                </span>
+            </h2>
+
+            <p>
+                Different product problems connected
+                by purposeful interface design.
+            </p>
+
+        </div>
+
+
+        <div class="flow">
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i data-lucide="sparkles"></i>
+                </div>
+
+                <span>01</span>
+
+                <h3>
+                    Intelligence
+                </h3>
+
+                <p>
+                    AI and productivity interfaces
+                    turn information into useful action.
+                </p>
+
+            </div>
+
+
+            <div class="flow-line"></div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i data-lucide="shield-check"></i>
+                </div>
+
+                <span>02</span>
+
+                <h3>
+                    Protection
+                </h3>
+
+                <p>
+                    Security interfaces make digital
+                    safety easier to understand.
+                </p>
+
+            </div>
+
+
+            <div class="flow-line"></div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i data-lucide="graduation-cap"></i>
+                </div>
+
+                <span>03</span>
+
+                <h3>
+                    Growth
+                </h3>
+
+                <p>
+                    Education and creator tools help
+                    users learn, build and progress.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DESIGN SYSTEM
+========================================================= -->
+
+<section
+    class="container system-section"
+    id="system"
+>
+
+    <div class="system-copy reveal">
+
+        <span class="section-label">
+            DESIGN SYSTEM
+        </span>
+
+        <h2>
+            One visual language.
+            <br>
+
+            <span>
+                Twelve experiences.
+            </span>
+        </h2>
+
+        <p>
+            Every interface uses the NexaUI Aurora foundation
+            while preserving its own product identity.
+        </p>
+
+
+        <div class="system-points">
+
+            <div>
+
+                <i data-lucide="layers"></i>
+
+                <div>
+
+                    <strong>
+                        Glass Interface
+                    </strong>
+
+                    <span>
+                        Layered cards with depth,
+                        transparency and hierarchy.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <i data-lucide="sparkles"></i>
+
+                <div>
+
+                    <strong>
+                        Emerging Interactions
+                    </strong>
+
+                    <span>
+                        Interfaces designed around
+                        meaningful actions.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <i data-lucide="smartphone"></i>
+
+                <div>
+
+                    <strong>
+                        Responsive by Design
+                    </strong>
+
+                    <span>
+                        Built for desktop, tablet and mobile.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="system-preview reveal">
+
+        <div class="preview-window">
+
+            <div class="preview-top">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="preview-content">
+
+                <div class="preview-sidebar">
+
+                    <div class="preview-logo"></div>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div class="preview-main">
+
+                    <div class="preview-title"></div>
+
+                    <div class="preview-cards">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+
+                    <div class="preview-chart"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TEAM
+========================================================= -->
+
+<section
+    class="container"
+    id="team"
+>
+
+    <div class="team-card reveal">
+
+        <div class="team-icon">
+            <i data-lucide="users"></i>
+        </div>
+
+        <div>
+
+            <span class="section-label">
+                NEXAUI TEAM
+            </span>
+
+            <h2>
+                Designed, built and
+                <span>
+                    connected.
+                </span>
+            </h2>
+
+            <p>
+                Four contributors exploring emerging
+                web experiences through one collaborative
+                GitHub project.
+            </p>
+
+        </div>
+
+
+        <div class="team-stats">
+
+            <div>
+                <strong>04</strong>
+                <span>Members</span>
+            </div>
+
+            <div>
+                <strong>12</strong>
+                <span>Interfaces</span>
+            </div>
+
+            <div>
+                <strong>04</strong>
+                <span>Domains</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="container">
+
+    <div class="footer-brand">
+
+        <div class="logo-mark">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <div>
+
+            <strong>
+                NexaUI
+            </strong>
+
+            <small>
+                Emerging Web Interface Collection
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <p>
+        Design the interface.
+        Build the experience.
+        Explore what comes next.
+    </p>
+
+
+    <span class="footer-copy">
+        © 2026 NexaUI Team
+    </span>
+
+</footer>
+
+
+<script>
+
+    /* =========================================================
+       LUCIDE ICONS
+    ========================================================= */
+
+    lucide.createIcons();
+
+
+    /* =========================================================
+       THEME
+    ========================================================= */
+
+    const themeBtn =
+        document.getElementById("themeBtn");
+
+    themeBtn.addEventListener("click", () => {
+
+        document.body.classList.toggle("light");
+
+    });
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    document
+        .querySelectorAll(".reveal")
+        .forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+</script>
+
+</body>
+</html>
