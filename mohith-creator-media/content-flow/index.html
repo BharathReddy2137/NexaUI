@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ContentFlow — NexaUI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body style="--accent:#8d6cff;--accent2:#36d9f2">
+
+    <div class="mobile">
+        <div class="brand">
+            <div class="logo">N</div>
+            <div>
+                <b>ContentFlow</b>
+                <small>Creator & Media</small>
+            </div>
+        </div>
+
+        <button class="btn" id="mobileAction">☰</button>
+    </div>
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="logo">N</div>
+                <div>
+                    <b>ContentFlow</b>
+                    <small>Creator & Media</small>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <button data-page="overview" class="active">Overview</button>
+                <button data-page="analytics">Analytics</button>
+                <button data-page="content">Content</button>
+                <button data-page="audience">Audience</button>
+                <button data-page="insights">AI Insights</button>
+                <button data-page="settings">Settings</button>
+            </nav>
+
+            <div class="user">
+                <div class="avatar">M</div>
+                <div>
+                    <b>Mohith</b>
+                    <small>Creator workspace</small>
+                </div>
+            </div>
+
+        </aside>
+
+        <main class="main">
+
+            <header class="top">
+                <span class="crumb">
+                    NexaUI / Creator & Digital Media / <b>ContentFlow</b>
+                </span>
+
+                <div class="actions">
+                    <button class="btn" id="command">⌘</button>
+                    <button class="btn" id="notify">🔔</button>
+                    <button class="primary" id="quick">＋ Quick action</button>
+                </div>
+            </header>
+
+            <!-- OVERVIEW PAGE -->
+            <section class="page active" id="overview">
+
+                <div class="hero">
+                    <div class="eyebrow">✦ NexaUI Creator Intelligence</div>
+
+                    <h1>Plan once. Create clearly. Publish everywhere.</h1>
+
+                    <p>
+                        A visual content operations workspace for ideas,
+                        production, scheduling, approvals and publishing.
+                    </p>
+
+                    <div class="hero-actions">
+                        <button class="primary" id="heroAction">Open workspace</button>
+                        <button class="btn" data-go="analytics">Explore insights →</button>
+                    </div>
+                </div>
+
+                <div class="grid4">
+                    <div class="stat">
+                        <small>Planned</small>
+                        <h2>42</h2>
+                        <span class="up">+8 this week</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>In Production</small>
+                        <h2>12</h2>
+                        <span class="up">+3 today</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>Scheduled</small>
+                        <h2>18</h2>
+                        <span class="up">Next 7 days</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>Published</small>
+                        <h2>96</h2>
+                        <span class="up">+12.4%</span>
+                    </div>
+                </div>
+
+                <div class="title">
+                    <h2>Performance snapshot</h2>
+                    <span>Updated just now</span>
+                </div>
+
+                <div class="grid2">
+
+                    <div class="card">
+                        <div class="title" style="margin:0">
+                            <h2>Growth trajectory</h2>
+                            <span>Last 14 days</span>
+                        </div>
+
+                        <div class="chart">
+                            <i class="bar" style="--h:34%"></i>
+                            <i class="bar" style="--h:47%"></i>
+                            <i class="bar" style="--h:42%"></i>
+                            <i class="bar" style="--h:61%"></i>
+                            <i class="bar" style="--h:55%"></i>
+                            <i class="bar" style="--h:69%"></i>
+                            <i class="bar" style="--h:63%"></i>
+                            <i class="bar" style="--h:77%"></i>
+                            <i class="bar" style="--h:72%"></i>
+                            <i class="bar" style="--h:85%"></i>
+                            <i class="bar" style="--h:79%"></i>
+                            <i class="bar" style="--h:91%"></i>
+                            <i class="bar" style="--h:86%"></i>
+                            <i class="bar" style="--h:96%"></i>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <b>Top signals</b>
+
+                        <div class="list">
+                            <div class="item">
+                                <span>Content retention</span>
+                                <b class="up">+21%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>Audience saves</span>
+                                <b class="up">+16%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>Best publish window</span>
+                                <b>7:30 PM</b>
+                            </div>
+
+                            <div class="item">
+                                <span>Momentum</span>
+                                <span class="tag pink">Strong</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="title">
+                    <h2>Creator intelligence</h2>
+                    <span>Recommended next moves</span>
+                </div>
+
+                <div class="featuregrid">
+
+                    <div class="feature">
+                        <div class="ico">↗</div>
+                        <h3>Double down on winners</h3>
+                        <p>
+                            Your strongest format is outperforming the account
+                            average. Build a repeatable series around it.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="ico">◷</div>
+                        <h3>Optimize publishing time</h3>
+                        <p>
+                            Your audience activity peaks in the evening.
+                            Schedule releases around the high-intent window.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="ico">◎</div>
+                        <h3>Expand your audience</h3>
+                        <p>
+                            New viewers are arriving from discovery surfaces.
+                            Refresh your profile funnel and pinned content.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ANALYTICS PAGE -->
+            <section class="page" id="analytics">
+
+                <div class="title">
+                    <h2>Analytics</h2>
+                    <span>Performance intelligence</span>
+                </div>
+
+                <div class="grid4">
+                    <div class="stat">
+                        <small>Planned</small>
+                        <h2>42</h2>
+                        <span class="up">+8 this week</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>In Production</small>
+                        <h2>12</h2>
+                        <span class="up">+3 today</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>Scheduled</small>
+                        <h2>18</h2>
+                        <span class="up">Next 7 days</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>Published</small>
+                        <h2>96</h2>
+                        <span class="up">+12.4%</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="title" style="margin:0">
+                        <h2>Channel performance</h2>
+                        <span>Last 30 days</span>
+                    </div>
+
+                    <div class="chart">
+                        <i class="bar" style="--h:34%"></i>
+                        <i class="bar" style="--h:47%"></i>
+                        <i class="bar" style="--h:42%"></i>
+                        <i class="bar" style="--h:61%"></i>
+                        <i class="bar" style="--h:55%"></i>
+                        <i class="bar" style="--h:69%"></i>
+                        <i class="bar" style="--h:63%"></i>
+                        <i class="bar" style="--h:77%"></i>
+                        <i class="bar" style="--h:72%"></i>
+                        <i class="bar" style="--h:85%"></i>
+                        <i class="bar" style="--h:79%"></i>
+                        <i class="bar" style="--h:91%"></i>
+                        <i class="bar" style="--h:86%"></i>
+                        <i class="bar" style="--h:96%"></i>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- CONTENT PAGE -->
+            <section class="page" id="content">
+
+                <div class="title">
+                    <h2>Content performance</h2>
+                    <button class="primary" id="newItem">＋ Add content</button>
+                </div>
+
+                <div class="card tablewrap">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>Content</th>
+                                <th>Format</th>
+                                <th>Reach</th>
+                                <th>Engagement</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <b>Build in Public #08</b><br>
+                                    <span class="small muted">Today</span>
+                                </td>
+                                <td>Short video</td>
+                                <td>184K</td>
+                                <td>11.2%</td>
+                                <td><span class="tag">Top performer</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>My creator workflow</b><br>
+                                    <span class="small muted">Yesterday</span>
+                                </td>
+                                <td>Carousel</td>
+                                <td>96K</td>
+                                <td>8.9%</td>
+                                <td><span class="tag pink">Growing</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>AI tools I use</b><br>
+                                    <span class="small muted">3 days ago</span>
+                                </td>
+                                <td>Long video</td>
+                                <td>218K</td>
+                                <td>9.7%</td>
+                                <td><span class="tag">Top performer</span></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </section>
+
+            <!-- AUDIENCE PAGE -->
+            <section class="page" id="audience">
+
+                <div class="title">
+                    <h2>Audience intelligence</h2>
+                    <span>Who is engaging</span>
+                </div>
+
+                <div class="grid2">
+
+                    <div class="card">
+                        <b>Audience composition</b>
+
+                        <div class="list">
+                            <div class="item">
+                                <span>18–24</span>
+                                <b>42%</b>
+                            </div>
+
+                            <div class="progress">
+                                <i style="--w:42%"></i>
+                            </div>
+
+                            <div class="item">
+                                <span>25–34</span>
+                                <b>36%</b>
+                            </div>
+
+                            <div class="progress">
+                                <i style="--w:36%"></i>
+                            </div>
+
+                            <div class="item">
+                                <span>35–44</span>
+                                <b>14%</b>
+                            </div>
+
+                            <div class="progress">
+                                <i style="--w:14%"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <b>Top locations</b>
+
+                        <div class="list">
+                            <div class="item">
+                                <span>India</span>
+                                <b>34%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>United States</span>
+                                <b>21%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>United Kingdom</span>
+                                <b>9%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>Singapore</span>
+                                <b>6%</b>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- AI INSIGHTS PAGE -->
+            <section class="page" id="insights">
+
+                <div class="title">
+                    <h2>AI Insights</h2>
+                    <span>Simulated creator intelligence</span>
+                </div>
+
+                <div class="featuregrid">
+
+                    <div class="feature">
+                        <div class="ico">✦</div>
+                        <h3>Format opportunity</h3>
+                        <p>
+                            Turn your highest-retention topic into a 3-part
+                            series to create stronger return visits.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="ico">⌁</div>
+                        <h3>Hook improvement</h3>
+                        <p>
+                            Front-load the outcome in the first sentence
+                            to reduce early drop-off.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="ico">↗</div>
+                        <h3>Growth opportunity</h3>
+                        <p>
+                            Cross-promote your top short content into
+                            the longer-form channel.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section class="page" id="settings">
+
+                <div class="title">
+                    <h2>Settings</h2>
+                    <span>Workspace preferences</span>
+                </div>
+
+                <div class="card">
+                    <div class="list">
+
+                        <div class="item">
+                            <span>Email performance digest</span>
+                            <button class="tag toggle">Enabled</button>
+                        </div>
+
+                        <div class="item">
+                            <span>AI recommendations</span>
+                            <button class="tag toggle">Enabled</button>
+                        </div>
+
+                        <div class="item">
+                            <span>Weekly creator report</span>
+                            <button class="tag toggle">Enabled</button>
+                        </div>
+
+                        <div class="item">
+                            <span>Public profile analytics</span>
+                            <button class="tag pink toggle">Private</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- QUICK ACTION MODAL -->
+    <div class="modal" id="modal">
+
+        <div class="box">
+
+            <div class="title" style="margin:0">
+                <h2>Quick action</h2>
+                <button class="btn" id="closeModal">×</button>
+            </div>
+
+            <p class="muted">
+                Add a new item to your creator workspace.
+            </p>
+
+            <input placeholder="Title">
+
+            <textarea placeholder="Describe the next action..."></textarea>
+
+            <button class="primary" id="saveModal">Save action</button>
+
+        </div>
+
+    </div>
+
+    <div class="toast" id="toast">Saved.</div>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>
