@@ -1,166 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ContentFlow — NexaUI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./contentflow.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ContentFlow — NexaUI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body style="--accent:#8d6cff;--accent2:#36d9f2">
-  <div class="mobile">
-    <div class="brand"><div class="logo">N</div><div><b>ContentFlow</b><small>Creator & Media</small></div></div>
-    <button class="btn" id="mobileAction" aria-label="Show navigation">☰</button>
-  </div>
 
-  <div class="app">
-    <aside class="sidebar">
-      <div class="brand"><div class="logo">N</div><div><b>ContentFlow</b><small>Creator & Media</small></div></div>
-      <nav class="nav">
-        <button class="active" data-page="planner">Planner</button>
-        <button data-page="calendar">Calendar</button>
-        <button data-page="board">Production board</button>
-        <button data-page="library">Content library</button>
-        <button data-page="approvals">Approvals</button>
-        <button data-page="settings">Settings</button>
-      </nav>
-      <div class="user"><div class="avatar">M</div><div><b>Mohith</b><small>Creator workspace</small></div></div>
-    </aside>
-
-    <main class="main">
-      <header class="top">
-        <span class="crumb">NexaUI / Creator & Digital Media / <b>ContentFlow</b></span>
-        <div class="actions">
-          <button class="btn" id="command" title="Command centre">⌘</button>
-          <button class="btn" id="notify" title="Notifications">🔔</button>
-          <button class="primary" id="addContent">＋ New content</button>
-        </div>
-      </header>
-
-      <section class="page active" id="planner">
-        <div class="cf-heading">
-          <div><div class="eyebrow">CONTENT OPERATIONS</div><h1>Your content, moving forward.</h1>
-            <p class="muted">Turn ideas into planned, produced and published work.</p></div>
-          <button class="primary" data-open-modal>＋ Create a plan</button>
-        </div>
-        <div class="cf-stats">
-          <article class="stat"><small>Ideas in backlog</small><h2 id="ideaCount">24</h2><span class="up">Ready to shape</span></article>
-          <article class="stat"><small>In production</small><h2 id="productionCount">08</h2><span class="up">Being created now</span></article>
-          <article class="stat"><small>Scheduled this week</small><h2 id="scheduledCount">12</h2><span class="up">Across 3 channels</span></article>
-          <article class="stat"><small>Published this month</small><h2 id="publishedCount">36</h2><span class="up">Content shipped</span></article>
-        </div>
-
-        <div class="title"><h2>Upcoming publishing queue</h2><button class="text-action" data-go="calendar">Open calendar →</button></div>
-        <div class="card tablewrap">
-          <table class="table">
-            <thead><tr><th>Content</th><th>Channel</th><th>Publish date</th><th>Owner</th><th>Status</th></tr></thead>
-            <tbody id="queueRows">
-              <tr><td><b>5 tools that save creator time</b><br><span class="small muted">Carousel · Education</span></td><td>Instagram</td><td>Today, 6:30 PM</td><td>Mohith</td><td><span class="tag">Ready</span></td></tr>
-              <tr><td><b>Behind the build: episode 4</b><br><span class="small muted">Short video · Story</span></td><td>YouTube</td><td>Tomorrow, 5:00 PM</td><td>Mohith</td><td><span class="tag pink">In review</span></td></tr>
-              <tr><td><b>Weekly creator notes</b><br><span class="small muted">Newsletter · Community</span></td><td>Email</td><td>Friday, 9:00 AM</td><td>Team</td><td><span class="tag">Scheduled</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="cf-lower">
-          <div><div class="title"><h2>Workflow health</h2><span>This week</span></div>
-            <div class="card workflow">
-              <div class="workflow-step"><span class="step-dot"></span><div><b>Ideas</b><small>24 items waiting for planning</small></div><strong>24</strong></div>
-              <div class="workflow-step"><span class="step-dot"></span><div><b>Production</b><small>8 items currently being created</small></div><strong>08</strong></div>
-              <div class="workflow-step"><span class="step-dot"></span><div><b>Review</b><small>3 items need feedback</small></div><strong>03</strong></div>
-              <div class="workflow-step"><span class="step-dot"></span><div><b>Scheduled</b><small>12 items ready to go live</small></div><strong>12</strong></div>
+    <div class="mobile">
+        <div class="brand">
+            <div class="logo">N</div>
+            <div>
+                <b>ContentFlow</b>
+                <small>Creator & Media</small>
             </div>
-          </div>
-          <div><div class="title"><h2>Next actions</h2><span>Keep work moving</span></div>
-            <div class="card next-actions">
-              <button data-go="approvals"><span>Review pending drafts</span><b>3 →</b></button>
-              <button data-go="board"><span>Update production tasks</span><b>8 →</b></button>
-              <button data-go="library"><span>Organise content ideas</span><b>24 →</b></button>
-            </div>
-          </div>
         </div>
-      </section>
 
-      <section class="page" id="calendar">
-        <div class="title"><div><h2>Publishing calendar</h2><span>Plan your releases across channels</span></div><button class="primary" data-open-modal>＋ Add to calendar</button></div>
-        <div class="card calendar-card">
-          <div class="calendar-toolbar"><button class="btn" id="prevWeek">←</button><b id="weekLabel">This week · November 2026</b><button class="btn" id="nextWeek">→</button></div>
-          <div class="calendar-grid" id="calendarGrid"></div>
-        </div>
-        <div class="title"><h2>Channel schedule</h2><span>Upcoming posts</span></div>
-        <div class="card schedule-list" id="scheduleList">
-          <div class="schedule-row"><span class="channel-dot instagram"></span><div><b>Instagram · 5 tools that save creator time</b><small>Today at 6:30 PM</small></div><span class="tag">Ready</span></div>
-          <div class="schedule-row"><span class="channel-dot youtube"></span><div><b>YouTube · Behind the build: episode 4</b><small>Tomorrow at 5:00 PM</small></div><span class="tag pink">In review</span></div>
-          <div class="schedule-row"><span class="channel-dot email"></span><div><b>Email · Weekly creator notes</b><small>Friday at 9:00 AM</small></div><span class="tag">Scheduled</span></div>
-        </div>
-      </section>
-
-      <section class="page" id="board">
-        <div class="title"><div><h2>Production board</h2><span>Move each idea through your workflow</span></div><button class="primary" data-open-modal>＋ New task</button></div>
-        <div class="kanban" id="kanban">
-          <div class="kanban-column"><div class="kanban-head"><b>Ideas</b><span>2</span></div>
-            <article class="task-card"><span class="tag pink">Concept</span><h3>Creator desk setup tour</h3><p>Outline the story and collect reference shots.</p><small>Instagram · Mohith</small><button class="move-task" data-next="production">Move to production →</button></article>
-            <article class="task-card"><span class="tag pink">Research</span><h3>Beginner guide to analytics</h3><p>Gather examples and plan the carousel.</p><small>LinkedIn · Mohith</small><button class="move-task" data-next="production">Move to production →</button></article>
-          </div>
-          <div class="kanban-column" data-column="production"><div class="kanban-head"><b>Production</b><span>2</span></div>
-            <article class="task-card"><span class="tag">Editing</span><h3>Behind the build: episode 4</h3><p>Trim footage, add captions and export.</p><small>YouTube · Mohith</small><button class="move-task" data-next="review">Move to review →</button></article>
-            <article class="task-card"><span class="tag">Design</span><h3>5 tools that save creator time</h3><p>Finish carousel layout and final copy.</p><small>Instagram · Mohith</small><button class="move-task" data-next="review">Move to review →</button></article>
-          </div>
-          <div class="kanban-column" data-column="review"><div class="kanban-head"><b>Review</b><span>1</span></div>
-            <article class="task-card"><span class="tag pink">Feedback</span><h3>Weekly creator notes</h3><p>Check links and proofread the final draft.</p><small>Email · Team</small><button class="move-task" data-next="done">Mark approved ✓</button></article>
-          </div>
-          <div class="kanban-column" data-column="done"><div class="kanban-head"><b>Ready</b><span>1</span></div>
-            <article class="task-card"><span class="tag">Ready</span><h3>Monthly resource roundup</h3><p>Final assets are approved and scheduled.</p><small>Newsletter · Team</small></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="page" id="library">
-        <div class="title"><div><h2>Content library</h2><span>Capture ideas before they become posts</span></div><button class="primary" data-open-modal>＋ Add idea</button></div>
-        <div class="library-tools"><input id="librarySearch" placeholder="Search ideas and drafts…"><select id="typeFilter"><option value="all">All formats</option><option>Video</option><option>Carousel</option><option>Article</option><option>Newsletter</option></select></div>
-        <div class="library-grid" id="libraryGrid">
-          <article class="feature library-item" data-type="Video"><div class="ico">▶</div><span class="tag pink">Video</span><h3>My creator morning routine</h3><p>A short behind-the-scenes video showing a realistic workflow.</p><small class="muted">Idea · Added today</small></article>
-          <article class="feature library-item" data-type="Carousel"><div class="ico">▦</div><span class="tag pink">Carousel</span><h3>7 mistakes new creators make</h3><p>A practical educational carousel with one takeaway per slide.</p><small class="muted">Draft · Added yesterday</small></article>
-          <article class="feature library-item" data-type="Article"><div class="ico">✎</div><span class="tag pink">Article</span><h3>Building a repeatable content system</h3><p>Long-form notes about planning, batching and reviewing work.</p><small class="muted">Idea · Added 3 days ago</small></article>
-          <article class="feature library-item" data-type="Newsletter"><div class="ico">✉</div><span class="tag pink">Newsletter</span><h3>The Friday creator briefing</h3><p>A weekly roundup of useful tools, links and lessons.</p><small class="muted">Draft · Added 4 days ago</small></article>
-        </div>
-      </section>
-
-      <section class="page" id="approvals">
-        <div class="title"><div><h2>Review & approvals</h2><span>Check drafts before they are scheduled</span></div><span class="tag pink">3 awaiting review</span></div>
-        <div class="card approval-list" id="approvalList">
-          <article class="approval-row"><div><span class="tag pink">Needs review</span><h3>Behind the build: episode 4</h3><p class="muted">YouTube Short · Caption and final cut</p></div><div class="approval-actions"><button class="btn reject">Request changes</button><button class="primary approve">Approve</button></div></article>
-          <article class="approval-row"><div><span class="tag pink">Needs review</span><h3>Weekly creator notes</h3><p class="muted">Email · Links and proofread</p></div><div class="approval-actions"><button class="btn reject">Request changes</button><button class="primary approve">Approve</button></div></article>
-          <article class="approval-row"><div><span class="tag pink">Needs review</span><h3>Analytics for beginners</h3><p class="muted">LinkedIn carousel · Final design</p></div><div class="approval-actions"><button class="btn reject">Request changes</button><button class="primary approve">Approve</button></div></article>
-        </div>
-      </section>
-
-      <section class="page" id="settings">
-        <div class="title"><h2>Workspace settings</h2><span>ContentFlow preferences</span></div>
-        <div class="card settings-list">
-          <div class="item"><span>Publishing reminders</span><button class="tag toggle">Enabled</button></div>
-          <div class="item"><span>Approval notifications</span><button class="tag toggle">Enabled</button></div>
-          <div class="item"><span>Weekly planning summary</span><button class="tag toggle">Enabled</button></div>
-          <div class="item"><span>Auto-schedule suggestions</span><button class="tag pink toggle">Paused</button></div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <div class="modal" id="modal">
-    <div class="box">
-      <div class="title" style="margin:0"><h2>Create content item</h2><button class="btn" id="closeModal">×</button></div>
-      <p class="muted">Add an idea to your ContentFlow workspace.</p>
-      <label for="itemTitle">Content title</label><input id="itemTitle" placeholder="e.g. 5 ways to plan better content">
-      <label for="itemChannel">Channel</label><select id="itemChannel"><option>Instagram</option><option>YouTube</option><option>LinkedIn</option><option>Email</option></select>
-      <label for="itemDate">Publish date</label><input id="itemDate" type="date">
-      <button class="primary" id="saveModal">Save content item</button>
+        <button class="btn" id="mobileAction">☰</button>
     </div>
-  </div>
-  <div class="toast" id="toast">Saved.</div>
-  <script src="./script.js"></script>
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="logo">N</div>
+                <div>
+                    <b>ContentFlow</b>
+                    <small>Creator & Media</small>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <button data-page="overview" class="active">Overview</button>
+                <button data-page="analytics">Analytics</button>
+                <button data-page="content">Content</button>
+                <button data-page="audience">Audience</button>
+                <button data-page="insights">AI Insights</button>
+                <button data-page="settings">Settings</button>
+            </nav>
+
+            <div class="user">
+                <div class="avatar">M</div>
+                <div>
+                    <b>Mohith</b>
+                    <small>Creator workspace</small>
+                </div>
+            </div>
+
+        </aside>
+
+        <main class="main">
+
+            <header class="top">
+                <span class="crumb">
+                    NexaUI / Creator & Digital Media / <b>ContentFlow</b>
+                </span>
+
+                <div class="actions">
+                    <button class="btn" id="command">⌘</button>
+                    <button class="btn" id="notify">🔔</button>
+                    <button class="primary" id="quick">＋ Quick action</button>
+                </div>
+            </header>
+
+            <!-- OVERVIEW PAGE -->
+            <section class="page active" id="overview">
+
+                <div class="hero">
+                    <div class="eyebrow">✦ NexaUI Creator Intelligence</div>
+
+                    <h1>Plan once. Create clearly. Publish everywhere.</h1>
+
+                    <p>
+                        A visual content operations workspace for ideas,
+                        production, scheduling, approvals and publishing.
+                    </p>
+
+                    <div class="hero-actions">
+                        <button class="primary" id="heroAction">Open workspace</button>
+                        <button class="btn" data-go="analytics">Explore insights →</button>
+                    </div>
+                </div>
+
+                <div class="grid4">
+                    <div class="stat">
+                        <small>Planned</small>
+                        <h2>42</h2>
+                        <span class="up">+8 this week</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>In Production</small>
+                        <h2>12</h2>
+                        <span class="up">+3 today</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>Scheduled</small>
+                        <h2>18</h2>
+                        <span class="up">Next 7 days</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>Published</small>
+                        <h2>96</h2>
+                        <span class="up">+12.4%</span>
+                    </div>
+                </div>
+
+                <div class="title">
+                    <h2>Performance snapshot</h2>
+                    <span>Updated just now</span>
+                </div>
+
+                <div class="grid2">
+
+                    <div class="card">
+                        <div class="title" style="margin:0">
+                            <h2>Growth trajectory</h2>
+                            <span>Last 14 days</span>
+                        </div>
+
+                        <div class="chart">
+                            <i class="bar" style="--h:34%"></i>
+                            <i class="bar" style="--h:47%"></i>
+                            <i class="bar" style="--h:42%"></i>
+                            <i class="bar" style="--h:61%"></i>
+                            <i class="bar" style="--h:55%"></i>
+                            <i class="bar" style="--h:69%"></i>
+                            <i class="bar" style="--h:63%"></i>
+                            <i class="bar" style="--h:77%"></i>
+                            <i class="bar" style="--h:72%"></i>
+                            <i class="bar" style="--h:85%"></i>
+                            <i class="bar" style="--h:79%"></i>
+                            <i class="bar" style="--h:91%"></i>
+                            <i class="bar" style="--h:86%"></i>
+                            <i class="bar" style="--h:96%"></i>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <b>Top signals</b>
+
+                        <div class="list">
+                            <div class="item">
+                                <span>Content retention</span>
+                                <b class="up">+21%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>Audience saves</span>
+                                <b class="up">+16%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>Best publish window</span>
+                                <b>7:30 PM</b>
+                            </div>
+
+                            <div class="item">
+                                <span>Momentum</span>
+                                <span class="tag pink">Strong</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="title">
+                    <h2>Creator intelligence</h2>
+                    <span>Recommended next moves</span>
+                </div>
+
+                <div class="featuregrid">
+
+                    <div class="feature">
+                        <div class="ico">↗</div>
+                        <h3>Double down on winners</h3>
+                        <p>
+                            Your strongest format is outperforming the account
+                            average. Build a repeatable series around it.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="ico">◷</div>
+                        <h3>Optimize publishing time</h3>
+                        <p>
+                            Your audience activity peaks in the evening.
+                            Schedule releases around the high-intent window.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="ico">◎</div>
+                        <h3>Expand your audience</h3>
+                        <p>
+                            New viewers are arriving from discovery surfaces.
+                            Refresh your profile funnel and pinned content.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ANALYTICS PAGE -->
+            <section class="page" id="analytics">
+
+                <div class="title">
+                    <h2>Analytics</h2>
+                    <span>Performance intelligence</span>
+                </div>
+
+                <div class="grid4">
+                    <div class="stat">
+                        <small>Planned</small>
+                        <h2>42</h2>
+                        <span class="up">+8 this week</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>In Production</small>
+                        <h2>12</h2>
+                        <span class="up">+3 today</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>Scheduled</small>
+                        <h2>18</h2>
+                        <span class="up">Next 7 days</span>
+                    </div>
+
+                    <div class="stat">
+                        <small>Published</small>
+                        <h2>96</h2>
+                        <span class="up">+12.4%</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="title" style="margin:0">
+                        <h2>Channel performance</h2>
+                        <span>Last 30 days</span>
+                    </div>
+
+                    <div class="chart">
+                        <i class="bar" style="--h:34%"></i>
+                        <i class="bar" style="--h:47%"></i>
+                        <i class="bar" style="--h:42%"></i>
+                        <i class="bar" style="--h:61%"></i>
+                        <i class="bar" style="--h:55%"></i>
+                        <i class="bar" style="--h:69%"></i>
+                        <i class="bar" style="--h:63%"></i>
+                        <i class="bar" style="--h:77%"></i>
+                        <i class="bar" style="--h:72%"></i>
+                        <i class="bar" style="--h:85%"></i>
+                        <i class="bar" style="--h:79%"></i>
+                        <i class="bar" style="--h:91%"></i>
+                        <i class="bar" style="--h:86%"></i>
+                        <i class="bar" style="--h:96%"></i>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- CONTENT PAGE -->
+            <section class="page" id="content">
+
+                <div class="title">
+                    <h2>Content performance</h2>
+                    <button class="primary" id="newItem">＋ Add content</button>
+                </div>
+
+                <div class="card tablewrap">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>Content</th>
+                                <th>Format</th>
+                                <th>Reach</th>
+                                <th>Engagement</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <b>Build in Public #08</b><br>
+                                    <span class="small muted">Today</span>
+                                </td>
+                                <td>Short video</td>
+                                <td>184K</td>
+                                <td>11.2%</td>
+                                <td><span class="tag">Top performer</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>My creator workflow</b><br>
+                                    <span class="small muted">Yesterday</span>
+                                </td>
+                                <td>Carousel</td>
+                                <td>96K</td>
+                                <td>8.9%</td>
+                                <td><span class="tag pink">Growing</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <b>AI tools I use</b><br>
+                                    <span class="small muted">3 days ago</span>
+                                </td>
+                                <td>Long video</td>
+                                <td>218K</td>
+                                <td>9.7%</td>
+                                <td><span class="tag">Top performer</span></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </section>
+
+            <!-- AUDIENCE PAGE -->
+            <section class="page" id="audience">
+
+                <div class="title">
+                    <h2>Audience intelligence</h2>
+                    <span>Who is engaging</span>
+                </div>
+
+                <div class="grid2">
+
+                    <div class="card">
+                        <b>Audience composition</b>
+
+                        <div class="list">
+                            <div class="item">
+                                <span>18–24</span>
+                                <b>42%</b>
+                            </div>
+
+                            <div class="progress">
+                                <i style="--w:42%"></i>
+                            </div>
+
+                            <div class="item">
+                                <span>25–34</span>
+                                <b>36%</b>
+                            </div>
+
+                            <div class="progress">
+                                <i style="--w:36%"></i>
+                            </div>
+
+                            <div class="item">
+                                <span>35–44</span>
+                                <b>14%</b>
+                            </div>
+
+                            <div class="progress">
+                                <i style="--w:14%"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <b>Top locations</b>
+
+                        <div class="list">
+                            <div class="item">
+                                <span>India</span>
+                                <b>34%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>United States</span>
+                                <b>21%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>United Kingdom</span>
+                                <b>9%</b>
+                            </div>
+
+                            <div class="item">
+                                <span>Singapore</span>
+                                <b>6%</b>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- AI INSIGHTS PAGE -->
+            <section class="page" id="insights">
+
+                <div class="title">
+                    <h2>AI Insights</h2>
+                    <span>Simulated creator intelligence</span>
+                </div>
+
+                <div class="featuregrid">
+
+                    <div class="feature">
+                        <div class="ico">✦</div>
+                        <h3>Format opportunity</h3>
+                        <p>
+                            Turn your highest-retention topic into a 3-part
+                            series to create stronger return visits.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="ico">⌁</div>
+                        <h3>Hook improvement</h3>
+                        <p>
+                            Front-load the outcome in the first sentence
+                            to reduce early drop-off.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <div class="ico">↗</div>
+                        <h3>Growth opportunity</h3>
+                        <p>
+                            Cross-promote your top short content into
+                            the longer-form channel.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section class="page" id="settings">
+
+                <div class="title">
+                    <h2>Settings</h2>
+                    <span>Workspace preferences</span>
+                </div>
+
+                <div class="card">
+                    <div class="list">
+
+                        <div class="item">
+                            <span>Email performance digest</span>
+                            <button class="tag toggle">Enabled</button>
+                        </div>
+
+                        <div class="item">
+                            <span>AI recommendations</span>
+                            <button class="tag toggle">Enabled</button>
+                        </div>
+
+                        <div class="item">
+                            <span>Weekly creator report</span>
+                            <button class="tag toggle">Enabled</button>
+                        </div>
+
+                        <div class="item">
+                            <span>Public profile analytics</span>
+                            <button class="tag pink toggle">Private</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- QUICK ACTION MODAL -->
+    <div class="modal" id="modal">
+
+        <div class="box">
+
+            <div class="title" style="margin:0">
+                <h2>Quick action</h2>
+                <button class="btn" id="closeModal">×</button>
+            </div>
+
+            <p class="muted">
+                Add a new item to your creator workspace.
+            </p>
+
+            <input placeholder="Title">
+
+            <textarea placeholder="Describe the next action..."></textarea>
+
+            <button class="primary" id="saveModal">Save action</button>
+
+        </div>
+
+    </div>
+
+    <div class="toast" id="toast">Saved.</div>
+
+    <script src="./script.js"></script>
+
 </body>
 </html>
+
